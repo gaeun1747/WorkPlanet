@@ -8,6 +8,7 @@ class First extends Thread{
 		}
 	}
 }
+
 class Second extends Thread{
 	SimpleDateFormat sdf=new SimpleDateFormat("hh:mm:ss");
 	public void run() { //부모 메서드에서 선언한 예외만 자식 메서드에서 선언할 수 있다. throws로 예외처리하지 못함.
