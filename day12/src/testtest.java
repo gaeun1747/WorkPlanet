@@ -4,5 +4,7 @@ public class testtest {
 		String k;
 		k="aaaaa";
 		
+		
+		
 	}
 }
