@@ -3,7 +3,7 @@ package com.my.dao;
 import java.util.List;
 
 public interface File_ArtDAO {
-	//첨부파일 등록
+	//첨부파일 추가
 	public void insertFile();
 	//첨부파일 삭제
 	public void delFile();
