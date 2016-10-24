@@ -3,7 +3,7 @@ package com.my.dao;
 import java.util.List;
 
 public interface Plan_ArtDAO {
-	//일정 등록
+	//일정 추가
 	public void insertPlan();
 	//일정 삭제
 	public void delPlan();

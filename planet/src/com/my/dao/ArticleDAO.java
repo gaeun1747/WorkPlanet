@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface ArticleDAO {
 
-	//게시글 등록
+	//게시글 추가
 	public void insertArticle();
-	//댓글 등록
+	//댓글 추가
 	public void insertComment();
 	//게시글, 댓글 삭제
 	public void delArticle();

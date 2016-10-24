@@ -3,7 +3,7 @@ package com.my.dao;
 import java.util.List;
 
 public interface Req_ArtDAO {
-	//요청 등록
+	//요청 추가
 	public void insertReq();
 	//요청 삭제 
 	public void delReq();
