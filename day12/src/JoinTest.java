@@ -3,7 +3,8 @@ class Join extends Thread{
 	Join(int start,int end){
 		this.start=start;
 		this.end=end;
-	}
+	}	
+	
 	public void run(){
 		for(int i=start; i<=end; i++){
 			sum += i;

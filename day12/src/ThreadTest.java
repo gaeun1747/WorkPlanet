@@ -6,6 +6,7 @@ class First extends Thread{
 		for(int i=1;i<100;i++){
 		System.out.println(getName()+":FIRST"+i);
 		}
+		
 	}
 }
 class Second extends Thread{
