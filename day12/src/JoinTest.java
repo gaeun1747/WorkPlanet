@@ -1,4 +1,7 @@
 class Join extends Thread{
+	/*
+	 * 수정해요
+	 */
 	int start, end,sum=0;
 	Join(int start,int end){
 		this.start=start;
