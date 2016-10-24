@@ -20,7 +20,7 @@ class Horse extends Canvas implements Runnable{
 	@Override
 	public void paint(Graphics g) { 
 		g.drawString(name, x, y);//말그리기
-	}
+	}		
 	@Override
 	public void run() {
 		Random r= new Random();
