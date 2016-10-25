@@ -6,9 +6,9 @@ import com.my.vo.File_Art;
 
 public interface File_ArtDAO {
 	//첨부파일 추가
-	public void insertFile(File_Art f);
+	public void insert(File_Art f);
 	/**
-	 * 파일 id로 삭제하기
+	 * 파일 id로 각 파일 삭제하기
 	 * @param file_id
 	 */
 	public void deleteByFileId(int file_id);

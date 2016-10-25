@@ -37,8 +37,8 @@ public class MyConnection {
 		// 3.DB연결
 		Connection con = null;
 		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		String user = "gw";
-		String password = "gw";
+		String user = "planet";
+		String password = "planet";
 		con = DriverManager.getConnection(url, user, password);
 		return con;
 	}
