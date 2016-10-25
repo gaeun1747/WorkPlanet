@@ -65,11 +65,4 @@ public class ArticleDAOOracle implements ArticleDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-<<<<<<< HEAD
-=======
-
-
-	
->>>>>>> branch 'master' of https://github.com/gaeun1747/WorkPlanet.git
-
 }
