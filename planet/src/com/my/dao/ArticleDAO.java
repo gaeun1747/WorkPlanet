@@ -21,7 +21,7 @@ public interface ArticleDAO {
 	 * @param art_id
 	 * @return 삭제를 위해 특정 게시글 조회
 	 */
-	public Article searchById(int art_id); 
+	public Article selectById(int art_id); 
 	/**
 	 * @param planet_id
 	 * @return 플래닛 별로 모든 그룹의 게시글을 조회
@@ -33,5 +33,5 @@ public interface ArticleDAO {
 	 */
 	public List<Article> selectByNation(int nation_id);
 	//게시글 멤버 id 별 조회
-	public List<Article> selectById(int member_id);
+	public List<Article> selectByMemId(int member_id);
 }
