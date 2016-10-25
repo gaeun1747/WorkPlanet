@@ -23,9 +23,20 @@ public class PlanetDAOOracle implements PlanetDAO {
 	}
 
 	@Override
-	public List<Planet> selectByPlanet(Planet p) throws SelectException {
+	public List<Planet> selectByPlanetId(String planet_id) throws SelectException {
 		try {
-			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanet",p);
+			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetId",p);
+			return list;
+		} catch (Exception e) {
+			throw new SelectException(e.getMessage());
+		} finally {
+			sqlSession.close();
+		}
+	}
+	@Override
+	public List<Planet> selectByPlanetName(String planet_name) throws SelectException {
+		try {
+			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetName",p);
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());

@@ -16,7 +16,7 @@ public class MemberDAOOracle implements MemberDAO {
 	public void insert(Member m) throws InsertException {
 		try{
 			System.out.println(c.getPassword());
-			sqlSession.insert("MemberMapper.insert", m);			
+			sqlSession.insert("MemberMapper.insert", m);
 		}catch(Exception e){
 			if(e.getCause() instanceof 	SQLException){				
 				SQLException e1 = (SQLException)e.getCause();
