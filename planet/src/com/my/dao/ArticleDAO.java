@@ -10,7 +10,7 @@ public interface ArticleDAO {
 	//댓글 추가
 	public void insertComment(Article a);
 	//게시글, 댓글 삭제
-	public void delArticle(int art_id);
+	public void delete(int art_id);
 	//게시글, 댓글 내용 수정
 	public void update(int art_id);
 	//중요도 수정
