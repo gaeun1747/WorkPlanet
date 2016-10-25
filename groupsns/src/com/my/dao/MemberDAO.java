@@ -5,9 +5,19 @@ import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
 import com.my.vo.Member;
 public interface MemberDAO {
-	public void insert(memeber m) throws InsertException;
-	public void updatePassword(member m) throws UpdateException;
-	public void delete(String member_id) throws UpdateException;
-	public void updateMember(member m) throws SelectException;
-	public Member selectById(String id) throws SelectException;
+	//회원가입
+	public void insert(Member m) throws InsertException;
+	//비밀번호 변경
+	public void updatePassword(Member m) throws UpdateException;
+	//계정삭제 status 수정
+	public void delete(String Member_id) throws UpdateException;
+	//회원정보 수정
+	public void updateMember(Member m) throws UpdateException;
+	//멤버찾기
+	public Member selectAllById(String Member_id) throws SelectException;
+	//아이디찾기
+	public String selectById(String Member_id) throws SelectException;
+	//비밀번호찾기
+	public String selectByPassword(String Member_pass) throws SelectException;
+		
 }

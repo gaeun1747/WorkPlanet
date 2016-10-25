@@ -1,11 +1,12 @@
 package com.my.dao;
 
-import java.io.File;
 import java.util.List;
+
+import com.my.vo.File_Art;
 
 public interface File_ArtDAO {
 	//첨부파일 추가
-	public void insert(File f);
+	public void insert(File_Art f);
 	/**
 	 * 파일 id로 각 파일 삭제하기
 	 * @param file_id
@@ -20,6 +21,6 @@ public interface File_ArtDAO {
 	//첨부파일 다운로드
 	public void downFile(int art_id);
 	//게시글 id로 조회
-	public List<File> selectById(int art_id);
+	public List<File_Art> selectById(int art_id);
 	
 }

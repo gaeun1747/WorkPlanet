@@ -13,7 +13,7 @@ public class Article {
 	private String art_contents;  //게시글 내용
 	private char use_status;  //기본값Y 삭제N
 	private int imp_status;  //중요도. 0일반 1긴급 2중요
-	private char notice_status;  //공지. Y공지, N일반
+	private char notice_status;  //공지. 0일반 1공지
 	private int grp;  // 원글 article_id
 	private int seq;  // 1원글 2, 3...댓글
 	private int lvl;  // 0원글 1댓글 (2대댓글)
