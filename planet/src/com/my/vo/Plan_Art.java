@@ -13,18 +13,18 @@ public class Plan_Art {
 		super();
 	}
 	// 생성자
-	public Plan_Art(int article_id, String plan_contents, Date plan_startddate, Date plan_enddate, char use_status) {
+	public Plan_Art(int article_id, String plan_contents, Date plan_startdate, Date plan_enddate, char use_status) {
 		super();
 		this.article_id = article_id;
 		this.plan_contents = plan_contents;
-		this.plan_startdate = plan_startddate;
+		this.plan_startdate = plan_startdate;
 		this.plan_enddate = plan_enddate;
 		this.use_status = use_status;
 	}
 	
 	@Override
 	public String toString() {
-		return "Plan_Art [article_id=" + article_id + ", plan_contents=" + plan_contents + ", plan_startddate="
+		return "Plan_Art [article_id=" + article_id + ", plan_contents=" + plan_contents + ", plan_startdate="
 				+ plan_startdate + ", plan_enddate=" + plan_enddate + ", use_status=" + use_status + "]";
 	}
 	
