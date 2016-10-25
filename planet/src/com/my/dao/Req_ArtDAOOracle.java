@@ -4,48 +4,6 @@ import java.util.List;
 
 public class Req_ArtDAOOracle implements Req_ArtDAO {
 
-	@Override
-	public void insertReq() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delReq() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateReq() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateReqStatus() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List selectByNation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List selectById() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List selectByMng() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 
 }
