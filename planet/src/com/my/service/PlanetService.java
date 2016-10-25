@@ -24,7 +24,7 @@ public class PlanetService {
 		return null;
 	}
 	// 플래닛 정보 수정
-	public void modify(Planet planet){}
+	public void modify(String planet_name){}
 	// 플래닛 삭제
-	public void delete(Planet planet){}
+	public void delete(String planet){}
 }
