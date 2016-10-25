@@ -7,25 +7,25 @@ import com.my.vo.Req_Art;
 public class Req_ArtDAOOracle implements Req_ArtDAO {
 
 	@Override
-	public void insertReq(Req_Art req) {
+	public void insert(Req_Art req) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delReq(int art_id) {
+	public void delete(int art_id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateReq(Req_Art req) {
+	public void update(Req_Art req) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateReqStatus(int req_status) {
+	public void updateStatus(int req_status) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -7,19 +7,19 @@ import com.my.vo.Plan_Art;
 public class Plan_ArtDAOOracle implements Plan_ArtDAO {
 
 	@Override
-	public void insertPlan(Plan_Art p) {
+	public void insert(Plan_Art p) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delPlan(int art_id) {
+	public void delete(int art_id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updatePlan(Plan_Art p) {
+	public void update(Plan_Art p) {
 		// TODO Auto-generated method stub
 		
 	}

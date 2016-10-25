@@ -21,7 +21,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 	}
 
 	@Override
-	public void delArticle(int art_id) {
+	public void delete(int art_id) {
 		// TODO Auto-generated method stub
 		
 	}

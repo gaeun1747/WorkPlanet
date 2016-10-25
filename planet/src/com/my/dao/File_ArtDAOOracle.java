@@ -6,7 +6,7 @@ import java.util.List;
 public class File_ArtDAOOracle implements File_ArtDAO {
 
 	@Override
-	public void insertFile(File f) {
+	public void insert(File f) {
 		// TODO Auto-generated method stub
 		
 	}
