@@ -84,10 +84,10 @@ public class Plan_Art {
 	public void setPlan_contents(String plan_contents) {
 		this.plan_contents = plan_contents;
 	}
-	public Date getPlan_startddate() {
+	public Date getPlan_startdate() {
 		return plan_startdate;
 	}
-	public void setPlan_startddate(Date plan_startdate) {
+	public void setPlan_startdate(Date plan_startdate) {
 		this.plan_startdate = plan_startdate;
 	}
 	public Date getPlan_enddate() {
