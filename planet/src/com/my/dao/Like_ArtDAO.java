@@ -11,5 +11,4 @@ public interface Like_ArtDAO {
 	public void updateLike(Like_Art l);
 	//좋아요 멤버 조회 - Article id로 좋아요 멤버 찾기
 	public List<String> selectLikeByArt(int art_id);
-	
 }
