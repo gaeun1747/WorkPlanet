@@ -22,8 +22,7 @@ public class P_Mem {
 		this.use_status = use_status;
 		this.member = member;
 		this.planet = planet;
-	}
-	
+	}	
 	@Override
 	public String toString() {
 		return "P_Mem [nickname=" + nickname + ", reg_date=" + reg_date + ", member_status=" + member_status
