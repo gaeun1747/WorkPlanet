@@ -1,5 +1,7 @@
 package com.my.dao;
 
+import java.util.List;
+
 public class Like_ArtDAOOracle implements Like_ArtDAO {
 
 	@Override
@@ -15,9 +17,11 @@ public class Like_ArtDAOOracle implements Like_ArtDAO {
 	}
 
 	@Override
-	public void selectLikeByArt() {
+	public List selectLikeByArt() {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
+
+	
 
 }

@@ -23,9 +23,11 @@ public class File_ArtDAOOracle implements File_ArtDAO {
 	}
 
 	@Override
-	public List selectFile() {
+	public List selectById() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 }

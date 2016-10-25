@@ -9,7 +9,7 @@ public interface File_ArtDAO {
 	public void delFile();
 	//첨부파일 다운로드
 	public void downFile();
-	//첨부파일 조회
-	public List selectFile();
+	//게시글 id로 조회
+	public List selectById();
 	
 }
