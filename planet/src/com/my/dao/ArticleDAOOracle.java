@@ -40,6 +40,13 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	}
 
+	
+	@Override
+	public int searchById() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	@Override
 	public List selectAll() {
 		// TODO Auto-generated method stub

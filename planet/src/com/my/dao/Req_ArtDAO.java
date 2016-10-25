@@ -11,7 +11,12 @@ public interface Req_ArtDAO {
 	public void updateReq();
 	//요청 상태 수정
 	public void updateReqStatus();
-	//요청 조회
-	public List selectAll();
+	//그룹별 조회
+	public List selectByNation();
+	//게시글 id로 조회
+	public List selectById();
+	//담당자 id로 조회
+	public List selectByMng();
+	
 	
 }

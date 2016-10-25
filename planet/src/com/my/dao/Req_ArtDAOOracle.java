@@ -29,9 +29,23 @@ public class Req_ArtDAOOracle implements Req_ArtDAO {
 	}
 
 	@Override
-	public List selectAll() {
+	public List selectByNation() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List selectById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List selectByMng() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }
