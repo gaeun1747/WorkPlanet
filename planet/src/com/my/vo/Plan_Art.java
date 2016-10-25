@@ -5,7 +5,7 @@ import java.util.Date;
 public class Plan_Art {
 	private int article_id;
 	private String plan_contents;
-	private Date plan_startddate;
+	private Date plan_startdate;
 	private Date plan_enddate;
 	private char use_status; //기본값Y 삭제N
 	// 기본생성자
@@ -17,7 +17,7 @@ public class Plan_Art {
 		super();
 		this.article_id = article_id;
 		this.plan_contents = plan_contents;
-		this.plan_startddate = plan_startddate;
+		this.plan_startdate = plan_startddate;
 		this.plan_enddate = plan_enddate;
 		this.use_status = use_status;
 	}
@@ -25,7 +25,7 @@ public class Plan_Art {
 	@Override
 	public String toString() {
 		return "Plan_Art [article_id=" + article_id + ", plan_contents=" + plan_contents + ", plan_startddate="
-				+ plan_startddate + ", plan_enddate=" + plan_enddate + ", use_status=" + use_status + "]";
+				+ plan_startdate + ", plan_enddate=" + plan_enddate + ", use_status=" + use_status + "]";
 	}
 	
 	@Override
@@ -35,7 +35,7 @@ public class Plan_Art {
 		result = prime * result + article_id;
 		result = prime * result + ((plan_contents == null) ? 0 : plan_contents.hashCode());
 		result = prime * result + ((plan_enddate == null) ? 0 : plan_enddate.hashCode());
-		result = prime * result + ((plan_startddate == null) ? 0 : plan_startddate.hashCode());
+		result = prime * result + ((plan_startdate == null) ? 0 : plan_startdate.hashCode());
 		result = prime * result + use_status;
 		return result;
 	}
@@ -61,10 +61,10 @@ public class Plan_Art {
 				return false;
 		} else if (!plan_enddate.equals(other.plan_enddate))
 			return false;
-		if (plan_startddate == null) {
-			if (other.plan_startddate != null)
+		if (plan_startdate == null) {
+			if (other.plan_startdate != null)
 				return false;
-		} else if (!plan_startddate.equals(other.plan_startddate))
+		} else if (!plan_startdate.equals(other.plan_startdate))
 			return false;
 		if (use_status != other.use_status)
 			return false;
@@ -85,10 +85,10 @@ public class Plan_Art {
 		this.plan_contents = plan_contents;
 	}
 	public Date getPlan_startddate() {
-		return plan_startddate;
+		return plan_startdate;
 	}
 	public void setPlan_startddate(Date plan_startddate) {
-		this.plan_startddate = plan_startddate;
+		this.plan_startdate = plan_startddate;
 	}
 	public Date getPlan_enddate() {
 		return plan_enddate;
