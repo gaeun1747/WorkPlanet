@@ -87,8 +87,8 @@ public class Plan_Art {
 	public Date getPlan_startddate() {
 		return plan_startdate;
 	}
-	public void setPlan_startddate(Date plan_startddate) {
-		this.plan_startdate = plan_startddate;
+	public void setPlan_startddate(Date plan_startdate) {
+		this.plan_startdate = plan_startdate;
 	}
 	public Date getPlan_enddate() {
 		return plan_enddate;
