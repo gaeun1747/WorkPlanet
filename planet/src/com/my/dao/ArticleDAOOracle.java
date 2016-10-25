@@ -2,8 +2,6 @@ package com.my.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-
 import com.my.vo.Article;
 
 public class ArticleDAOOracle implements ArticleDAO {
@@ -15,7 +13,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 	}
 
 	@Override
-	public void insertComment(Article a) {
+	public void insertComment(Article a, int article_id) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -27,25 +25,25 @@ public class ArticleDAOOracle implements ArticleDAO {
 	}
 
 	@Override
-	public void update(int art_id) {
+	public void update(Article a) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateImp(int art_id) {
+	public void updateImp(int art_id, int imp) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateNotice(int art_id) {
+	public void updateNotice(int art_id, char notice) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Article searchById(int art_id) {
+	public Article selectById(int art_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -63,11 +61,11 @@ public class ArticleDAOOracle implements ArticleDAO {
 	}
 
 	@Override
-	public List<Article> selectById(int art_id) {
+	public List<Article> selectByMemId(int member_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 
 	
 
