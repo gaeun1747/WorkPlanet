@@ -1,0 +1,61 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+function init(){
+	var $submitObj =$("input[type=submit]");
+	var $idObj = $("input[name=id]");
+	$( $idObj).focus(function(){
+		console.log("id focus");
+		$($submitObj).hide();
+		$("#idDupChkResult").html('');
+	});
+	
+	$("input[type=button]").click (function(){		
+		if( $($idObj).val().trim().length ==0){
+			$idObj.focus();
+			return;
+		}
+		var url='iddupchk.do';
+		var data = $("form").serialize();
+		var success = function(responseResult){
+			var value = "";
+			console.log("=="+responseResult+"==");
+			if(responseResult.trim() != '1'){
+				value = "이미 사용중인 아이디입니다";
+				$($submitObj).hide();
+			}else{
+				value = "아이디 사용 가능";
+				$($submitObj).show();
+			}		
+ 			$("#idDupChkResult").css("color", "red").html(value);
+		}
+		$.post(url, data, success);		
+	});
+	$("input[type=submit]").click(function(event){
+		event.preventDefault();
+		var url='signup.do';
+		var data = $("form").serialize();
+		var success = function(responseResult){
+			if(responseResult.trim() == "1"){
+				alert("가입성공");
+			}else{
+				alert("가입실패:"+ responseResult.trim());
+			}
+		};
+		$.post(url, data, success);	
+	})
+}
+$(init);
+</script>
+<style>
+input[type=submit]{display:none;}
+</style>
+<h1>고객 가입</h1>
+<form>
+ ID : <input name="id" required autocomplete="off"> 
+      <input type="button" value="중복확인">
+      <span id="idDupChkResult"></span>
+      <br>
+  비밀번호 : <input type="password" name="password" required><br>
+  이름 : <input name="name" required><br>  
+<input type="submit" value="가입"> 
+</form>
