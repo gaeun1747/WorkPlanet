@@ -4,19 +4,31 @@ import java.util.List;
 
 public interface Req_ArtDAO {
 	//요청 추가
-	public void insertReq();
+	public void insertReq(Request req);
 	//요청 삭제 
-	public void delReq();
+	public void delReq(int art_id);
 	//요청 내용 수정 (내용, 담당자 변경)
-	public void updateReq();
+	public void updateReq(Request req);
 	//요청 상태 수정
-	public void updateReqStatus();
-	//그룹별 조회
-	public List selectByNation();
-	//게시글 id로 조회
-	public List selectById();
-	//담당자 id로 조회
-	public List selectByMng();
+	public void updateReqStatus(int req_status);
+	/**
+	 * 그룹별 모든 요청 조회
+	 * @param nation_id
+	 * @return 
+	 */
+	public List<Request> selectByNation(int nation_id);
+	/**
+	 * 요청한 요청조회
+	 * @param art_id
+	 * @return 요청정보
+	 */
+	public List<Request> selectById(int art_id);
+	/**
+	 * 요청받은 요청조회
+	 * @param mem_id
+	 * @return 요청정보
+	 */
+	public List<Request> selectByMng(int mem_id);
 	
 	
 }
