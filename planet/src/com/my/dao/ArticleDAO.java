@@ -16,6 +16,8 @@ public interface ArticleDAO {
 	public void updateImp();
 	//공지사항 수정
 	public void updateNotice();
+	//게시글 검색 - 삭제시 상태를 바꾸기 위해 필요
+	public int searchById(); 
 	//게시글 전체 조회
 	public List selectAll();
 	//게시글 그룹별 조회

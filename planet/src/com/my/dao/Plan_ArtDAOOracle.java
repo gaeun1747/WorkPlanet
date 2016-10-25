@@ -23,9 +23,17 @@ public class Plan_ArtDAOOracle implements Plan_ArtDAO {
 	}
 
 	@Override
-	public List selectPlan() {
+	public List selectByNation() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List selectById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }
