@@ -1,5 +1,6 @@
 package com.my.dao;
 
+import java.io.File;
 import java.util.List;
 
 public interface File_ArtDAO {

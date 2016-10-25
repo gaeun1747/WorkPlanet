@@ -2,6 +2,8 @@ package com.my.dao;
 
 import java.util.List;
 
+import com.my.vo.Article;
+
 public interface ArticleDAO {
 	//게시글 추가
 	public void insertArticle(Article a);

@@ -2,13 +2,15 @@ package com.my.dao;
 
 import java.util.List;
 
+import com.my.vo.Req_Art;
+
 public interface Req_ArtDAO {
 	//요청 추가
-	public void insertReq(Request req);
+	public void insertReq(Req_Art req);
 	//요청 삭제 
 	public void delReq(int art_id);
 	//요청 내용 수정 (내용, 담당자 변경)
-	public void updateReq(Request req);
+	public void updateReq(Req_Art req);
 	//요청 상태 수정
 	public void updateReqStatus(int req_status);
 	/**
@@ -16,19 +18,19 @@ public interface Req_ArtDAO {
 	 * @param nation_id
 	 * @return 
 	 */
-	public List<Request> selectByNation(int nation_id);
+	public List<Req_Art> selectByNation(int nation_id);
 	/**
 	 * 요청한 요청조회
 	 * @param art_id
 	 * @return 요청정보
 	 */
-	public List<Request> selectById(int art_id);
+	public List<Req_Art> selectById(int art_id);
 	/**
 	 * 요청받은 요청조회
 	 * @param mem_id
 	 * @return 요청정보
 	 */
-	public List<Request> selectByMng(int mem_id);
+	public List<Req_Art> selectByMng(int mem_id);
 	
 	
 }
