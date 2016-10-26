@@ -15,8 +15,17 @@
     </environment>
   </environments>
  <mappers>
-    <mapper resource="config/EmployeeMapper.xml"/>
-    <mapper resource="config/BoardMapper.xml"/>
-    <mapper resource="config/ReplyMapper.xml"/>
+    <mapper resource="config/ArticleMapper.xml"/>
+    <mapper resource="config/File_ArtMapper.xml"/>
+    <mapper resource="config/Like_ArtMapper.xml"/>
+    <mapper resource="config/MemberMapper.xml"/>
+    <mapper resource="config/N_MemMapper.xml"/>
+    <mapper resource="config/NationMapper.xml"/>
+    <mapper resource="config/P_MemMapper.xml"/>
+    <mapper resource="config/Plan_ArtMapper.xml"/>
+    <mapper resource="config/PlanetMapper.xml"/>
+    <mapper resource="config/Req_ArtMapper.xml"/>
+    <mapper resource="config/T_MemMapper.xml"/>
+    <mapper resource="config/TeamMapper.xml"/>
   </mappers>
 </configuration>
