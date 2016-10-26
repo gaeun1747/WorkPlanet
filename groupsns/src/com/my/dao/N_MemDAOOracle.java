@@ -1,8 +1,9 @@
 package com.my.dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import com.my.exception.DuplicatedException;
 import com.my.exception.InsertException;
@@ -15,7 +16,7 @@ import com.my.vo.N_Mem;
 public class N_MemDAOOracle implements N_MemDAO {
 	private SqlSession sqlSession;
 	@Override
-	public List<N_Mem> selectByPlanetId(String planet_id) throws SelectException {
+	public List<N_Mem> selectByPlanetId(int planet_id) throws SelectException {
 		try {
 			List<N_Mem> list = sqlSession.selectList("N_MemMapper.selectByPlanetId",planet_id);
 			return list;
@@ -48,7 +49,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 	}
 
 	@Override
-	public List<N_Mem> selectByNationId(String nation_id) throws SelectException {
+	public List<N_Mem> selectByNationId(int nation_id) throws SelectException {
 		try {
 			List<N_Mem> list = sqlSession.selectList("N_MemMapper.selectByNationId",nation_id);
 			return list;
@@ -60,10 +61,17 @@ public class N_MemDAOOracle implements N_MemDAO {
 	}
 
 	@Override
-	public void updateMaster(String masterid, String normalid) throws SelectException {
+	public void updateMaster(String masterid, String normalid,int nation_id) throws SelectException {
 		try {
-			sqlSession.update("N_MemMapper.updatenormal", masterid);
-			sqlSession.update("N_MemMapper.updatemaster", normalid);
+			Map<Object,Object> map1= new HashMap<Object,Object>();
+			map1.put("masterid", masterid);
+			map1.put("nation_id", nation_id);
+			
+			Map<Object,Object> map2= new HashMap<Object,Object>();
+			map2.put("normalid", masterid);
+			map2.put("nation_id", nation_id);
+			sqlSession.update("N_MemMapper.updatenormal", map1);
+			sqlSession.update("N_MemMapper.updatemaster", map2);
 			sqlSession.commit();
 		}finally{
 			sqlSession.close();
@@ -71,9 +79,12 @@ public class N_MemDAOOracle implements N_MemDAO {
 	}
 
 	@Override
-	public void leave(String member_id) throws UpdateException {
+	public void leave(String member_id,int nation_id) throws UpdateException {
 		try {
-			sqlSession.update("N_MemMapper.leave", member_id);
+			Map<Object,Object> map= new HashMap<Object,Object>();
+			map.put("member_id", member_id);
+			map.put("nation_id", nation_id);
+			sqlSession.update("N_MemMapper.leave", map);
 			sqlSession.commit();
 		}finally{
 			sqlSession.close();
