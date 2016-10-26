@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PlanMapper">
+	<resultMap type="com.my.vo.Plan_Art" id="Plans">
+		<result property="article_id" column="article_id" />
+		<result property="plan_contents" column="plan_contents" />
+		<result property="plan_startdate" column="plan_startdate" />
+		<result property="plan_enddate" column="plan_enddate" />
+		<result property="use_status" column="use_status" />
+
+	</resultMap>
+
+	<insert id="insertPlan" parameterType="java.util.HashMap">
+		INSERT INTO plan_art
+		VALUES( #{article_id}, #{plan_contents}, #{plan_startdate},
+		#{plan_enddate}, 'Y')
+	</insert>
+	<update id="deletePlan" parameterType="int">
+		UPDATE plan_art SET
+		use_status='N' WHERE article_id=#{id}
+	</update>
+	<update id="updatePlan" parameterType="java.util.HashMap">
+		UPDATE plan_art SET
+		plan_contents=#{plan_contents}, plan_startdate=#{plan_startdate},
+		plan_enddate =#{plan_enddate}
+		WHERE article_id=#{id}
+	</update>
+	
+	<select id="selectByNation" parameterType="int" resultMap="plans">
+		SELECT member_id, plan_contents, plan_startdate, plan_enddate
+		FROM plan_art
+		JOIN article ON article.article_id=plan_art.article_id
+		WHERE nation_id=#{id}
+	</select>
+	<select id="selectById" parameterType="int" resultMap="plan">
+		SELECT member_id, plan_contents, plan_startdate, plan_enddate
+		FROM plan_art
+		JOIN article ON article.article_id=plan_art.article_id
+		WHERE article_id=#{id}
+	</select>
+</mapper>
