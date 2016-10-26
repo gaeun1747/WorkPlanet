@@ -8,6 +8,15 @@ import com.my.vo.P_Mem;
 
 public class P_MemDAOOracle implements P_MemDAO {
 	private SqlSession sqlSession;
+	public void insertMaster(P_Mem p) throws InsertException {
+		try{
+			sqlSession.insert("P_MemDAOMapper.insertMaster", p);			
+		}catch(Exception e){
+			throw new InsertException(e.getMessage());
+		}finally {
+			sqlSession.close();
+		}	
+	}
 	public void insert(P_Mem p) throws InsertException {
 		try{
 			sqlSession.insert("P_MemDAOMapper.insert", p);			

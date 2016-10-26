@@ -9,20 +9,20 @@
  <update id="updatePassword" parameterType="com.my.vo.Member">
  	UPDATE member SET member_pw=#{member_pw} WHERE member_id=#{member_id}
  </update>
- <update id="delete" parameterType="com.my.vo.Member">
+ <update id="delete" parameterType="java.lang.String">
 	UPDATE member SET use_status='N' WHERE member_id=#{member_id}
  </update>
  <update id="updateMember" parameterType="com.my.vo.Member">
 	UPDATE member SET member_name=#{member_name}, birthdate=#{birthdate}, dept=#{dept},
 	email=#{email} WHERE member_id=#{member_id}
  </update>
- <select id="selectAllById" resultType="com.my.vo.Member">
+ <select id="selectAllById" parameterType="java.lang.String" resultType="com.my.vo.Member">
  	SELECT * FROM member WHERE member_id=#{member_id}
  </select>
- <select id="selectById" resultType="com.my.vo.Member">
+ <select id="selectById" parameterType="java.lang.String" resultType="com.my.vo.Member">
  	SELECT member_id FROM member WHERE member_id=#{member_id}
  </select>
- <select id="selectByPassword" resultType="com.my.vo.Member">
+ <select id="selectByPassword" parameterType="java.lang.String" resultType="com.my.vo.Member">
  	SELECT member_pw FROM member WHERE member_pw=#{member_pw}
  </select>
 </mapper>

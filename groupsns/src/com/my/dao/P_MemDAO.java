@@ -6,6 +6,8 @@ import com.my.exception.UpdateException;
 import com.my.vo.Member;
 import com.my.vo.P_Mem;
 public interface P_MemDAO {
+	//플래닛 만들었을때
+	public void insertMaster(P_Mem p) throws InsertException;
 	//플래닛 가입 (회원이 가입했을때,만들었을때 p에 있는정보에따라 멤버상태설정)
 	public void insert(P_Mem p) throws InsertException;
 	//플래닛 회원정보 수정(닉네임)

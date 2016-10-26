@@ -25,7 +25,17 @@ public class N_MemDAOOracle implements N_MemDAO {
 			sqlSession.close();
 		}
 	}
-
+	
+	@Override
+	public void insertMaster(N_Mem n) throws InsertException {
+		try{
+			sqlSession.insert("N_MemMapper.insertMaster", n);			
+		}catch(Exception e){
+			throw new InsertException(e.getMessage());
+		}finally {
+			sqlSession.close();
+		}
+	}
 	@Override
 	public void insert(N_Mem n) throws InsertException {
 		try{
@@ -50,7 +60,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 	}
 
 	@Override
-	public void update(String masterid, String normalid) throws SelectException {
+	public void updateMaster(String masterid, String normalid) throws SelectException {
 		try {
 			sqlSession.update("N_MemMapper.updatenormal", masterid);
 			sqlSession.update("N_MemMapper.updatemaster", normalid);

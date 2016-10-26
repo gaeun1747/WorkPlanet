@@ -12,6 +12,16 @@ import com.my.vo.T_Mem;
 public class T_MemDAOOracle implements T_MemDAO {
 	private SqlSession sqlSession;
 	@Override
+	public void insertMaster(P_Mem p) throws InsertException {
+		try{
+			sqlSession.insert("T_MemMapper.insertMaster", p);			
+		}catch(Exception e){
+			throw new InsertException(e.getMessage());
+		}finally {
+			sqlSession.close();
+		}
+	}
+	@Override
 	public void insert(P_Mem p) throws InsertException {
 		try{
 			sqlSession.insert("T_MemMapper.insert", p);			
@@ -34,7 +44,7 @@ public class T_MemDAOOracle implements T_MemDAO {
 	}
 
 	@Override
-	public void updateTeamLeader(String masterid, String normalid) throws UpdateException {
+	public void updateMaster(String masterid, String normalid) throws UpdateException {
 		try {
 			sqlSession.update("T_MemMapper.updatenormal", masterid);
 			sqlSession.update("T_MemMapper.updatemaster", normalid);
@@ -56,16 +66,4 @@ public class T_MemDAOOracle implements T_MemDAO {
 			sqlSession.close();
 		}
 	}
-
-	@Override
-	public void leave(String member_id) throws UpdateException {
-		try {
-			sqlSession.update("T_MemMapper.leave",member_id);
-			sqlSession.commit();
-		} finally {
-			sqlSession.close();
-		}
-		
-	}
-
 }
