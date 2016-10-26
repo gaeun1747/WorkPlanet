@@ -16,5 +16,4 @@ public interface Plan_ArtDAO {
 	//게시글 id로 조회
 	public Plan_Art selectById(int art_id);// 일정이 하나밖에 없을 경우 리턴타입?
 	
-	
 }

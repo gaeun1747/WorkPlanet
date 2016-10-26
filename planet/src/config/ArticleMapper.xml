@@ -55,10 +55,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertComment" parameterType="java.util.HashMap">
 		<!-- 원글의 게시글 id 구하기? -->
 		insert into ARTICLE VALUES(article_seq.nextval, #{member_id},
-		#{nation_id}, #{planet_id}, sysdate, null, #{art_contents}, N, null,
+		#{nation_id}, #{planet_id}, sysdate, null, #{art_contents}, Y, null,
 		null, #{article_id},
 		<!-- 댓글 순서 구하기 -->
-		select max(seq)+1 from ARTICLE where grp=article_seq.currval, 1)
+		(select max(seq)+1 from ARTICLE where grp=#{article_id}), 1)
 	</insert>
 	<update id="deleteArticle" parameterType="int">
 		update ARTICLE SET
@@ -86,8 +86,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="selectByPlanet" parameterType="int" resultMap="articles">
-		SELECT (SELECT planet_name FROM planet WHERE
-		planet.planet_id=art.planet_id) planet,
+		SELECT
 		( SELECT nation_name FROM
 		nation WHERE nation.nation_id = art.nation_id
 		) nation,
@@ -122,8 +121,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="selectByNation" parameterType="int" resultMap="articles">
-		SELECT (SELECT planet_name FROM planet WHERE
-		planet.planet_id=art.planet_id) planet,
+		SELECT
 		( SELECT nation_name FROM
 		nation WHERE nation.nation_id = art.nation_id
 		) nation,
@@ -157,8 +155,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="selectByMemId" parameterType="int" resultMap="articles">
 		SELECT
-		(SELECT planet_name FROM planet WHERE planet.planet_id=art.planet_id)
-		planet,
 		( SELECT nation_name FROM nation WHERE nation.nation_id =
 		art.nation_id) nation,
 		( SELECT member_name FROM member WHERE

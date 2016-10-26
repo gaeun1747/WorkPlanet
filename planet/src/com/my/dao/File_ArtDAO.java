@@ -22,5 +22,10 @@ public interface File_ArtDAO {
 	public void downFile(int art_id);
 	//게시글 id로 조회
 	public List<File_Art> selectById(int art_id);
+	/**
+	 * @param nation_id
+	 * @return 그룹별 전체 첨부파일 조회
+	 */
+	public List<File_Art> selectByNation(int nation_id);
 	
 }

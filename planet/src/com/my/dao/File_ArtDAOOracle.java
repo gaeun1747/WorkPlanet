@@ -37,4 +37,12 @@ public class File_ArtDAOOracle implements File_ArtDAO {
 		return null;
 	}
 
+	@Override
+	public List<File_Art> selectByNation(int nation_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
 }
