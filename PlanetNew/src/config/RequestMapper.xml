@@ -2,12 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="RequestMapper">
-	<resultMap type="com.my.vo.Req_Art" id="Requests">
+	<resultMap type="com.my.vo.Req_Art" id="requests">
 		<result property="article_id" column="article_id" />
 		<result property="resp_user_id" column="resp_user_id" />
 		<result property="req_status" column="req_status" />
 		<result property="req_contents" column="req_contents" />
 		<result property="use_status" column="use_status" />
+		<association property="articlepart" javaType="com.my.vo.ArticlePart">
+			<result property="article_id" column="article_id" />
+			<result property="file_id" column="file_id" />
+			<result property="file_name" column="file_name" />
+			<result property="use_status" column="use_status" />
+		</association>
 	</resultMap>
 
 	<!-- 요청담당자 찾기 -->
@@ -23,38 +29,31 @@
 	<update id="updateRequest" parameterType="java.util.HashMap">
 		UPDATE req_art SET
 		resp_user_id= #{resp_user_id}, req_contents= #{req_contents}
-		WHERE
-		article_id=#{id}
+		WHERE article_id=#{id}
 	</update>
 	<update id="updateReqStatus" parameterType="java.util.HashMap">
 		UPDATE req_art SET
-		req_status=#{status} WHERE article_id=#{id}
+		req_status=#{req_status} WHERE article_id=#{article_id}
 	</update>
-	<select id="selectByNation" parameterType="int" resultMap="Requests">
-		SELECT resp_user_id, req_status, req_contents,
-		member_id, art_reg_date,
-		art_edit_date
-		FROM req_art
-		JOIN article ON
-		article.article_id=req_art.article_id
+	<select id="selectByNation" parameterType="int" resultMap="requests">
+		SELECT resp_user_id, req_status, req_contents, 
+		member_id, art_reg_date, 	art_edit_date
+		FROM req_art JOIN article 
+		ON article.article_id=req_art.article_id
 		WHERE nation_id=#{id}
 	</select>
-	<select id="selectById" parameterType="java.lang.String"
-		resultMap="Requests">
-		SELECT resp_user_id, req_status, req_contents,
-		member_id,
-		art_reg_date, art_edit_date
-		FROM req_art
-		JOIN article ON
-		article.article_id=req_art.article_id
-		WHERE member_id=#{id}
-	</select>
-	<select id="selectByMng" parameterType="java.lang.String"
-		resultMap="Requests">
+	<select id="selectById" parameterType="java.lang.String"	resultMap="requests">
 		SELECT resp_user_id, req_status, req_contents,
 		member_id, art_reg_date, art_edit_date
-		FROM req_art
-		JOIN article ON article.article_id=req_art.article_id
+		FROM req_art JOIN article 
+		ON article.article_id=req_art.article_id
+		WHERE member_id=#{id}
+	</select>
+	<select id="selectByMng" parameterType="java.lang.String" resultMap="requests">
+		SELECT resp_user_id, req_status, req_contents,
+		member_id, art_reg_date, art_edit_date
+		FROM req_art JOIN article 
+		ON article.article_id=req_art.article_id
 		WHERE resp_user_id=#{id}
 	</select>
 </mapper>

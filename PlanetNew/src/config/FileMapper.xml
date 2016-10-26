@@ -2,11 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="FileMapper">
-	<resultMap type="com.my.vo.File_Art" id="Files">
+	<resultMap type="com.my.vo.File_Art" id="files">
 		<result property="article_id" column="article_id" />
 		<result property="file_id" column="file_id" />
 		<result property="file_name" column="file_name" />
 		<result property="use_status" column="use_status" />
+		<association property="articlepart" javaType="com.my.vo.ArticlePart">
+			<result property="article_id" column="article_id" />
+			<result property="file_id" column="file_id" />
+			<result property="file_name" column="file_name" />
+			<result property="use_status" column="use_status" />
+		</association>
 	</resultMap>
 
 	<insert id="insertFile" parameterType="java.util.HashMap">
@@ -22,15 +28,13 @@
 		use_status='N' WHERE article_id=#{art_id}
 	</update>
 	<select id="selectById" parameterType="int" resultMap="files">
-		SELECT
-		file_name, member_id, art_reg_date
+		SELECT file_name, member_id, art_reg_date
 		FROM FILE_ART
 		JOIN article ON article.article_id=file_art.article_id
 		WHERE article_id=#{id}
 	</select>
 	<select id="selectByNation" parameterType="int" resultMap="files">
-		SELECT
-		file_name, member_id, art_reg_date
+		SELECT file_name, member_id, art_reg_date
 		FROM FILE_ART
 		JOIN article ON article.article_id=file_art.article_id
 		WHERE nation_id=#{id}

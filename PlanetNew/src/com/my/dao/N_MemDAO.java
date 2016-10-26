@@ -8,9 +8,17 @@ import com.my.exception.UpdateException;
 import com.my.vo.N_Mem;
 
 public interface N_MemDAO {
-	public List<N_Mem> selectByPlanet_id(String planet_id)throws SelectException;
+	//그룹멤버 찾기(초대할때)
+	public List<N_Mem> selectByPlanetId(String planet_id)throws SelectException;
+	//그룹만들었을때 
+	public void insertMaster(N_Mem n)throws InsertException;
+	//그룹멤버 추가(초대-플래닛 멤버찾기)
+	//그룹찾기에서 following해서 그룹에 가입
 	public void insert(N_Mem n)throws InsertException;
-	public List<N_Mem> selectByNation_id(String nation_id)throws SelectException;
-	public void updateNationLeader(String id1,String id2)throws SelectException;
+	//그룹멤버 목록보기
+	public List<N_Mem> selectByNationId(String nation_id)throws SelectException;
+	//그룹장 위임
+	public void updateMaster(String masterid,String normalid)throws SelectException;
+	//그룹 탈퇴
 	public void leave(String member_id)throws UpdateException;
 }

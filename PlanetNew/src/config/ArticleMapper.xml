@@ -67,18 +67,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="updateArticle" parameterType="java.util.HashMap">
 		update ARTICLE SET
-		art_contents = #{contents}, art_edit_date = sysdate where article_id =
-		#{id}
+		art_contents = #{contents}, art_edit_date = sysdate where article_id =	#{article_id}
 	</update>
 
 	<update id="updateImp" parameterType="java.util.HashMap">
 		update ARTICLE SET
-		imp_status = #{imp} where article_id = #{art_id}
+		imp_status = #{imp_status} where article_id = #{article_id}
 	</update>
 
 	<update id="updateNotice" parameterType="java.util.HashMap">
 		update ARTICLE SET
-		notice_status = #{notice} where article_id = #{art_id}
+		notice_status = #{notice_status} where article_id = #{article_id}
 	</update>
 
 	<select id="selectById" parameterType="int" resultMap="article">
@@ -87,13 +86,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="selectByPlanet" parameterType="int" resultMap="articles">
 		SELECT
-		( SELECT nation_name FROM
-		nation WHERE nation.nation_id = art.nation_id
-		) nation,
-		( SELECT
-		member_name FROM member WHERE member.member_id =
-		art.member_id)
-		membername,
+		(SELECT nation_name FROM nation 
+		WHERE nation.nation_id = art.nation_id) nation,
+		(SELECT member_name FROM member 
+		WHERE member.member_id = art.member_id) member_name,
 		art.member_id,
 		art_reg_date, art_contents,
 		plan_contents,
@@ -101,11 +97,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		plan_enddate,
 		rart.resp_user_id,
 		req_contents,
-		(SELECT
-		count(*) FROM LIKE_ART lart WHERE art.article_id
-		= lart.article_id
-		AND
-		use_status='Y'),
+		(SELECT count(*) FROM LIKE_ART lart 
+		WHERE art.article_id = lart.article_id AND use_status='Y'),
 		grp, seq, lvl
 		FROM ARTICLE art
 		left JOIN PLAN_ART part
@@ -122,21 +115,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="selectByNation" parameterType="int" resultMap="articles">
 		SELECT
-		( SELECT nation_name FROM
-		nation WHERE nation.nation_id = art.nation_id
-		) nation,
-		( SELECT
-		member_name FROM member WHERE member.member_id = art.member_id
-		)
-		membername,
+		(SELECT nation_name FROM	nation 
+		WHERE nation.nation_id = art.nation_id) nation,
+		(SELECT member_name FROM member 
+		WHERE member.member_id = art.member_id) membername,
 		art.member_id, art_reg_date, art_contents,
 		plan_contents,
 		plan_startdate, plan_enddate,
 		rart.resp_user_id, req_contents,
-		(SELECT
-		count(*) FROM LIKE_ART lart WHERE art.article_id = lart.article_id
-		AND
-		use_status='Y'),
+		(SELECT count(*) FROM LIKE_ART lart 
+		WHERE art.article_id = lart.article_id AND	use_status='Y'),
 		grp, seq, lvl
 
 		FROM ARTICLE art left
@@ -149,25 +137,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		WHERE art.nation_id=#{nation_id}
 
-		ORDER
-		BY grp desc, seq asc
+		ORDER BY grp desc, seq asc
 	</select>
 
 	<select id="selectByMemId" parameterType="int" resultMap="articles">
 		SELECT
-		( SELECT nation_name FROM nation WHERE nation.nation_id =
-		art.nation_id) nation,
-		( SELECT member_name FROM member WHERE
-		member.member_id = art.member_id) membername,
+		( SELECT nation_name FROM nation 
+		WHERE nation.nation_id =art.nation_id) nation,
+		( SELECT member_name FROM member 
+		WHERE member.member_id = art.member_id) membername,
 		art.member_id,
 		art_reg_date, art_contents,
 		plan_contents, plan_startdate,
 		plan_enddate,
 		rart.resp_user_id, req_contents,
-		(SELECT count(*)
-		FROM LIKE_ART lart WHERE art.article_id = lart.article_id
-		AND
-		use_status='Y'),
+		(SELECT count(*) FROM LIKE_ART lart 
+		WHERE art.article_id = lart.article_id AND	use_status='Y'),
 		grp, seq, lvl
 
 		FROM ARTICLE art left
@@ -180,8 +165,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		WHERE art.member_id=#{member_id}
 
-		ORDER BY
-		grp desc, seq asc
+		ORDER BY grp desc, seq asc
 
 	</select>
 </mapper>

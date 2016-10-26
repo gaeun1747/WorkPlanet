@@ -1,27 +1,42 @@
 package com.my.dao;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.my.exception.InsertException;
 import com.my.exception.UpdateException;
 import com.my.vo.Team;
 
 public class TeamDAOOracle implements TeamDAO {
-
+	private SqlSession sqlSession;
 	@Override
-	public void insertTeam(Team t) throws InsertException {
-		// TODO Auto-generated method stub
-
+	public void insert(Team t) throws InsertException {
+		try{
+			sqlSession.insert("TeamMapper.insert", t);			
+		}catch(Exception e){
+			throw new InsertException(e.getMessage());
+		}finally {
+			sqlSession.close();
+		}
 	}
-
 	@Override
-	public void deleteTeam(Team t) throws UpdateException {
-		// TODO Auto-generated method stub
-
+	public void delete(int team_id) throws UpdateException {
+		try {
+			sqlSession.update("TeamMapper.delete", team_id);
+			sqlSession.commit();
+		}finally{
+			sqlSession.close();
+		}
+		
 	}
-
 	@Override
-	public void updateTeam(Team t) throws UpdateException {
-		// TODO Auto-generated method stub
-
+	public void update(Team t) throws UpdateException {
+		try {
+			sqlSession.update("TeamMapper.update", t);
+			sqlSession.commit();
+		}finally{
+			sqlSession.close();
+		}
+		
 	}
 
 }
