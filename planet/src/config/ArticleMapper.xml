@@ -2,69 +2,190 @@
 <!DOCTYPE mapper 
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace = "ArticleMapper">
+<mapper namespace="ArticleMapper">
 	<resultMap type="com.my.vo.Article" id="articles">
-		<result property="article_id" column="article_id"/>
-		<result property="member_id" column="member_id"/>
-		<result property="nation_id" column="nation_id"/>
-		<result property="planet_id" column="planet_id"/>
-		<result property="art_reg_date" column="art_reg_date"/>
-		<result property="art_edit_date" column="art_edit_date"/>
-		<result property="art_contents" column="art_contents"/>
-		<result property="use_status" column="use_status"/>
-		<result property="imp_status" column="imp_status"/>
-		<result property="notice_status" column="notice_status"/>
-		<result property="grp" column="grp"/>
-		<result property="seq" column="seq"/>
-		<result property="lvl" column="lvl"/>
+		<result property="article_id" column="article_id" />
+		<result property="member_id" column="member_id" />
+		<result property="nation_id" column="nation_id" />
+		<result property="planet_id" column="planet_id" />
+		<result property="art_reg_date" column="art_reg_date" />
+		<result property="art_edit_date" column="art_edit_date" />
+		<result property="art_contents" column="art_contents" />
+		<result property="use_status" column="use_status" />
+		<result property="imp_status" column="imp_status" />
+		<result property="notice_status" column="notice_status" />
+		<result property="grp" column="grp" />
+		<result property="seq" column="seq" />
+		<result property="lvl" column="lvl" />
 		<association property="planart" javaType="com.my.vo.Plan_Art">
-			<result property="article_id" column="article_id"/>
-			<result property="plan_contents" column="plan_contents"/>
-			<result property="plan_startdate" column="plan_startdate"/>
-			<result property="plan_enddate" column="plan_enddate"/>
-			<result property="use_status" column="use_status"/>
+			<result property="article_id" column="article_id" />
+			<result property="plan_contents" column="plan_contents" />
+			<result property="plan_startdate" column="plan_startdate" />
+			<result property="plan_enddate" column="plan_enddate" />
+			<result property="use_status" column="use_status" />
 		</association>
 		<association property="reqart" javaType="com.my.vo.Req_Art">
-			<result property="article_id" column="article_id"/>
-			<result property="resp_user_id" column="resp_user_id"/>
-			<result property="req_status" column="req_status"/>
-			<result property="req_contents" column="req_contents"/>
-			<result property="use_status" column="use_status"/>
+			<result property="article_id" column="article_id" />
+			<result property="resp_user_id" column="resp_user_id" />
+			<result property="req_status" column="req_status" />
+			<result property="req_contents" column="req_contents" />
+			<result property="use_status" column="use_status" />
 		</association>
-		<collection property="likeart" javaType="java.util.ArrayList" ofType="com.my.vo.Like_Art">
-			<result property="article_id" column="article_id"/>
-			<result property="like_member_id" column="like_member_id"/>
-			<result property="use_status" column="use_status"/>
+		<collection property="likeart" javaType="java.util.ArrayList"
+			ofType="com.my.vo.Like_Art">
+			<result property="article_id" column="article_id" />
+			<result property="like_member_id" column="like_member_id" />
+			<result property="use_status" column="use_status" />
 		</collection>
-		<collection property="fileart" javaType="java.util.ArrayList" ofType="com.my.vo.File_Art">
-			<result property="article_id" column="article_id"/>
-			<result property="file_id" column="file_id"/>
-			<result property="file_name" column="file_name"/>
-			<result property="use_status" column="use_status"/>
+		<collection property="fileart" javaType="java.util.ArrayList"
+			ofType="com.my.vo.File_Art">
+			<result property="article_id" column="article_id" />
+			<result property="file_id" column="file_id" />
+			<result property="file_name" column="file_name" />
+			<result property="use_status" column="use_status" />
 		</collection>
 	</resultMap>
-	
+
 	<insert id="insertArticle" parameterType="java.util.HashMap">
-		insert into ARTICLE VALUES(article_seq.nextval, #{member_id}, #{nation_id}, #{planet_id}, sysdate, null, #{art_contents}, N, #{imp_status}, N, article_seq.currval, 1, 0)
+		insert into ARTICLE
+		VALUES(article_seq.nextval, #{member_id}, #{nation_id}, #{planet_id},
+		sysdate, null, #{art_contents}, N, #{imp_status}, N,
+		article_seq.currval, 1, 0)
 	</insert>
 	<insert id="insertComment" parameterType="java.util.HashMap">
-	<!-- 원글의 게시글 id 구하기? -->
-		insert into ARTICLE VALUES(article_seq.nextval, #{member_id}, #{nation_id}, #{planet_id}, sysdate, null, #{art_contents}, N, null, null, #{article_id}, 
+		<!-- 원글의 게시글 id 구하기? -->
+		insert into ARTICLE VALUES(article_seq.nextval, #{member_id},
+		#{nation_id}, #{planet_id}, sysdate, null, #{art_contents}, N, null,
+		null, #{article_id},
 		<!-- 댓글 순서 구하기 -->
 		select max(seq)+1 from ARTICLE where grp=article_seq.currval, 1)
 	</insert>
 	<update id="deleteArticle" parameterType="int">
-		update ARTICLE SET use_status = 'N' where article_id=#{id}
+		update ARTICLE SET
+		use_status = 'N' where article_id=#{id}
 	</update>
+
 	<update id="updateArticle" parameterType="java.util.HashMap">
-		update ARTICLE SET art_contents = #{contents}, art_edit_date = sysdate where article_id = #{id}
+		update ARTICLE SET
+		art_contents = #{contents}, art_edit_date = sysdate where article_id =
+		#{id}
 	</update>
+
 	<update id="updateImp" parameterType="java.util.HashMap">
-		update ARTICLE SET imp_status = #{imp} where article_id = #{art_id}
+		update ARTICLE SET
+		imp_status = #{imp} where article_id = #{art_id}
 	</update>
+
 	<update id="updateNotice" parameterType="java.util.HashMap">
-		update ARTICLE SET notice_status = #{notice} where article_id = #{art_id}
+		update ARTICLE SET
+		notice_status = #{notice} where article_id = #{art_id}
 	</update>
-	
-	
+
+	<select id="selectById" parameterType="int" resultMap="article">
+		select * from article where article_id=#{id}
+	</select>
+
+	<select id="selectByPlanet" parameterType="int" resultMap="articles">
+		SELECT (SELECT planet_name FROM planet WHERE
+		planet.planet_id=art.planet_id) planet,
+		( SELECT nation_name FROM
+		nation WHERE nation.nation_id = art.nation_id
+		) nation,
+		( SELECT
+		member_name FROM member WHERE member.member_id =
+		art.member_id)
+		membername,
+		art.member_id,
+		art_reg_date, art_contents,
+		plan_contents,
+		plan_startdate,
+		plan_enddate,
+		rart.resp_user_id,
+		req_contents,
+		(SELECT
+		count(*) FROM LIKE_ART lart WHERE art.article_id
+		= lart.article_id
+		AND
+		use_status='Y'),
+		grp, seq, lvl
+		FROM ARTICLE art
+		left JOIN PLAN_ART part
+		ON art.article_id = part.article_id left
+		JOIN
+		REQ_ART rart ON
+		art.article_id = rart.article_id left
+		JOIN FILE_ART
+		fart ON
+		art.article_id = fart.article_id
+		where planet_id=#{planet_id}
+		ORDER BY grp desc, seq asc
+	</select>
+
+	<select id="selectByNation" parameterType="int" resultMap="articles">
+		SELECT (SELECT planet_name FROM planet WHERE
+		planet.planet_id=art.planet_id) planet,
+		( SELECT nation_name FROM
+		nation WHERE nation.nation_id = art.nation_id
+		) nation,
+		( SELECT
+		member_name FROM member WHERE member.member_id = art.member_id
+		)
+		membername,
+		art.member_id, art_reg_date, art_contents,
+		plan_contents,
+		plan_startdate, plan_enddate,
+		rart.resp_user_id, req_contents,
+		(SELECT
+		count(*) FROM LIKE_ART lart WHERE art.article_id = lart.article_id
+		AND
+		use_status='Y'),
+		grp, seq, lvl
+
+		FROM ARTICLE art left
+		JOIN PLAN_ART part
+		ON art.article_id = part.article_id left
+		JOIN REQ_ART rart ON
+		art.article_id = rart.article_id left
+		JOIN FILE_ART fart ON
+		art.article_id = fart.article_id
+
+		WHERE art.nation_id=#{nation_id}
+
+		ORDER
+		BY grp desc, seq asc
+	</select>
+
+	<select id="selectByMemId" parameterType="int" resultMap="articles">
+		SELECT
+		(SELECT planet_name FROM planet WHERE planet.planet_id=art.planet_id)
+		planet,
+		( SELECT nation_name FROM nation WHERE nation.nation_id =
+		art.nation_id) nation,
+		( SELECT member_name FROM member WHERE
+		member.member_id = art.member_id) membername,
+		art.member_id,
+		art_reg_date, art_contents,
+		plan_contents, plan_startdate,
+		plan_enddate,
+		rart.resp_user_id, req_contents,
+		(SELECT count(*)
+		FROM LIKE_ART lart WHERE art.article_id = lart.article_id
+		AND
+		use_status='Y'),
+		grp, seq, lvl
+
+		FROM ARTICLE art left
+		JOIN PLAN_ART part
+		ON art.article_id = part.article_id left
+		JOIN REQ_ART rart ON
+		art.article_id = rart.article_id left
+		JOIN FILE_ART fart ON
+		art.article_id = fart.article_id
+
+		WHERE art.member_id=#{member_id}
+
+		ORDER BY
+		grp desc, seq asc
+
+	</select>
 </mapper>
