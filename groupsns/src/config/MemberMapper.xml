@@ -19,10 +19,10 @@
  <select id="selectAllById" parameterType="java.lang.String" resultType="com.my.vo.Member">
  	SELECT * FROM member WHERE member_id=#{member_id}
  </select>
- <select id="selectById" parameterType="java.lang.String" resultType="com.my.vo.Member">
+ <select id="selectById" parameterType="java.lang.String" resultType="com.my.vo.String">
  	SELECT member_id FROM member WHERE member_id=#{member_id}
  </select>
- <select id="selectByPassword" parameterType="java.lang.String" resultType="com.my.vo.Member">
+ <select id="selectByPassword" parameterType="java.lang.String" resultType="com.my.vo.String">
  	SELECT member_pw FROM member WHERE member_pw=#{member_pw}
  </select>
 </mapper>
