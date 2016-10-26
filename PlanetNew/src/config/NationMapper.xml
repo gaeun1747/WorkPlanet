@@ -4,19 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NationMapper">
 	<insert id="insert" parameterType="com.my.vo.Nation">
-		INSERT INTO nation VALUES(#{nation_id},#{nation_name},#{naton_nation_status},'N')(
+		INSERT INTO nation VALUES(#{nation_id},#{nation_name},#{naton_nation_status},'Y')(
 	</insert>
 	<update id="update" parameterType="com.my.vo.Nation">
-		UPDATE nation SET nation_name=#{nation_name}, member_status=#{member_status} 
+		UPDATE nation SET nation_name=#{nation_name}, nation_status=#{nation_status} 
 		WHERE nation_id=#{nation_id}
 	</update>
 	<select id="selectByMemberList" parameterType="java.lang.String" resultType="com.my.vo.Nation">
+		SELET * FROM nation
 		WHERE not nation_id IN ( SELECT nation_id FROM n_mem WHERE member_id=#{member_id})
 		AND nation_status='Y'
 	</select>
 	<select id="selectByMemberId" parameterType="java.lang.String" resultType="com.my.vo.Nation">
+		SELECT * FROM nation 
 		WHERE nation_id IN ( SELECT nation_id FROM n_mem WHERE member_id=#{member_id})
-		AND nation_status='Y'
 	</select>
 	<update id="delete" parameterType="java.lang.String">
 		UPDATE nation SET use_status='N' WHERE nation_id=#{nation_id}

@@ -7,7 +7,7 @@
 		INSERT INTO team VALUES(#{team_id},#{team_name},#{member_status})
 	</insert>
 	<update id="delete" parameterType="java.lang.Integer">
-		UPDATE team SET use_status=#{use_status} WHERE team_id=#{team_id}
+		UPDATE team SET use_status='N' WHERE team_id=#{team_id}
 	</update>
 	<update id="update" parameterType="com.my.vo.Team">
 		UPDATE team SET team_name=#{team_name} WHERE team_id=#{team_id}
