@@ -36,7 +36,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 		}finally {
 			sqlSession.close();
 		}
-	}
+	} 
 	@Override
 	public void insert(N_Mem n) throws InsertException {
 		try{

@@ -18,7 +18,6 @@
 	<select id="selectByMemberId" parameterType="java.lang.String" resultType="com.my.vo.Nation">
 		SELECT * FROM nation 
 		WHERE nation_id IN ( SELECT nation_id FROM n_mem WHERE member_id=#{member_id})
-		
 	</select>
 	<update id="delete" parameterType="java.lang.String">
 		UPDATE nation SET use_status='N' WHERE nation_id=#{nation_id}

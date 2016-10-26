@@ -21,7 +21,7 @@ public class T_MemDAOOracle implements T_MemDAO {
 			throw new InsertException(e.getMessage());
 		}finally {
 			sqlSession.close();
-		}
+		} 
 	}
 	@Override
 	public void insert(P_Mem p) throws InsertException {

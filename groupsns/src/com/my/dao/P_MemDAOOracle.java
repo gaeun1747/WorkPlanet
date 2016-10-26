@@ -19,7 +19,7 @@ public class P_MemDAOOracle implements P_MemDAO {
 		}finally {
 			sqlSession.close();
 		}	
-	}
+	} 
 	public void insert(P_Mem p) throws InsertException {
 		try{
 			sqlSession.insert("P_MemDAOMapper.insert", p);			

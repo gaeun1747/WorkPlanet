@@ -25,5 +25,5 @@
 		SELECT * 
 		FROM p_mem pm JOIN member m ON pm.member_id=m.member_id
 		WHERE pm.member_id=#{member_id} AND planet_id=#{planet_id}
-	</select>
+	</select> 
 </mapper>

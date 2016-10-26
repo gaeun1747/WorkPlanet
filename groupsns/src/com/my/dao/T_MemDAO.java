@@ -19,4 +19,4 @@ public interface T_MemDAO {
 	public void updateMaster(String masterid,String normalid,int team_id) throws UpdateException;
 	//팀멤버 목록보기
 	public List<T_Mem> selectById(String team_id)throws SelectException;
-}
+} 

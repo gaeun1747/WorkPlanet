@@ -19,3 +19,4 @@ public interface P_MemDAO {
 	//멤버 정보 보기
 	public P_Mem selectById(String member_id,int planet_id) throws SelectException;
 }
+ 

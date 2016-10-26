@@ -22,3 +22,4 @@ public interface N_MemDAO {
 	//그룹 탈퇴
 	public void leave(String member_id,int nation_id)throws UpdateException;
 }
+ 

@@ -82,7 +82,7 @@ public class MemberDAOOracle implements MemberDAO {
 		} finally {
 			sqlSession.close();
 		}
-	}
+	} 
 
 	@Override
 	public String selectByPassword(String pass) throws SelectException {

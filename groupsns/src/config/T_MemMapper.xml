@@ -12,7 +12,7 @@
 	<update id="exile" parameterType="java.lang.String">
 		UPDATE t_mem SET use_status='N' WHERE member_id=#{member_id} AND team_id=#{team_id}	
 	</update>
-	<update id="updatenormal" parameterType=""hashmap"">
+	<update id="updatenormal" parameterType="hashmap">
 		UPDATE n_mem SET member_status='N' WHERE member_id=#{member_id} AND team_id=#{team_id}
 	</update>
 	<update id="updatemaster" parameterType="hashmap">
