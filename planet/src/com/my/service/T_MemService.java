@@ -1,30 +1,28 @@
 package com.my.service;
 
-import com.my.dao.ArticleDAO;
-import com.my.dao.ArticleDAOOracle;
-import com.my.vo.Article;
+import java.util.List;
+
+import com.my.dao.T_MemDAO;
+import com.my.dao.T_MemDAOOracle;
+import com.my.exception.InsertException;
+import com.my.exception.SelectException;
+import com.my.exception.UpdateException;
+import com.my.vo.P_Mem;
+import com.my.vo.T_Mem;
 
 public class T_MemService {
-	private ArticleDAO dao;
+	private T_MemDAO dao;
 	public T_MemService() {
-		dao = new ArticleDAOOracle();
+		dao = new T_MemDAOOracle();
 	}
-	// 게시글 쓰기
-	public void writeArticle(Article article){
+	//팀멤버 추가
+	public void register(P_Mem p)throws InsertException{}
+	//팀장 위임
+	public void modifyMaster(String masterid,String normalid) throws UpdateException{}
+	//팀멤버 목록보기
+	public List<T_Mem> findById(String team_id)throws SelectException{
+		return null;
 	}
-	// 댓글 쓰기
-	public void writeComment(Article article){
-	}
-	// 게시글/댓글 삭제
-	public void delete(int art_id){
-	}
-	// 게시글/댓글 수정
-	public void update(int art_id){
-	}
-	// 중요도 수정
-	public void updateImp(int art_id){
-	}
-	// 공지사항 수정
-	public void updateNotice(int art_id){
-	}
+	//팀 탈퇴
+	public void delete(String member_id)throws UpdateException{}
 }
