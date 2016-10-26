@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+        <property name="username" value="planet"/>
+        <property name="password" value="planet"/>
+      </dataSource>
+    </environment>
+  </environments>
+ <mappers>
+    <mapper resource="config/ArticleMapper.xml"/>
+    <mapper resource="config/File_ArtMapper.xml"/>
+    <mapper resource="config/Like_ArtMapper.xml"/>
+    <mapper resource="config/MemberMapper.xml"/>
+    <mapper resource="config/N_MemMapper.xml"/>
+    <mapper resource="config/NationMapper.xml"/>
+    <mapper resource="config/P_MemMapper.xml"/>
+    <mapper resource="config/Plan_ArtMapper.xml"/>
+    <mapper resource="config/PlanetMapper.xml"/>
+    <mapper resource="config/Req_ArtMapper.xml"/>
+    <mapper resource="config/T_MemMapper.xml"/>
+    <mapper resource="config/TeamMapper.xml"/>
+  </mappers>
+</configuration>
