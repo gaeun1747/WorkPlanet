@@ -11,4 +11,4 @@ public interface TeamDAO {
 	public void delete(int team_id) throws UpdateException;
 	//팀 이름 수정
 	public void update(Team t) throws UpdateException;
-}
+} 

@@ -1,6 +1,8 @@
 package com.my.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
@@ -19,7 +21,7 @@ public class T_MemDAOOracle implements T_MemDAO {
 			throw new InsertException(e.getMessage());
 		}finally {
 			sqlSession.close();
-		}
+		} 
 	}
 	@Override
 	public void insert(P_Mem p) throws InsertException {
@@ -33,9 +35,12 @@ public class T_MemDAOOracle implements T_MemDAO {
 	}
 
 	@Override
-	public void exile(String member_id) throws UpdateException {
+	public void exile(String member_id,int team_id) throws UpdateException {
 		try {
-			sqlSession.update("T_MemMapper.exile",member_id);
+			Map<Object,Object> map= new HashMap<Object,Object>();
+			map.put("member_id", member_id);
+			map.put("tema_id", tema_id);
+			sqlSession.update("T_MemMapper.exile",map);
 			sqlSession.commit();
 		} finally {
 			sqlSession.close();
@@ -44,10 +49,17 @@ public class T_MemDAOOracle implements T_MemDAO {
 	}
 
 	@Override
-	public void updateMaster(String masterid, String normalid) throws UpdateException {
+	public void updateMaster(String masterid, String normalid,int tema_id) throws UpdateException {
 		try {
-			sqlSession.update("T_MemMapper.updatenormal", masterid);
-			sqlSession.update("T_MemMapper.updatemaster", normalid);
+			Map<Object,Object> map1= new HashMap<Object,Object>();
+			map1.put("masterid", masterid);
+			map1.put("tema_id", tema_id);
+			
+			Map<Object,Object> map2= new HashMap<Object,Object>();
+			map2.put("normalid", normalid);
+			map2.put("tema_id", tema_id);
+			sqlSession.update("T_MemMapper.updatenormal", map1);
+			sqlSession.update("T_MemMapper.updatemaster", map2);
 			sqlSession.commit();
 		}finally{
 			sqlSession.close();

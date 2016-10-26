@@ -14,9 +14,9 @@ public interface T_MemDAO {
 	//팀멤버 추가
 	public void insert(P_Mem p)throws InsertException;
 	//팀멤버 추방//탈퇴
-	public void exile(String member_id)throws UpdateException;
+	public void exile(String member_id,int team_id)throws UpdateException;
 	//팀장 위임
-	public void updateMaster(String masterid,String normalid) throws UpdateException;
+	public void updateMaster(String masterid,String normalid,int team_id) throws UpdateException;
 	//팀멤버 목록보기
 	public List<T_Mem> selectById(String team_id)throws SelectException;
-}
+} 

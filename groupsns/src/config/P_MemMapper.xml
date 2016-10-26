@@ -9,21 +9,21 @@
 	<insert id="insert" parameterType="com.my.vo.P_Mem">
 		INSERT INTO p_mem VALUES( #{member_id}, #{planet_id}, #{nickname}, #{reg_date}, 'N', 'Y' )	
 	</insert>
-	<update id="update" parameterType="com.my.vo.P_Mem">
-		UPDATE p_mem SET nickname=#{nickname} WHERE member_id=#{member_id}	
+	<update id="update" parameterType="hashmap">
+		UPDATE p_mem SET nickname=#{nickname} WHERE member_id=#{member_id} AND planet_id=#{planet_id}	
 	</update>
-	<update id="leave" parameterType="java.lang.String">
-		UPDATE p_mem SET use_status='N' WHERE member_id=#{member_id}
+	<update id="leave" parameterType="hashmap">
+		UPDATE p_mem SET use_status='N' WHERE member_id=#{member_id} AND planet_id=#{planet_id}
 	</update>
-	<update id="updatenormal" parameterType="java.lang.String">
-		UPDATE p_mem SET member_status='N' WHERE member_id=#{member_id}
+	<update id="updatenormal" parameterType="hashmap">
+		UPDATE p_mem SET member_status='N' WHERE member_id=#{member_id} AND planet_id=#{planet_id}
 	</update>
-	<update id="updatemaster" parameterType="java.lang.String">
-		UPDATE p_mem SET member_status='Y' WHERE member_id=#{member_id}
+	<update id="updatemaster" parameterType="hashmap">
+		UPDATE p_mem SET member_status='Y' WHERE member_id=#{member_id} AND planet_id=#{planet_id}
 	</update>
-	<select id="selectById" parameterType="java.lang.String" resultType="com.my.vo.P_Mem">
+	<select id="selectById" parameterType="hashmap" resultType="com.my.vo.P_Mem">
 		SELECT * 
 		FROM p_mem pm JOIN member m ON pm.member_id=m.member_id
-		WHERE pm.member_id=#{member_id}
-	</select>
+		WHERE pm.member_id=#{member_id} AND planet_id=#{planet_id}
+	</select> 
 </mapper>

@@ -20,3 +20,4 @@ public interface MemberDAO {
 	//비밀번호찾기
 	public String selectByPassword(String Member_pass) throws SelectException;
 }
+ 

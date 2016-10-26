@@ -20,5 +20,4 @@
 	<update id="delete" parameterType="com.my.vo.Planet">
 		UPDATE planet SET planet_name=#{planet_name} WHERE planet_id=#{planet_id}
 	</update>
-	
 </mapper>

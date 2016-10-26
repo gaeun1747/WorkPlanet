@@ -11,7 +11,7 @@
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
         <property name="username" value="planet"/>
         <property name="password" value="planet"/>
-      </dataSource>
+      </dataSource> 
     </environment>
   </environments>
  <mappers>
