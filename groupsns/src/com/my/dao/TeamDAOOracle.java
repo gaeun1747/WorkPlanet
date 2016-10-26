@@ -19,7 +19,7 @@ public class TeamDAOOracle implements TeamDAO {
 	@Override
 	public void delete(int team_id) throws UpdateException {
 		try {
-			sqlSession.update("TeamMapper.delete", t);
+			sqlSession.update("TeamMapper.delete", team_id);
 			sqlSession.commit();
 		}finally{
 			sqlSession.close();
