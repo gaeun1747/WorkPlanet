@@ -3,7 +3,6 @@ package com.my.dao;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
-import com.my.vo.Member;
 import com.my.vo.P_Mem;
 public interface P_MemDAO {
 	//플래닛 만들었을때
