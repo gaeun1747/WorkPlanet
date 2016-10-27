@@ -11,12 +11,12 @@ import com.my.sql.MyConnection;
 import com.my.vo.Plan_Art;
 
 public class Plan_ArtDAOOracle implements Plan_ArtDAO {
-	SqlSession sqlSession = MyConnection.getSession();
-	
 	@Override
 	public void insert(Plan_Art p) throws InsertException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try{
-			sqlSession.insert("PlanMapper,insertPlan", p);			
+			sqlSession.insert("PlanMapper,insertPlan", p);	
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -27,6 +27,7 @@ public class Plan_ArtDAOOracle implements Plan_ArtDAO {
 
 	@Override
 	public void delete(int art_id) throws UpdateException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			sqlSession.update("PlanMapper,deletePlan", art_id);
 			sqlSession.commit();
@@ -38,6 +39,7 @@ public class Plan_ArtDAOOracle implements Plan_ArtDAO {
 
 	@Override
 	public void update(Plan_Art p) throws UpdateException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			sqlSession.update("PlanMapper,updatePlan", p);
 			sqlSession.commit();
@@ -49,6 +51,7 @@ public class Plan_ArtDAOOracle implements Plan_ArtDAO {
 
 	@Override
 	public List<Plan_Art> selectByNation(int nation_id) throws SelectException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			List<Plan_Art> list = sqlSession.selectList("PlanMapper,selectByNation",nation_id);
 			return list;
@@ -61,6 +64,7 @@ public class Plan_ArtDAOOracle implements Plan_ArtDAO {
 
 	@Override
 	public Plan_Art selectById(int art_id) throws SelectException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			Plan_Art p = sqlSession.selectOne("PlanMapper,selectById", art_id);
 			return p;

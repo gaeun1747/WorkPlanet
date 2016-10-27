@@ -15,6 +15,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 	
 	@Override
 	public void insertArticle(Article a) throws InsertException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try{
 		sqlSession.insert("ArticleMapper.insertArticle",a);
 		sqlSession.commit();
@@ -27,6 +28,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public void insertComment(Article a, int article_id) throws InsertException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try{
 			sqlSession.insert("ArticleMapper.insertComment",a);
 			sqlSession.commit();
@@ -39,6 +41,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public void delete(int art_id) throws UpdateException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			sqlSession.update("ArticleMapper.deleteArticle", art_id);
 			sqlSession.commit();
@@ -50,6 +53,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public void update(Article a) throws UpdateException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			sqlSession.update("ArticleMapper.updateArticle", a);
 			sqlSession.commit();
@@ -61,6 +65,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public void updateImp(int art_id, int imp) throws UpdateException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			sqlSession.update("ArticleMapper.updateImp", art_id);
 			sqlSession.commit();
@@ -72,6 +77,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public void updateNotice(int art_id, char notice) throws UpdateException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			sqlSession.update("ArticleMapper.updateImp", art_id);
 			sqlSession.commit();
@@ -83,6 +89,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public Article selectByArtId(int art_id) throws SelectException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			Article a = sqlSession.selectOne("ArticleMapper.selectById", art_id);
 			return a;
@@ -96,6 +103,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public List<Article> selectByPlanet(int planet_id) throws SelectException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			List<Article> list = sqlSession.selectList("ArticleMapper.selectById", planet_id);
 			return list;
@@ -108,6 +116,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public List<Article> selectByNation(int nation_id) throws SelectException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			List<Article> list = sqlSession.selectList("ArticleMapper.selectById", nation_id);
 			return list;
@@ -120,6 +129,7 @@ public class ArticleDAOOracle implements ArticleDAO {
 
 	@Override
 	public List<Article> selectByMemId(int member_id) throws SelectException {
+		SqlSession sqlSession = MyConnection.getSession();
 		try {
 			List<Article> list = sqlSession.selectList("ArticleMapper.selectById", member_id);
 			return list;
