@@ -31,6 +31,8 @@ public class Plan_ArtDAOOracle implements Plan_ArtDAO {
 		try {
 			sqlSession.update("PlanMapper,deletePlan", art_id);
 			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
 		}finally{
 			sqlSession.close();
 		}
@@ -43,6 +45,8 @@ public class Plan_ArtDAOOracle implements Plan_ArtDAO {
 		try {
 			sqlSession.update("PlanMapper,updatePlan", p);
 			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
 		}finally{
 			sqlSession.close();
 		}

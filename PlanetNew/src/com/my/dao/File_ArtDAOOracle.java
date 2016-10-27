@@ -31,6 +31,8 @@ public class File_ArtDAOOracle implements File_ArtDAO {
 		try {
 			sqlSession.update("FileMapper.deleteByFileId", file_id);
 			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
 		}finally{
 			sqlSession.close();
 		}
@@ -43,6 +45,8 @@ public class File_ArtDAOOracle implements File_ArtDAO {
 		try {
 			sqlSession.update("FileMapper.deleteByArtId", art_id);
 			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
 		}finally{
 			sqlSession.close();
 		}

@@ -31,6 +31,8 @@ public class Req_ArtDAOOracle implements Req_ArtDAO {
 		try {
 			sqlSession.update("RequestMapper.deleteRequest", art_id);
 			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
 		}finally{
 			sqlSession.close();
 		}
@@ -43,6 +45,8 @@ public class Req_ArtDAOOracle implements Req_ArtDAO {
 		try {
 			sqlSession.update("RequestMapper.updateRequest", req);
 			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
 		}finally{
 			sqlSession.close();
 		}
@@ -55,6 +59,8 @@ public class Req_ArtDAOOracle implements Req_ArtDAO {
 		try {
 			sqlSession.update("RequestMapper.updateReqStatus", art_id);
 			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
 		}finally{
 			sqlSession.close();
 		}
