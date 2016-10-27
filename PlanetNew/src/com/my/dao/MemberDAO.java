@@ -15,8 +15,9 @@ public interface MemberDAO {
 	public void updateMember(Member m) throws UpdateException;
 	//멤버찾기
 	public Member selectAllById(String Member_id) throws SelectException;
-	//아이디찾기
+	//id 조회
 	public String selectById(String Member_id) throws SelectException;
-	//비밀번호찾기
+	//비밀번호확인
 	public String selectByPassword(String Member_pass) throws SelectException;
 }
+ 

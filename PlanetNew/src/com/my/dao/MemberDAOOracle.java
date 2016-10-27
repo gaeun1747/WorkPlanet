@@ -16,6 +16,7 @@ public class MemberDAOOracle implements MemberDAO {
 	@Override
 	public void insert(Member m) throws InsertException {
 		try{
+			System.out.println(m.getMember_pw());
 			sqlSession.insert("MemberMapper.insert", m);
 		}catch(Exception e){
 			if(e.getCause() instanceof 	SQLException){				
@@ -82,7 +83,7 @@ public class MemberDAOOracle implements MemberDAO {
 		} finally {
 			sqlSession.close();
 		}
-	}
+	} 
 
 	@Override
 	public String selectByPassword(String pass) throws SelectException {

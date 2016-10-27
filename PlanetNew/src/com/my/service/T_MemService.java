@@ -15,14 +15,16 @@ public class T_MemService {
 	public T_MemService() {
 		dao = new T_MemDAOOracle();
 	}
+	//팀 만들었을때
+	public void registerMaster(P_Mem p)throws InsertException{}
 	//팀멤버 추가
 	public void register(P_Mem p)throws InsertException{}
 	//팀장 위임
-	public void modifyMaster(String masterid,String normalid) throws UpdateException{}
+	public void modifyMaster(String masterid,String normalid,int team_id) throws UpdateException{}
 	//팀멤버 목록보기
-	public List<T_Mem> findById(String team_id)throws SelectException{
+	public List<T_Mem> findById(int team_id)throws SelectException{
 		return null;
 	}
 	//팀 탈퇴
-	public void delete(String member_id)throws UpdateException{}
+	public void delete(String member_id,int team_id)throws UpdateException{}
 }
