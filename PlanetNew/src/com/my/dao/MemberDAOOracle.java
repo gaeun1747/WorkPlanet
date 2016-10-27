@@ -8,14 +8,15 @@ import com.my.exception.DuplicatedException;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
+import com.my.sql.MyConnection;
 import com.my.vo.Member;
 
 public class MemberDAOOracle implements MemberDAO {
 	
-	private SqlSession sqlSession;
 	
 	@Override
 	public void insert(Member m) throws InsertException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try{
 			System.out.println(m.getMember_pw());
 			sqlSession.insert("MemberMapper.insert", m);
@@ -32,6 +33,7 @@ public class MemberDAOOracle implements MemberDAO {
 
 	@Override
 	public void updatePassword(Member m) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			sqlSession.update("MemberMapper.updatePassword", m);
 			sqlSession.commit();
@@ -42,6 +44,7 @@ public class MemberDAOOracle implements MemberDAO {
 
 	@Override
 	public void delete(String Member_id) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			sqlSession.update("MemberMapper.delete",Member_id);
 			sqlSession.commit();
@@ -52,6 +55,7 @@ public class MemberDAOOracle implements MemberDAO {
 
 	@Override
 	public void updateMember(Member m) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			sqlSession.update("MemberMapper.updateMember",m);
 			sqlSession.commit();
@@ -62,6 +66,7 @@ public class MemberDAOOracle implements MemberDAO {
 
 	@Override
 	public Member selectAllById(String id) throws SelectException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			Member m = sqlSession.selectOne("MemberMapper.selectAllById", id);
 			return m;
@@ -74,6 +79,7 @@ public class MemberDAOOracle implements MemberDAO {
 
 	@Override
 	public String selectById(String id) throws SelectException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			String selectid = sqlSession.selectOne("MemberMapper.selectById", id);
 			return selectid;
@@ -86,6 +92,7 @@ public class MemberDAOOracle implements MemberDAO {
 
 	@Override
 	public String selectByPassword(String member_id) throws SelectException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			String selectpass = sqlSession.selectOne("MemberMapper.selectByPassword", member_id);
 			return selectpass;
