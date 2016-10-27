@@ -10,7 +10,7 @@ public interface P_MemDAO {
 	//플래닛 가입 (회원이 가입했을때,만들었을때 p에 있는정보에따라 멤버상태설정)
 	public void insert(P_Mem p) throws InsertException;
 	//플래닛 회원정보 수정(닉네임)
-	public void update(P_Mem p,int planet_id) throws UpdateException;
+	public void update(P_Mem p) throws UpdateException;
 	//플래닛 탈퇴 status 수정
 	public void leave(String member_id,int planet_id) throws UpdateException;
 	//마스터 위임 마스터아이디,위임할아이디를 받아와 멤버 상태변경

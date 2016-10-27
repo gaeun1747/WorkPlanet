@@ -21,10 +21,14 @@ public class PlanetService {
 	}
 	// 플래닛 찾기 플래닛이름으로
 	public List<Planet> findByPlanet(String planet_name){
-		return null;
+		return dao.selectByPla`netName(planet_name);
 	}
 	// 플래닛 정보 수정
-	public void modify(String planet_name){}
+	public void modify(String planet_name){
+		dao.selectByPlanetName(planet_name);
+	}
 	// 플래닛 삭제
-	public void delete(String planet){}
+	public void delete(String planet){
+		dao.delete(planet_id);
+	}
 }

@@ -17,18 +17,27 @@ public class N_MemService {
 	}
 	//그룹멤버 찾기(초대할때)
 	public List<N_Mem> findByPlanetId(int planet_id)throws SelectException{
-		return null;}
+		return dao.selectByNationId(planet_id);}
 	//그룹만들었을때 
-	public void registerMaster(N_Mem n)throws InsertException{}
+	public void registerMaster(N_Mem n)throws InsertException{
+		dao.insertMaster(n);
+	}
 	//그룹멤버 추가(초대-플래닛 멤버찾기)
 	//그룹찾기에서 following해서 그룹에 가입
-	public void register(N_Mem n)throws InsertException{}
+	public void register(N_Mem n)throws InsertException{
+		dao.insert(n);
+	}
 	//그룹멤버 목록보기
 	public List<N_Mem> findByNationId(int nation_id)throws SelectException{
-		return null;}
+		return dao.selectByNationId(nation_id);
+	}
 	//그룹장 위임
-	public void modifyMaster(String masterid,String normalid,int nation_id)throws SelectException{}
+	public void modifyMaster(String masterid,String normalid,int nation_id)throws SelectException{
+		dao.updateMaster(masterid, normalid, nation_id);
+	}
 	//그룹 탈퇴
-	public void delete(String member_id,int nation_id)throws UpdateException{}
+	public void delete(String member_id,int nation_id)throws UpdateException{
+		dao.leave(member_id, nation_id);
+	}
 
 }

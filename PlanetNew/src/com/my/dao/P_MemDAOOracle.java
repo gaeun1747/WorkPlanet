@@ -36,14 +36,10 @@ public class P_MemDAOOracle implements P_MemDAO {
 	}
 
 	@Override
-	public void update(P_Mem p,int planet_id) throws UpdateException {
+	public void update(P_Mem p) throws UpdateException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
-			Map<Object,Object> map= new HashMap<Object,Object>();
-			map.put("nickname", p.getNickname());
-			map.put("member_id",p.getMember().getMember_id());
-			map.put("planet_id", planet_id);
-			sqlSession.update("P_MemMapper.update",map);
+			sqlSession.update("P_MemMapper.update",p);
 			sqlSession.commit();
 		} finally {
 			sqlSession.close();
