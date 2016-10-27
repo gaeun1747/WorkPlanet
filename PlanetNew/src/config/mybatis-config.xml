@@ -11,12 +11,21 @@
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
         <property name="username" value="planet"/>
         <property name="password" value="planet"/>
-      </dataSource>
+      </dataSource> 
     </environment>
   </environments>
  <mappers>
-    <mapper resource="config/EmployeeMapper.xml"/>
-    <mapper resource="config/BoardMapper.xml"/>
-    <mapper resource="config/ReplyMapper.xml"/>
+    <mapper resource="config/ArticleMapper.xml"/>
+    <mapper resource="config/FileMapper.xml"/>
+    <mapper resource="config/LikeMapper.xml"/>
+    <mapper resource="config/MemberMapper.xml"/>
+    <mapper resource="config/N_MemMapper.xml"/>
+    <mapper resource="config/NationMapper.xml"/>
+    <mapper resource="config/P_MemMapper.xml"/>
+    <mapper resource="config/PlanetMapper.xml"/>
+    <mapper resource="config/PlanMapper.xml"/>
+    <mapper resource="config/RequestMapper.xml"/>
+    <mapper resource="config/T_MemMapper.xml"/>
+    <mapper resource="config/TeamMapper.xml"/>
   </mappers>
 </configuration>
