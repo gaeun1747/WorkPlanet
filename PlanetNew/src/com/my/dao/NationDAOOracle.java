@@ -15,7 +15,8 @@ public class NationDAOOracle implements NationDAO {
 	public void insert(Nation n) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("NationMapper.insert", n);			
+			sqlSession.insert("NationMapper.insert", n);
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -39,6 +40,7 @@ public class NationDAOOracle implements NationDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<Nation> list = sqlSession.selectList("NationMapper.selectByMemberList",member_id);
+			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());
@@ -52,6 +54,7 @@ public class NationDAOOracle implements NationDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<Nation> list = sqlSession.selectList("NationMapper.selectByMemberId",member_id);
+			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());

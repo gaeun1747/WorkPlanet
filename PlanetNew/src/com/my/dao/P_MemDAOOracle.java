@@ -12,11 +12,11 @@ import com.my.sql.MyConnection;
 import com.my.vo.P_Mem;
 
 public class P_MemDAOOracle implements P_MemDAO {
-	private SqlSession sqlSession;
 	public void insertMaster(P_Mem p) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("P_MemMapper.insertMaster", p);			
+			sqlSession.insert("P_MemMapper.insertMaster", p);
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -26,7 +26,8 @@ public class P_MemDAOOracle implements P_MemDAO {
 	public void insert(P_Mem p) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("P_MemMapper.insert", p);			
+			sqlSession.insert("P_MemMapper.insert", p);	
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -92,6 +93,7 @@ public class P_MemDAOOracle implements P_MemDAO {
 			map.put("member_id", member_id);
 			map.put("planet_id", planet_id);
 			P_Mem p = sqlSession.selectOne("P_MemMapper.selectById", map);
+			sqlSession.commit();
 			return p;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());

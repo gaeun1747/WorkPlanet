@@ -18,6 +18,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<N_Mem> list = sqlSession.selectList("N_MemMapper.selectByPlanetId",planet_id);
+			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());
@@ -30,7 +31,8 @@ public class N_MemDAOOracle implements N_MemDAO {
 	public void insertMaster(N_Mem n) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("N_MemMapper.insertMaster", n);			
+			sqlSession.insert("N_MemMapper.insertMaster", n);
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -41,7 +43,8 @@ public class N_MemDAOOracle implements N_MemDAO {
 	public void insert(N_Mem n) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("N_MemMapper.insert", n);			
+			sqlSession.insert("N_MemMapper.insert", n);	
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -54,6 +57,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<N_Mem> list = sqlSession.selectList("N_MemMapper.selectByNationId",nation_id);
+			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());

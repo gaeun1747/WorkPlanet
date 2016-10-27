@@ -15,7 +15,8 @@ public class PlanetDAOOracle implements PlanetDAO {
 	public void insert(Planet p) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("PlanetMapper.insert", p);			
+			sqlSession.insert("PlanetMapper.insert", p);
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -29,6 +30,7 @@ public class PlanetDAOOracle implements PlanetDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetId",planet_id);
+			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());
@@ -41,6 +43,7 @@ public class PlanetDAOOracle implements PlanetDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetName",planet_name);
+			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());

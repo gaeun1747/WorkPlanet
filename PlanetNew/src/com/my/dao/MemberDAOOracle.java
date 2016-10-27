@@ -20,6 +20,7 @@ public class MemberDAOOracle implements MemberDAO {
 		try{
 			System.out.println(m.getMember_pw());
 			sqlSession.insert("MemberMapper.insert", m);
+			sqlSession.commit();
 		}catch(Exception e){
 			if(e.getCause() instanceof 	SQLException){				
 				SQLException e1 = (SQLException)e.getCause();
@@ -82,6 +83,7 @@ public class MemberDAOOracle implements MemberDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			String selectid = sqlSession.selectOne("MemberMapper.selectById", id);
+			sqlSession.commit();
 			return selectid;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());
@@ -95,6 +97,7 @@ public class MemberDAOOracle implements MemberDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			String selectpass = sqlSession.selectOne("MemberMapper.selectByPassword", member_id);
+			sqlSession.commit();
 			return selectpass;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());

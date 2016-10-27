@@ -18,7 +18,8 @@ public class T_MemDAOOracle implements T_MemDAO {
 	public void insertMaster(P_Mem p) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("T_MemMapper.insertMaster", p);			
+			sqlSession.insert("T_MemMapper.insertMaster", p);	
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -29,7 +30,8 @@ public class T_MemDAOOracle implements T_MemDAO {
 	public void insert(P_Mem p) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("T_MemMapper.insert", p);			
+			sqlSession.insert("T_MemMapper.insert", p);	
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
@@ -77,6 +79,7 @@ public class T_MemDAOOracle implements T_MemDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<T_Mem> list = sqlSession.selectList("T_MemMapper.selectById",team_id);
+			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());

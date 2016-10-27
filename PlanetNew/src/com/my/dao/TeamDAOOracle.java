@@ -12,7 +12,8 @@ public class TeamDAOOracle implements TeamDAO {
 	public void insert(Team t) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("TeamMapper.insert", t);			
+			sqlSession.insert("TeamMapper.insert", t);	
+			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
