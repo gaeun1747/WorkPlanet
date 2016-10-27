@@ -4,12 +4,13 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.my.exception.InsertException;
 import com.my.exception.UpdateException;
+import com.my.sql.MyConnection;
 import com.my.vo.Team;
 
 public class TeamDAOOracle implements TeamDAO {
-	private SqlSession sqlSession;
 	@Override
 	public void insert(Team t) throws InsertException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try{
 			sqlSession.insert("TeamMapper.insert", t);			
 		}catch(Exception e){
@@ -20,6 +21,7 @@ public class TeamDAOOracle implements TeamDAO {
 	}
 	@Override
 	public void delete(int team_id) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			sqlSession.update("TeamMapper.delete", team_id);
 			sqlSession.commit();
@@ -30,6 +32,7 @@ public class TeamDAOOracle implements TeamDAO {
 	}
 	@Override
 	public void update(Team t) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			sqlSession.update("TeamMapper.update", t);
 			sqlSession.commit();

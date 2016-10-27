@@ -23,6 +23,6 @@
  	SELECT member_id FROM member WHERE member_id=#{member_id}
  </select>
  <select id="selectByPassword" parameterType="java.lang.String" resultType="java.lang.String">
- 	SELECT member_pw FROM member WHERE member_pw=#{member_pw}
+ 	SELECT member_pw FROM member WHERE member_id=#{member_id}
  </select>
 </mapper>

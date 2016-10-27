@@ -18,6 +18,6 @@ public interface MemberDAO {
 	//id 조회
 	public String selectById(String Member_id) throws SelectException;
 	//비밀번호확인
-	public String selectByPassword(String Member_pass) throws SelectException;
+	public String selectByPassword(String Member_id) throws SelectException;
 }
  

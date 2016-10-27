@@ -9,12 +9,13 @@ import org.apache.ibatis.session.SqlSession;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
+import com.my.sql.MyConnection;
 import com.my.vo.N_Mem;
 
 public class N_MemDAOOracle implements N_MemDAO {
-	private SqlSession sqlSession;
 	@Override
 	public List<N_Mem> selectByPlanetId(int planet_id) throws SelectException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<N_Mem> list = sqlSession.selectList("N_MemMapper.selectByPlanetId",planet_id);
 			return list;
@@ -27,6 +28,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 	
 	@Override
 	public void insertMaster(N_Mem n) throws InsertException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try{
 			sqlSession.insert("N_MemMapper.insertMaster", n);			
 		}catch(Exception e){
@@ -37,6 +39,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 	} 
 	@Override
 	public void insert(N_Mem n) throws InsertException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try{
 			sqlSession.insert("N_MemMapper.insert", n);			
 		}catch(Exception e){
@@ -48,6 +51,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 
 	@Override
 	public List<N_Mem> selectByNationId(int nation_id) throws SelectException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<N_Mem> list = sqlSession.selectList("N_MemMapper.selectByNationId",nation_id);
 			return list;
@@ -60,6 +64,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 
 	@Override
 	public void updateMaster(String masterid, String normalid,int nation_id) throws SelectException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			Map<Object,Object> map1= new HashMap<Object,Object>();
 			map1.put("masterid", masterid);
@@ -78,6 +83,7 @@ public class N_MemDAOOracle implements N_MemDAO {
 
 	@Override
 	public void leave(String member_id,int nation_id) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			Map<Object,Object> map= new HashMap<Object,Object>();
 			map.put("member_id", member_id);

@@ -8,11 +8,13 @@ import org.apache.ibatis.session.SqlSession;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
+import com.my.sql.MyConnection;
 import com.my.vo.P_Mem;
 
 public class P_MemDAOOracle implements P_MemDAO {
 	private SqlSession sqlSession;
 	public void insertMaster(P_Mem p) throws InsertException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try{
 			sqlSession.insert("P_MemMapper.insertMaster", p);			
 		}catch(Exception e){
@@ -22,6 +24,7 @@ public class P_MemDAOOracle implements P_MemDAO {
 		}	
 	} 
 	public void insert(P_Mem p) throws InsertException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try{
 			sqlSession.insert("P_MemMapper.insert", p);			
 		}catch(Exception e){
@@ -33,6 +36,7 @@ public class P_MemDAOOracle implements P_MemDAO {
 
 	@Override
 	public void update(P_Mem p,int planet_id) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			Map<Object,Object> map= new HashMap<Object,Object>();
 			map.put("nickname", p.getNickname());
@@ -47,6 +51,7 @@ public class P_MemDAOOracle implements P_MemDAO {
 
 	@Override
 	public void leave(String member_id,int planet_id) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			Map<Object,Object> map= new HashMap<Object,Object>();
 			map.put("member_id", member_id);
@@ -61,6 +66,7 @@ public class P_MemDAOOracle implements P_MemDAO {
 
 	@Override
 	public void updateMaster(String masterid, String normalid,int planet_id) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			Map<Object,Object> map1= new HashMap<Object,Object>();
 			map1.put("masterid", masterid);
@@ -80,6 +86,7 @@ public class P_MemDAOOracle implements P_MemDAO {
 
 	@Override
 	public P_Mem selectById(String member_id,int planet_id) throws SelectException {
+		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			Map<Object,Object> map= new HashMap<Object,Object>();
 			map.put("member_id", member_id);
