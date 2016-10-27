@@ -1,8 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <style>
-  ul.indexmenu>li { list-style:none ; display:inline-block ; margin:auto }
-  ul.menu>a { width:150px ; text-decoration:none ; font-size:24px ; }
-  li.logo { font-size:28px ; font-weight:bold ; float:left }
+  ul.indexmenu { vertical-align: text-bottom ; }
+  ul.indexmenu>li { width:150px ; list-style:none ; display:inline-block ; 
+  margin:auto ; font-size:18px ; }
+  li.logo { font-size:32px !important ; font-weight:bold ; float:left }
 </style>
 <ul class="indexmenu" >
   <li class="logo">planet</li>
