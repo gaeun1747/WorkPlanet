@@ -5,12 +5,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.my.exception.DuplicatedException;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
-import com.my.sql.MyConnection;
-import com.my.vo.Member;
 import com.my.vo.N_Mem;
 
 public class N_MemDAOOracle implements N_MemDAO {
