@@ -22,7 +22,6 @@ public class NationDAOOracle implements NationDAO {
 			sqlSession.close();
 		}
 	}
-
 	@Override
 	public void update(Nation n) throws UpdateException {
 		try {

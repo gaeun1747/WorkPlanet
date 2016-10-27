@@ -9,17 +9,20 @@ public class P_MemService {
 	public P_MemService() {
 		dao = new P_MemDAOOracle();
 	}
+	// 플래닛 만들었을때
+	public void registerMaster(P_Mem pmem){
+	}
 	// 플래닛 가입
 	public void register(P_Mem pmem){
 	}
 	// 플래닛회원 정보 수정
 	public void modify(P_Mem pmem){}
 	// 플래닛탈퇴(status)
-	public void delete(String member_id){}
+	public void delete(String member_id,int planet_id){}
 	// 마스터위임
-	public void modifyMaster(String masterId, String normalId){}
+	public void modifyMaster(String masterId, String normalId,int planet_id){}
 	// 플래닛멤버 조회
-	public P_Mem findById(String member_id){
+	public P_Mem findById(String member_id,int planet_id){
 		return null;
 	}
 }

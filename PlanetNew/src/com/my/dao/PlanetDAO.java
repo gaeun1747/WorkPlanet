@@ -18,4 +18,4 @@ public interface PlanetDAO {
 	//플래닛 수정
 	public void update(Planet p)throws UpdateException;
 	
-}
+} 

@@ -18,4 +18,4 @@ public interface NationDAO {
 	public List<Nation> selectByMemberId(String member_id)throws SelectException;
 	//그룹 삭제
 	public void delete(String nation_id)throws UpdateException;
-}
+} 
