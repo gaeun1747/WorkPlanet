@@ -86,9 +86,9 @@ public class MemberDAOOracle implements MemberDAO {
 	} 
 
 	@Override
-	public String selectByPassword(String pass) throws SelectException {
+	public String selectByPassword(String member_id) throws SelectException {
 		try {
-			String selectpass = sqlSession.selectOne("MemberMapper.selectByPassword", pass);
+			String selectpass = sqlSession.selectOne("MemberMapper.selectByPassword", member_id);
 			return selectpass;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());
