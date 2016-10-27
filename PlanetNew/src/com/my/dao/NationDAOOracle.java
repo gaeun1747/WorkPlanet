@@ -36,7 +36,7 @@ public class NationDAOOracle implements NationDAO {
 	}
 
 	@Override
-	public List<Nation> selectByMemberList(String member_id) throws SelectException {
+	public List<Nation> selectById(String member_id) throws SelectException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<Nation> list = sqlSession.selectList("NationMapper.selectByMemberList",member_id);
@@ -50,7 +50,7 @@ public class NationDAOOracle implements NationDAO {
 	}
 
 	@Override
-	public List<Nation> selectByMemberId(String member_id) throws SelectException {
+	public List<Nation> selectByStatus(String member_id) throws SelectException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<Nation> list = sqlSession.selectList("NationMapper.selectByMemberId",member_id);

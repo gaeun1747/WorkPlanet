@@ -10,14 +10,14 @@ public interface MemberDAO {
 	//비밀번호 변경
 	public void updatePassword(Member m) throws UpdateException;
 	//계정삭제 status 수정
-	public void delete(String Member_id) throws UpdateException;
+	public void delete(String member_id) throws UpdateException;
 	//회원정보 수정
 	public void updateMember(Member m) throws UpdateException;
 	//멤버찾기
-	public Member selectAllById(String Member_id) throws SelectException;
+	public Member selectAllById(String member_id) throws SelectException;
 	//id 조회
-	public String selectById(String Member_id) throws SelectException;
+	public String selectById(String member_id) throws SelectException;
 	//비밀번호확인
-	public String selectByPassword(String Member_id) throws SelectException;
+	public String selectByPassword(String member_id) throws SelectException;
 }
  

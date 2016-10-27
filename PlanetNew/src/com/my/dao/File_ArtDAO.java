@@ -9,7 +9,7 @@ import com.my.vo.File_Art;
 
 public interface File_ArtDAO {
 	//첨부파일 추가
-	public void insert(File_Art f) throws InsertException;
+	public void insert(File_Art file) throws InsertException;
 	/**
 	 * 파일 id로 각 파일 삭제하기
 	 * @param file_id

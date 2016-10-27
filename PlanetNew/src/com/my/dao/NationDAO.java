@@ -12,10 +12,10 @@ public interface NationDAO {
 	public void insert(Nation n)throws InsertException;
 	//그룹 수정
 	public void update(Nation n)throws UpdateException;
-	//그룹 목록보기
-	public List<Nation> selectByMemberList(String member_id)throws SelectException;
-	//그룹 찾기
-	public List<Nation> selectByMemberId(String member_id)throws SelectException;
+	//가입한 그룹 목록보기
+	public List<Nation> selectById(String member_id)throws SelectException;
+	//가입안한 그룹 찾기
+	public List<Nation> selectByStatus(String member_id)throws SelectException;
 	//그룹 삭제
 	public void delete(String nation_id)throws UpdateException;
 } 
