@@ -29,6 +29,7 @@ public class P_MemService {
 		dao.leave(member_id, planet_id);
 	}
 	// 마스터위임
+
 	public void modifyMaster(String masterId, String normalId,int planet_id) throws UpdateException{
 		dao.updateMaster(masterId, normalId, planet_id);
 	}

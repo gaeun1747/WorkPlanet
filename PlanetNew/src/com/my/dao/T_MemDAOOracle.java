@@ -15,10 +15,10 @@ import com.my.vo.T_Mem;
 
 public class T_MemDAOOracle implements T_MemDAO {
 	@Override
-	public void insertMaster(P_Mem p) throws InsertException {
+	public void insertMaster(T_Mem t) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("T_MemMapper.insertMaster", p);	
+			sqlSession.insert("T_MemMapper.insertMaster", t);	
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
@@ -27,10 +27,10 @@ public class T_MemDAOOracle implements T_MemDAO {
 		} 
 	}
 	@Override
-	public void insert(P_Mem p) throws InsertException {
+	public void insert(T_Mem t) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("T_MemMapper.insert", p);	
+			sqlSession.insert("T_MemMapper.insert", t);	
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());

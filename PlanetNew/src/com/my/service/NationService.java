@@ -26,9 +26,11 @@ public class NationService {
 	public List<Nation> findByStatus(String member_id) throws SelectException{
 		return dao.selectByStatus(member_id);
 	}
+
 	// 그룹목록보기 - 공개/비공개
 	public List<Nation> findById(String member_id) throws SelectException{
 		return dao.selectById(member_id);
+
 	}
 	// 그룹삭제(status)
 	public void delete(String nation_id) throws UpdateException{

@@ -24,5 +24,4 @@
 	<update id="leave" parameterType="hashmap">
 		UPDATE n_mem SET use_status='N' WHERE member_id=#{member_id} AND nation_id=#{nation_id}	
 	</update>
- 
 </mapper>

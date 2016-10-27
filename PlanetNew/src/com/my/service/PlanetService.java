@@ -7,7 +7,6 @@ import com.my.dao.PlanetDAOOracle;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
-import com.my.vo.Article;
 import com.my.vo.Planet;
 
 public class PlanetService {
@@ -32,7 +31,9 @@ public class PlanetService {
 		dao.update(planet_name);
 	}
 	// 플래닛 삭제
-	public void delete(String planet) throws UpdateException{
-		dao.delete(planet);
+
+	public void delete(String planet_id) throws UpdateException{
+		dao.delete(planet_id);
+
 	}
 }

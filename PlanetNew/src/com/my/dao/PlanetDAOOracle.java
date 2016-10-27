@@ -65,10 +65,10 @@ public class PlanetDAOOracle implements PlanetDAO {
 	}
 
 	@Override
-	public void update(Planet p) throws UpdateException {
+	public void update(String planet_name) throws UpdateException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
-			sqlSession.update("PlanetMapper.update", p);
+			sqlSession.update("PlanetMapper.update", planet_name);
 			sqlSession.commit();
 		}finally{
 			sqlSession.close();
