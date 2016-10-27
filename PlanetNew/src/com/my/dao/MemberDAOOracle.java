@@ -13,6 +13,7 @@ import com.my.vo.Member;
 public class MemberDAOOracle implements MemberDAO {
 	
 	private SqlSession sqlSession;
+	
 	@Override
 	public void insert(Member m) throws InsertException {
 		try{
@@ -37,8 +38,6 @@ public class MemberDAOOracle implements MemberDAO {
 		}finally{
 			sqlSession.close();
 		}
-		
-		
 	}
 
 	@Override

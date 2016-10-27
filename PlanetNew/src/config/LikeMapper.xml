@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE article_id=#{article_id} AND like_member_id=#{like_member_id}
 	</select>
 	<insert id="insertLike" parameterType="java.util.HashMap">
-		INSERT INTO like_art VALUES( #{article_id}, #{like_member_id}, ‘Y’)
+		INSERT INTO like_art VALUES( #{article_id}, #{like_member_id}, 'Y')
 	</insert>
 	<update id="updateLike" parameterType="hashmap">
 		UPDATE like_art SET use_status=#{status} 
@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectAllMember" parameterType="int">
 		SELECT like_member_id 
 		FROM like_art 
-		WHERE article_id=#{article_id} AND use_status=’Y’
+		WHERE article_id=#{article_id} AND use_status='Y'
 	</select>
 	
 </mapper>
