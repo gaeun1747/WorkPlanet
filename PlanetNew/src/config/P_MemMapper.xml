@@ -9,7 +9,7 @@
 	<insert id="insert" parameterType="com.my.vo.P_Mem">
 		INSERT INTO p_mem VALUES( #{member_id}, #{planet_id}, #{nickname}, #{reg_date}, 'N', 'Y' )	
 	</insert>
-	<update id="update" parameterType="hashmap">
+	<update id="update" parameterType="com.my.vo.P_Mem">
 		UPDATE p_mem SET nickname=#{nickname} WHERE member_id=#{member_id} AND planet_id=#{planet_id}	
 	</update>
 	<update id="leave" parameterType="hashmap">
