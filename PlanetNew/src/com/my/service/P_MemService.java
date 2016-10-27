@@ -21,8 +21,8 @@ public class P_MemService {
 		dao.insert(pmem);
 	}
 	// 플래닛회원 정보 수정
-	public void modify(P_Mem pmem,int planet_id) throws UpdateException{
-		dao.update(pmem, planet_id);
+	public void modify(P_Mem pmem) throws UpdateException{
+		dao.update(pmem);
 	}
 	// 플래닛탈퇴(status)
 	public void delete(String member_id,int planet_id) throws UpdateException{

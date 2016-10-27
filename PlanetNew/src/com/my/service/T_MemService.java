@@ -16,12 +16,12 @@ public class T_MemService {
 		dao = new T_MemDAOOracle();
 	}
 	//팀 만들었을때
-	public void registerMaster(P_Mem p)throws InsertException{
-		dao.insertMaster(p);
+	public void registerMaster(T_Mem t)throws InsertException{
+		dao.insertMaster(t);
 	}
 	//팀멤버 추가
-	public void register(P_Mem p)throws InsertException{
-		dao.insert(p);
+	public void register(T_Mem t)throws InsertException{
+		dao.insert(t);
 	}
 	//팀장 위임
 	public void modifyMaster(String masterid,String normalid,int team_id) throws UpdateException{
