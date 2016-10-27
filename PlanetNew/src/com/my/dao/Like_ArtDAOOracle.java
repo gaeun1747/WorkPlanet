@@ -31,6 +31,8 @@ public class Like_ArtDAOOracle implements Like_ArtDAO {
 		try {
 			sqlSession.update("LikeMapper.updateLike", l);
 			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
 		}finally{
 			sqlSession.close();
 		}
