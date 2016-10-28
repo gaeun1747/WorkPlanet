@@ -64,7 +64,7 @@ button {
 }
 
 input {
-	font-size: 25px;
+	font-size: 30px;
 	font-family: 'Nanum Gothic';
 }
 </style>
@@ -72,8 +72,8 @@ input {
 	<form method="post"
 		action="${pageContext.request.contextPath}/login.do">
 		<h1>PLANET 로그인</h1>
-		ID : <input name="member_id" required><br> <br>
-		PASSWORD : <input name="member_pw" required><br> <br>
+		<input name="member_id" placeholder="아이디" required><br> <br>
+		<input name="member_pw" placeholder="비밀번호" required><br> <br>
 		<button id="btLogin">로그인</button>
 		<button id="btRegister">회원가입</button>
 	</form>
