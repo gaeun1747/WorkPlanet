@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%><%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,18 +7,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 //javascript
-function init(){
+$(function(){
 	$("#btnsignup").click(function(){	
 		var url = "signup.do";
 		var data = $("form").serialize();
+		alert(url);
+		alert(data);
 		var success = function(responseResult){
-			alert("가입성공");
-			location.href="login.jsp";
-		};
+			//alert(responseResult);
+			location.href="index.jsp";
+		}
 		$.post(url, data, success);
 	});
-}
-$(init);
+});
 </script>
 <style>
 	table{margin:auto; background-color:gray; text-align: left; width:220px }

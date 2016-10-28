@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.my.control.Controller;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.service.MemberService;
@@ -23,6 +22,7 @@ public class SignController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		Member member = new Member();
+		System.out.println("SignController : 들옴");
 		String member_id = request.getParameter("inputId");
 		String member_pw1 = request.getParameter("inputPw1");
 		String member_pw2 = request.getParameter("inputPw2");
@@ -48,7 +48,7 @@ public class SignController implements Controller {
 		try {
 			if(service.findAllById(member_id)!=null){
 				request.setAttribute("result", "중복된 아이디입니다");
-				return "signup.jsp";
+				return "result.jsp";
 			}
 		} catch (SelectException e) {
 			e.printStackTrace();
@@ -58,7 +58,7 @@ public class SignController implements Controller {
 		
 		if (!member_pw1.equals(member_pw2)) {
 			request.setAttribute("result", "비밀번호 재확인이 틀렸습니다");
-			return "signup.jsp";
+			return "result.jsp";
 		}
 		try {
 			service.register(member);
