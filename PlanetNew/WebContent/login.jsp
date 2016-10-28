@@ -1,11 +1,45 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta charset="UTF-8">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+.loginmsg {
+	margin-top:20px;
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 25px;
+}
+
+form {
+	text-align: center;
+	margin: auto;
+}
+
+form>input {
+	font-size: 25px;
+	padding: 10px 15px;
+}
+
+form>button {
+	font-weight: bold;
+	font-size: 28px;
+	background-color: #24468A;
+	padding: 15px 30px;
+	color: #ffffff;
+	border: none;
+	border-radius: 6px;
+	padding: 15px 30px;
+}
+</style>
+
 <script>
 	function init() {
 		$("#btLogin").click(function() {
 			event.preventDefault();
-			var url='login.do';
+			var url = 'login.do';
 			var data = $("form").serialize();
 			var success = function(responseResult) {
 				console.log(responseResult.trim());
@@ -20,16 +54,23 @@
 	}
 	$(init);
 </script>
+</head>
+<body>
+	<div>
+		<div class="loginmsg">
+			<h1>planet 로그인</h1>
+		</div>
+		<div class="loginsubmit">
+			<form method="post">
 
-<style>
-form {
-	text-align: center ; margin:auto ; 
-}
-</style>
-<form method="post" >
-	<h1>PLANET 로그인</h1>
-	ID : <input name="member_id" required><br> <br>
-	PASSWORD : <input name="member_pw" required><br> <br>
-	<button id="btLogin">로그인</button>
-	<button id="btRegister">회원가입</button>
-</form>
+				<input type="text" name="member_id" placeholder="아이디" required><br>
+				<br> <input type="text" name="member_pw" placeholder="비밀번호"
+					required><br> <br>
+
+				<button id="btLogin">로그인</button>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
