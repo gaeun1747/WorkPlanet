@@ -10,23 +10,26 @@
 
 <style>
 .frame {
-	width: 800px;
+	width: 1000px;
 	margin: 0 auto;
-	border: 1px solid #aaa;
+	/* border: 1px solid #aaa; */
 }
 
 .header {
-	
-	text-align: center;
+	width: 100%;
+	height: 100px; 
 	margin-bottom: 20px;
+	text-align: center;
 }
-.container{
+
+.container {
 	/* margin-top:20px; */
-	overflow:hidden;
+	overflow: hidden;
 }
+
 .nav {
 	float: left;
-	width: 150px;
+	width: 200px;
 	color: #fff;
 	margin-right: 50px;
 }
@@ -40,11 +43,10 @@
 <body>
 	<div class="frame">
 		<div class="header">
-			<nav style="text-align: center"><jsp:include
-					page="indexmenu.jsp" /></nav>
+			<nav>
+				<jsp:include page="indexmenu.jsp" />
+			</nav>
 		</div>
-
-
 		<div class="container">
 			<div class="nav">
 				<nav>

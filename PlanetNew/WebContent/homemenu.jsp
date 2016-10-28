@@ -3,9 +3,11 @@
 .nav-list {
 	list-style: none;
 	margin: 0;
-	padding: 10px 0;
+	padding: 0;
 }
 .nav-item {
+	padding:20px 30px;
+	background: #24468A;
 	margin-top:10px;
 }
 .nav-link {
