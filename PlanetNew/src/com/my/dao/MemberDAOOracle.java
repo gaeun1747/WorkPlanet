@@ -29,6 +29,9 @@ public class MemberDAOOracle implements MemberDAO {
 				}				
 			}
 			throw new InsertException(e.getMessage());
+		}finally{
+			sqlSession.close();
+			
 		}
 	}
 
