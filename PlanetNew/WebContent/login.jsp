@@ -44,8 +44,9 @@ form>button {
 			var success = function(responseResult) {
 				console.log(responseResult.trim());
 				if (responseResult.trim() == "1") {
+					
 					alert("로그인 성공");
-					/* $("section").html(responseResult); */
+					location.href="home.jsp";
 				} else {
 					alert("로그인 실패");
 				}
