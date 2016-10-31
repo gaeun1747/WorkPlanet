@@ -27,8 +27,8 @@ public class PlanetService {
 		return dao.selectByPlanetName(planet_name);
 	}
 	// 플래닛 정보 수정
-	public void modify(String planet_name) throws UpdateException{
-		dao.update(planet_name);
+	public void modify(String planet_id, String planet_name) throws UpdateException{
+		dao.update(planet_id, planet_name);
 	}
 	// 플래닛 삭제
 

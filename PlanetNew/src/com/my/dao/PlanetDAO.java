@@ -16,5 +16,5 @@ public interface PlanetDAO {
 	//플래닛 삭제 status수정
 	public void delete(String planet_id)throws UpdateException;
 	//플래닛 수정 - 플래닛 이름 수정
-	public void update(String planet_name)throws UpdateException;
+	public void update(String planet_id, String planet_name)throws UpdateException;
 } 
