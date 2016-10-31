@@ -16,7 +16,7 @@
 	UPDATE member SET member_name=#{member_name}, birthdate=#{birthdate}, dept=#{dept},
 	email=#{email} WHERE member_id=#{member_id}
  </update>
- <select id="selectAllById" parameterType="java.lang.String" resultType="com.my.vo.Member">
+ <select id="selectAllById" resultType="com.my.vo.Member">
  	SELECT * FROM member WHERE member_id=#{member_id}
  </select>
  <select id="selectById" parameterType="java.lang.String" resultType="java.lang.String">
