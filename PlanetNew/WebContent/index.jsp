@@ -15,7 +15,6 @@
   img.indeximg { width:100% ; height:100% }
   section>div.indexmsg { width:100% ; position:absolute ; top: 370px ; 
   color:white ; text-align:center ; font-size:32px ; font-weight: bold ; }
-  a { text-decoration:none ; color:#555555 }
   section>input[type=button] { position:absolute ; top:500px ; left:45% ; 
   font-weight:bold ; font-size:28px ; background-color:white ; 
   border:none ; padding:15px 30px ; color:#555555 ; border-radius:6px }
