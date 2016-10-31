@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <style>
 .loginmsg {
-	margin-top:20px;
+	margin-top: 20px;
 	text-align: center;
 	margin-bottom: 40px;
 	font-size: 25px;
@@ -23,7 +23,7 @@ form>input {
 	padding: 10px 15px;
 }
 
-form>button {
+form>input[type=button] {
 	font-weight: bold;
 	font-size: 28px;
 	background-color: #24468A;
@@ -51,6 +51,20 @@ form>button {
 			}
 			$.post(url, data, success); // ResultServlet. service( , );
 		});
+		
+		
+		$("input[type=button]").click(function(event){
+			if (responseResult.trim() == "1") {
+			
+			/* 이곳에 비번, 아이디 확인시 조건 들어감 */
+			var url="home.jsp";
+			var success = function(responseResult){
+				$("section").html(responseResult);
+			};
+			$.post(url, success);
+		});
+		}
+		
 	}
 	$(init);
 </script>
@@ -62,12 +76,12 @@ form>button {
 		</div>
 		<div class="loginsubmit">
 			<form method="post">
-
 				<input type="text" name="member_id" placeholder="아이디" required><br>
 				<br> <input type="text" name="member_pw" placeholder="비밀번호"
 					required><br> <br>
 
-				<button id="btLogin">로그인</button>
+				<!-- <button id="btLogin">로그인</button> -->
+				<input type="button" value="로그인" />
 
 			</form>
 		</div>

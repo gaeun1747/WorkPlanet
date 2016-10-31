@@ -57,11 +57,11 @@
 </head>
 <body>
 	<div class="frame">
-		<div class="header">
+		<%-- <div class="header">
 			<nav>
 				<jsp:include page="indexmenu.jsp" />
 			</nav>
-		</div>
+		</div> --%>
 		<div class="container">
 			<div class="nav">
 				<nav>

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>planet</display-name>
-  <context-param>
-    <param-name>devName</param-name>
-    <param-value>Limjisoo</param-value>
-  </context-param>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>PlanetNew</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -13,28 +9,33 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+<servlet>
     <description></description>
     <display-name>DispatcherServlet</display-name>
     <servlet-name>DispatcherServlet</servlet-name>
     <servlet-class>control.DispatcherServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
+</servlet>
+<servlet-mapping>
     <servlet-name>DispatcherServlet</servlet-name>
     <url-pattern>*.do</url-pattern>
-  </servlet-mapping>
-  <filter>
+</servlet-mapping>
+ <listener>
+    <listener-class>listener.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>listener.MySessionAttibuteListener</listener-class>
+  </listener>
+ <filter>
     <display-name>CharacterEncodingFilter</display-name>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>filter.CharacterEncodingFilter</filter-class>
     <init-param>
-       <param-name>encoding</param-name>
-       <param-value>UTF-8</param-value>
+     <param-name>encoding</param-name>
+     <param-value>UTF-8</param-value>
     </init-param>
   </filter>
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>*.do</url-pattern>
-    <!-- /a.do,  *.do(확장자만 일치하는url),  /* (모든url) -->
   </filter-mapping>
 </web-app>

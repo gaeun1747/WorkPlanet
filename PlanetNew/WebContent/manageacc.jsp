@@ -4,13 +4,21 @@
 <html>
 <head>
 <meta charset=UTF-8">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+</script>
 <script>
 
 
 </script>
-<title>Insert title here</title>
 </head>
 <body>
-계정 관리
+<h1 class="myplanet-tit">계정 관리</h1>
+	<hr>
+	<div class="box-group">
+		<div class="planet-item">
+			<div class="planet-name"></div>
+		</div>
+	</div>
 </body>
 </html>

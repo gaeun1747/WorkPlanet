@@ -26,9 +26,9 @@ public class MyConnection {
 			e.printStackTrace();
 		}
 	}
-
 	static public SqlSession getSession() {
 		SqlSession session = sqlSessionFactory.openSession();
+		System.out.println(session+"session");
 		return session;
 	}
 
@@ -36,13 +36,12 @@ public class MyConnection {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		// 3.DB연결
 		Connection con = null;
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		String url = "jdbc:oracle:thin:@192.168.0.252:1521:XE";
 		String user = "planet";
 		String password = "planet";
 		con = DriverManager.getConnection(url, user, password);
 		return con;
 	}
-
 	public static void close(ResultSet rs, Statement stmt, PreparedStatement pstmt, Connection con) {
 		try {
 			pstmt.close();
@@ -61,7 +60,6 @@ public class MyConnection {
 		} catch (Exception e) {
 		}
 	}
-
 	public static void close(Statement stmt, Connection con) {
 		close(null, stmt, null, con);
 	}

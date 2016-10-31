@@ -17,7 +17,7 @@
 	<update id="delete" parameterType="java.lang.String">
 		UPDATE planet SET use_status='N' WHERE planet_id=#{planet_id}
 	</update>
-	<update id="delete" parameterType="com.my.vo.Planet">
+	<update id="update" parameterType="hashmap">
 		UPDATE planet SET planet_name=#{planet_name} WHERE planet_id=#{planet_id}
 	</update>
 </mapper>
