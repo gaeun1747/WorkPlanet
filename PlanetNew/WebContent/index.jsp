@@ -7,7 +7,7 @@
 <title>편리한 팀 커뮤니케이션, 플래닛! - Planet</title>
 <style>
   header { width:100% ; height:100px }
-  section { margin:auto ; width:100% ; height:700px ; border:1px solid }
+  section { margin:auto ; width:100% ; height:700px }
   footer>address { text-align:center ; font-size:12px ; }
   section>div.indexcolorimg { width:100% ; height:400px ; 
   position:absolute ; top:250px ; background-color:rgba(0, 0, 0, 0.5) }
@@ -16,8 +16,37 @@
   section>div.indexmsg { width:100% ; position:absolute ; top: 370px ; 
   color:white ; text-align:center ; font-size:32px ; font-weight: bold ; }
   a { text-decoration:none ; color:#555555 }
-  input[type=button] { left:50% ;  position:absolute ; top:500px }
+  section>input[type=button] { position:absolute ; top:500px ; left:45% ; 
+  font-weight:bold ; font-size:28px ; background-color:white ; 
+  border:none ; padding:15px 30px ; color:#555555 ; border-radius:6px }
 </style>
+<script>
+$(function(){
+	$("nav").on("click", "ul.indexmenu>li a", function(event){
+		event.preventDefault();
+		var url = $(this).attr("href");
+		if( url=="#"){
+			return ;
+		}
+		var success = function(responseResult){
+			if(url == "logout.do" || url=="index.jsp"){
+				location.href="${pageContext.request.contextPath}";
+			}
+			else{
+				$("section").html(responseResult);
+			}
+		};
+		$.post(url, success);
+	});	
+	$("input[type=button]").click(function(event){
+		var url="signup.jsp";
+		var success = function(responseResult){
+			$("section").html(responseResult);
+		};
+		$.post(url, success);
+	});
+});
+</script>
 </head>
 <body>
 <header>

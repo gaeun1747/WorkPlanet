@@ -14,6 +14,8 @@ import com.my.exception.SelectException;
 import com.my.service.MemberService;
 import com.my.vo.Member;
 
+import oracle.sql.DATE;
+
 public class SignController implements Controller {
 	private MemberService service;
 	public SignController(MemberService service) {
@@ -34,32 +36,35 @@ public class SignController implements Controller {
 		member.setMember_pw(member_pw1);
 		member.setMember_name(member_name);
 		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
-		Date tempDate;
+		Date date=null;
+		String bd=birthdate.substring(0,2)+"/"+birthdate.substring(2,4)+"/"+birthdate.substring(4,6);
 		try {
-			tempDate = sdf.parse(birthdate);
-			member.setBirthdate(tempDate);
+			date=(Date)sdf.parse(bd);
+			member.setBirthdate(date);
 		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		System.out.println(member.getBirthdate());
 		member.setDept(dept);
 		member.setEmail(email);
 		member.setUse_status('Y');
-		try {
-			if(service.findAllById(member_id)!=null){
-				request.setAttribute("result", "중복된 아이디입니다");
-				return "result.jsp";
-			}
-		} catch (SelectException e) {
-			e.printStackTrace();
-			request.setAttribute("result", e.getMessage());
-		}
-		
-		
-		if (!member_pw1.equals(member_pw2)) {
-			request.setAttribute("result", "비밀번호 재확인이 틀렸습니다");
-			return "result.jsp";
-		}
+		System.out.println(member_id);
+//		try {
+//			if(service.findAllById(member_id)==null){
+//				request.setAttribute("result", "중복된 아이디입니다");
+//				return "result.jsp";
+//			}
+//		} catch (SelectException e) {
+//			e.printStackTrace();
+//			request.setAttribute("result", e.getMessage());
+//		}
+//		
+//		
+//		if (!member_pw1.equals(member_pw2)) {
+//			request.setAttribute("result", "비밀번호 재확인이 틀렸습니다");
+//			return "result.jsp";
+//		}
 		try {
 			service.register(member);
 			request.setAttribute("result", member_name + " 가입성공");

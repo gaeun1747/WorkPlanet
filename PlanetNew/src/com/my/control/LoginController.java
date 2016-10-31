@@ -1,4 +1,4 @@
-package control;
+package com.my.control;
 
 import java.io.IOException;
 
