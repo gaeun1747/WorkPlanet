@@ -59,12 +59,10 @@ public class SignController implements Controller {
 //			e.printStackTrace();
 //			request.setAttribute("result", e.getMessage());
 //		}
-//		
-//		
-//		if (!member_pw1.equals(member_pw2)) {
-//			request.setAttribute("result", "비밀번호 재확인이 틀렸습니다");
-//			return "result.jsp";
-//		}
+		if (!member_pw1.equals(member_pw2)) {
+			request.setAttribute("result", "1");
+			return "result.jsp";
+		}
 		try {
 			service.register(member);
 			request.setAttribute("result", member_name + " 가입성공");

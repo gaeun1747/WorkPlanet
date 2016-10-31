@@ -80,7 +80,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		notice_status = #{notice_status} where article_id = #{article_id}
 	</update>
 
-	<select id="selectByArtId" parameterType="int" resultMap="article">
+	<select id="selectByArtId" parameterType="int" resultMap="articles">
 		select * from article where article_id=#{id}
 	</select>
 

@@ -53,17 +53,17 @@ form>input[type=button] {
 		});
 		
 		
-		$("input[type=button]").click(function(event){
-			if (responseResult.trim() == "1") {
+// 		$("input[type=button]").click(function(event){
+// 			if (responseResult.trim() == "1") {
 			
-			/* 이곳에 비번, 아이디 확인시 조건 들어감 */
-			var url="home.jsp";
-			var success = function(responseResult){
-				$("section").html(responseResult);
-			};
-			$.post(url, success);
-		});
-		}
+// 			/* 이곳에 비번, 아이디 확인시 조건 들어감 */
+// 			var url="home.jsp";
+// 			var success = function(responseResult){
+// 				$("section").html(responseResult);
+// 			};
+// 			$.post(url, success);
+// 		});
+// 		}
 		
 	}
 	$(init);
@@ -80,8 +80,8 @@ form>input[type=button] {
 				<br> <input type="text" name="member_pw" placeholder="비밀번호"
 					required><br> <br>
 
-				<!-- <button id="btLogin">로그인</button> -->
-				<input type="button" value="로그인" />
+				<button id="btLogin">로그인</button>
+<!-- 				<input type="button" value="로그인" /> -->
 
 			</form>
 		</div>

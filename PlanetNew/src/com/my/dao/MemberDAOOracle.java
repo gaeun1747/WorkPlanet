@@ -14,9 +14,7 @@ import com.my.vo.Member;
 public class MemberDAOOracle implements MemberDAO {
 	@Override
 	public void insert(Member m) throws InsertException {
-		System.out.println("myconnection.getsession1");
 		SqlSession sqlSession=MyConnection.getSession();
-		System.out.println("myconnection.getsession2");
 		try{
 			System.out.println(m.getMember_pw());
 			sqlSession.insert("MemberMapper.insert", m);
@@ -29,6 +27,8 @@ public class MemberDAOOracle implements MemberDAO {
 				}				
 			}
 			throw new InsertException(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 	}
 
