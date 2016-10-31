@@ -25,7 +25,6 @@ public class DispatcherServlet extends HttpServlet {
 		super.init();
 		service = new MemberService();
 		envPath = getServletContext().getRealPath("controller.properties");
-		System.out.println(envPath);
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
