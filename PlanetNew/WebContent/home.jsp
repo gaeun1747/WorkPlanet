@@ -25,7 +25,7 @@
  </script>
 <style>
 .frame {
-	width: 1000px;
+	width: 100%;
 	margin: 0 auto;
 	/* border: 1px solid #aaa; */
 }
@@ -57,15 +57,16 @@
 </head>
 <body>
 	<div class="frame">
-		<%-- <div class="header">
+		<div class="header">
 			<nav>
 				<jsp:include page="indexmenu.jsp" />
 			</nav>
-		</div> --%>
+			<br><hr>
+		</div>
 		<div class="container">
 			<div class="nav">
 				<nav>
-					<jsp:include page="homemenu.jsp" />
+					<jsp:include page="homemenu.jsp"/>
 				</nav>
 			</div>
 			<div class="content">

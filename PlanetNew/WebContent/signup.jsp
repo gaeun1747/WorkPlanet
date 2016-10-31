@@ -36,6 +36,16 @@ $(function(){
 	margin-bottom: 20px;
 	text-align: center;
 	font-size: 25px;}
+	button{
+		font-weight: bold;
+	font-size: 28px;
+	background-color: #24468A;
+	padding: 15px 30px;
+	color: #ffffff;
+	border: none;
+	border-radius: 6px;
+	padding: 15px 30px;
+	}
 </style>
 </head>
 <body>
@@ -81,7 +91,7 @@ $(function(){
 	<input name="inputEmail" class="inputEmail" placeholder="email을 입력하세요"required>
 	</div>
 	<div>
-	<button id="btnsignup" style="width:220px">가입하기</button>
+	<button class="btnsignup" id="btnsignup">가입하기</button>
 	</div>
 </form>
 </div>

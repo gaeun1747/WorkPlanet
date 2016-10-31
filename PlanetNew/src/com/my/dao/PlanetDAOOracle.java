@@ -74,6 +74,4 @@ public class PlanetDAOOracle implements PlanetDAO {
 			sqlSession.close();
 		}
 	}
-
-
 }

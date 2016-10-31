@@ -23,7 +23,7 @@ form>input {
 	padding: 10px 15px;
 }
 
-form>input[type=button] {
+form>button {
 	font-weight: bold;
 	font-size: 28px;
 	background-color: #24468A;
@@ -44,7 +44,9 @@ form>input[type=button] {
 			var success = function(responseResult) {
 				console.log(responseResult.trim());
 				if (responseResult.trim() == "1") {
+					
 					alert("로그인 성공");
+					location.href="home.jsp";
 				} else {
 					alert("로그인 실패");
 				}
@@ -79,10 +81,7 @@ form>input[type=button] {
 				<input type="text" name="member_id" placeholder="아이디" required><br>
 				<br> <input type="text" name="member_pw" placeholder="비밀번호"
 					required><br> <br>
-
 				<button id="btLogin">로그인</button>
-<!-- 				<input type="button" value="로그인" /> -->
-
 			</form>
 		</div>
 	</div>
