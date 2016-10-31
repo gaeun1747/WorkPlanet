@@ -63,7 +63,6 @@
 			</nav>
 			<br><hr>
 		</div>
-	
 		<div class="container">
 			<div class="nav">
 				<nav>
