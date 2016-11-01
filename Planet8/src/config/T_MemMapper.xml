@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="T_MemMapper">
+	<insert id="insertMaster" parameterType="com.my.vo.T_Mem">
+		INSERT INTO t_mem VALUES ( #{member_id}, #{team_id}, #{planet_id}, 'Y', 'Y' )
+	</insert>
+	<insert id="insert" parameterType="com.my.vo.T_Mem">
+		INSERT INTO t_mem VALUES ( #{member_id}, #{team_id}, #{planet_id}, 'N', 'Y' )
+	</insert>
+	<update id="exile" parameterType="java.lang.String">
+		UPDATE t_mem SET use_status='N' WHERE member_id=#{member_id} AND team_id=#{team_id}	
+	</update>
+	<update id="updatenormal" parameterType="hashmap">
+		UPDATE n_mem SET member_status='N' WHERE member_id=#{member_id} AND team_id=#{team_id}
+	</update>
+	<update id="updatemaster" parameterType="hashmap">
+		UPDATE n_mem SET member_status='Y' WHERE member_id=#{member_id} AND team_id=#{team_id}
+	</update>
+	<select id="selectById" parameterType="java.lang.String" resultType="com.my.vo.T_Mem">
+		SELECT * FROM t_mem WHERE team_id=#{team_id}
+	</select>
+</mapper>
