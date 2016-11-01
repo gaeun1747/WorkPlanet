@@ -1,8 +1,10 @@
+<%@page import="com.my.vo.Member"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<title>편리한 팀 커뮤니케이션, 플래닛! - Planet</title>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
 </script>
@@ -24,6 +26,7 @@
    });
  </script>
 <style>
+  address { text-align:center ; font-size:12px ; }
 .frame {
 	width: 100%;
 	margin: 0 auto;
@@ -66,14 +69,18 @@
 		<div class="container">
 			<div class="nav">
 				<nav>
-					<jsp:include page="homemenu.jsp"/>
+					<jsp:include page="homemenu.jsp" />
 				</nav>
 			</div>
 			<div class="content">
-				<h1>홈화면</h1>
+			    <%Member member = (Member)session.getAttribute("loginInfo"); %>
+				<h1 >반갑습니다! <%=member.getMember_name() %>님!</h1>
+				<h3>함께 일하는 멤버들과 업무를 공유하고 이야기 해보세요!</h3>
+				<h3>아지트로 커뮤니케이션의 혁신을 경험해보세요</h3>
 			</div>
 		</div>
 
 	</div>
 </body>
+<address>한국정보기술연구원 KITRI/공공데이터기반 java application 개발자 과정/3차 프로젝트/임종민, 최가은, 임지수</address>
 </html>
