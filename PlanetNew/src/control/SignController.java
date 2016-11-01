@@ -24,7 +24,6 @@ public class SignController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		Member member = new Member();
-		System.out.println("SignController : 들옴");
 		String member_id = request.getParameter("inputId");
 		String member_pw1 = request.getParameter("inputPw1");
 		String member_pw2 = request.getParameter("inputPw2");
@@ -45,11 +44,9 @@ public class SignController implements Controller {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.println(member.getBirthdate());
 		member.setDept(dept);
 		member.setEmail(email);
 		member.setUse_status('Y');
-		System.out.println(member_id);
 //		try {
 //			if(service.findAllById(member_id)==null){
 //				request.setAttribute("result", "중복된 아이디입니다");
@@ -65,7 +62,7 @@ public class SignController implements Controller {
 		}
 		try {
 			service.register(member);
-			request.setAttribute("result", member_name + " 가입성공");
+			request.setAttribute("result", member_name + "님 가입성공");
 		} catch (InsertException e) {
 			e.printStackTrace();
 			request.setAttribute("result", e.getMessage());

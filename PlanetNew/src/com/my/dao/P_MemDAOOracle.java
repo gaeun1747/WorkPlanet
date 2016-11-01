@@ -1,6 +1,7 @@
 package com.my.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -97,5 +98,17 @@ public class P_MemDAOOracle implements P_MemDAO {
 			sqlSession.close();
 		}
 	}
-
+    // 플래닛 찾기
+	public List<P_Mem> selectByMember(String member_id) throws SelectException{
+		SqlSession sqlSession=MyConnection.getSession();
+		try {
+			List<P_Mem> p = sqlSession.selectList("P_MemMapper.selectByMember", member_id);
+			sqlSession.commit();
+			return p;
+		} catch (Exception e) {
+			throw new SelectException(e.getMessage());
+		} finally {
+			sqlSession.close();
+		}
+	}
 }

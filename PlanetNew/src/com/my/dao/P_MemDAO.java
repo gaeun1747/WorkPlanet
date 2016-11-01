@@ -1,5 +1,7 @@
 package com.my.dao;
 
+import java.util.List;
+
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
@@ -17,5 +19,7 @@ public interface P_MemDAO {
 	public void updateMaster(String masterid,String normalid,int planet_id) throws UpdateException;
 	//멤버 정보 보기
 	public P_Mem selectById(String member_id,int planet_id) throws SelectException;
+	//플래닛 조회
+	public List<P_Mem> selectByMember(String member_id) throws SelectException;
 }
  

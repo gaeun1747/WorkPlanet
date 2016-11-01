@@ -1,5 +1,7 @@
 package com.my.service;
 
+import java.util.List;
+
 import com.my.dao.P_MemDAO;
 import com.my.dao.P_MemDAOOracle;
 import com.my.exception.InsertException;
@@ -36,5 +38,9 @@ public class P_MemService {
 	// 플래닛멤버 조회
 	public P_Mem findById(String member_id,int planet_id) throws SelectException{
 		return dao.selectById(member_id, planet_id);
+	}
+	// 플래닛 조회
+	public List<P_Mem> findByMember(String member_id) throws SelectException{
+		return dao.selectByMember(member_id);
 	}
 }
