@@ -34,7 +34,7 @@ dt{
 	border-color: black;
 	font-size: 20px;
 }
-button{
+#btndel, #btnpw {
 	margin-left:150px;
 	text-size: 40px;
 	background: white;
