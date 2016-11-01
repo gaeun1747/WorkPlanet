@@ -12,12 +12,12 @@ h1 {
 	text-align: center;
 }
 
-div {
+div.btn-group{
 	text-align: center;
 	margin: auto;
 }
 
-div>button {
+div.btn-group>button {
 	font-weight: bold;
 	font-size: 28px;
 	background-color: #24468A;
@@ -25,7 +25,6 @@ div>button {
 	color: #ffffff;
 	border: none;
 	border-radius: 6px;
-	padding: 15px 30px;
 }
 </style>
 
