@@ -19,7 +19,7 @@ margin-bottom:10px;
 }
 </style>
 <ul class="nav-list">
-	<li ><a href="myplanet.jsp">나의 플래닛</a></li>
+	<li ><a href="myplanetlist.do">나의 플래닛</a></li>
 	<li ><a href="findplanet.jsp">플래닛찾기</a></li>
 	<li ><a href="manageacc.jsp">계정관리</a></li>
 </ul>
