@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-	
 </script>
 <script>
 	$(function() {
@@ -18,14 +17,29 @@
 			$.post(url, success);
 		});
 		$("#btndel").click(function(event) {
-			var url = "deleteacc.jsp"; // 클릭 된 속성
+			
+			if (confirm("정말 계정을 삭제하시겠습니까?")==true){    //확인
+				   var data=$(this).attr("class");
+				   var url="deleteacc.do";
+				   var success=function(responseResult){
+					   location.href="logout.do";
+				   }
+				   $.post(url, data, success)
+			    }else{   //취소
+				   return;
+				}
+			/* var url = "deleteacc.jsp"; // 클릭 된 속성
 			var success = function(responseResult) {
 				$(".content").html(responseResult);
-			};
+			};*/
 			$.post(url, success);
-		});
+		}); 
+		
+		
+		
 	});
 </script>
+
 <style>
 dt{
 	display: block;
@@ -52,7 +66,6 @@ button{
 				<button id="btndel">계정삭제</button>
 				<!-- 그룹의 마스터로 되어있을 경우 계정삭제 안되도록 설정하기 -->
 			</dd>
-
 		</dl>
 
 		<dl>

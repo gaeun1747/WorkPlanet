@@ -12,8 +12,8 @@ h1 {
 	text-align: center;
 }
 
-div {
-	text-align: center;
+.btn-group {
+	text-align: center; 
 	margin: auto;
 }
 

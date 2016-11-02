@@ -25,10 +25,21 @@ public class LoginController implements Controller {
 		String pw = request.getParameter("member_pw");
 		HttpSession session = request.getSession( );
 		session.removeAttribute("loginInfo"); //기존속성삭제
+		
+		
+		
 		try {
 			Member member = service.login(id, pw);
-			request.setAttribute("result", "1");
 			session.setAttribute("loginInfo", member);
+			
+			char use_status=member.getUse_status();
+			System.out.println(use_status);
+			if(use_status=='N'){
+				request.setAttribute("result", "2");
+				return "result.jsp";
+			}
+			request.setAttribute("result", "1");
+			
 		} catch (SelectException e) {
 			e.printStackTrace();
 			request.setAttribute("result", "-1" );

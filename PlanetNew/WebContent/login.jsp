@@ -56,6 +56,9 @@ form>button {
 				if (responseResult.trim() == "1") {
 					alert("로그인 성공");
 					location.href="home.jsp";
+				} else if (responseResult.trim() == "2") {
+					alert("삭제된 계정입니다.");
+					location.href="logout.do";
 				} else {
 					alert("로그인 실패");
 				}

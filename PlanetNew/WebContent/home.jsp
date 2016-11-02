@@ -43,6 +43,7 @@
 .container {
 	/* margin-top:20px; */
 	overflow: hidden;
+	
 }
 
 .nav {
@@ -50,6 +51,7 @@
 	width: 200px;
 	color: #fff;
 	margin-right: 50px;
+	
 }
 
 .content {

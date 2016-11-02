@@ -31,7 +31,6 @@ public class PlanetService {
 		dao.update(planet_id, planet_name);
 	}
 	// 플래닛 삭제
-
 	public void delete(String planet_id) throws UpdateException{
 		dao.delete(planet_id);
 
