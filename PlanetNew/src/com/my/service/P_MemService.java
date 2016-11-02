@@ -32,8 +32,8 @@ public class P_MemService {
 	}
 	// 마스터위임
 
-	public void modifyMaster(String masterId, String normalId,int planet_id) throws UpdateException{
-		dao.updateMaster(masterId, normalId, planet_id);
+	public String modifyMaster(String member_id, int planet_id) throws UpdateException{
+		return dao.updateMaster(member_id, planet_id);
 	}
 	// 플래닛멤버 조회
 	public P_Mem findById(String member_id,int planet_id) throws SelectException{

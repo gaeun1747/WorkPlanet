@@ -36,7 +36,7 @@
 		UPDATE p_mem SET use_status='N' WHERE member_id=#{member_id} AND planet_id=#{planet_id}
 	</update>
 	<update id="updatenormal" parameterType="hashmap">
-		UPDATE p_mem SET member_status='N' WHERE member_id=#{member_id} AND planet_id=#{planet_id}
+		UPDATE p_mem SET member_status='N' WHERE member_status='Y' AND planet_id=#{planet_id}
 	</update>
 	<update id="updatemaster" parameterType="hashmap">
 		UPDATE p_mem SET member_status='Y' WHERE member_id=#{member_id} AND planet_id=#{planet_id}

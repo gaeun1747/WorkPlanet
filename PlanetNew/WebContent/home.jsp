@@ -43,6 +43,7 @@
 .container {
 	/* margin-top:20px; */
 	overflow: hidden;
+	height:700px;
 }
 
 .nav {
@@ -64,7 +65,7 @@
 			<nav>
 				<jsp:include page="indexmenu.jsp" />
 			</nav>
-			<br><hr>
+			<br><br><br><hr>
 		</div>
 		<div class="container">
 			<div class="nav">

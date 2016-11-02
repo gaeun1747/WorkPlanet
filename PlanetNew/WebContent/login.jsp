@@ -37,7 +37,7 @@ form>button {
 
 <script>
 	function init() {
-		$("#btLogin").click(function(evgent) {
+		$("#btLogin").click(function(event) {
 			event.preventDefault();
 			var url = 'login.do';
 			if($("input[name=member_id]").val()==''){

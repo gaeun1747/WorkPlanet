@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <title>편리한 팀 커뮤니케이션, 플래닛! - Planet</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -35,43 +36,70 @@
 </style>
 <script>
 	function init(){
-		$("#btLogin").click(function(evgent) {
+		//플래닛 이름 수정
+		$("input[type=button]").eq(0).click(function(event){
 			event.preventDefault();
-			var url = 'login.do';
-			if($("input[name=member_id]").val()==''){
-				alert("아이디를 입력해주세요.")
-				$("input[name=member_id]").focus();
+			if($(".planet_name").val()==''){
+				alert("수정할 플래닛 이름을 입력해주세요.");
 				return ;
 			}
-			if($("input[name=member_pw]").val()==''){
-				alert("비밀번호를 입력해주세요.")
-				$("input[name=member_pw]").focus();
-				return ;
+			var data="planet_id="+$(".planet_id").val()+"&planet_name="+$(".planet_name").val();
+			console.log(data);
+			var url="modifyplanetname.do";
+			var success=function(responseResult){
+				alert("플래닛 이름이 수정되었습니다.");
+				location.href="home.jsp";
 			}
-			var data = $("form").serialize();
-			var success = function(responseResult) {
-				console.log(responseResult.trim());
-				if (responseResult.trim() == "1") {
-					alert("로그인 성공");
-					location.href="home.jsp";
-				} else {
-					alert("로그인 실패");
-				}
-			}
-			$.post(url, data, success); // ResultServlet. service( , );
+		    $.post(url, data, success)
 		});
 		
+		//플래닛 마스터 위임
+		$("input[type=button]").eq(1).click(function(event){
+			event.preventDefault();
+			if($(".member_id").val()==''){
+				alert("마스터로 위임할 멤버의 id를 입력해주세요.");
+				return ;
+			}
+			var data="planet_id="+$(".planet_id").val()+"&member_id="+$(".member_id").val();
+			console.log(data);
+			var url="modifyplanetmaster.do";
+			var success=function(responseResult){
+				if(responseResult==1){
+					alert("마스터가 변경되었습니다.");
+					location.href="home.jsp";
+				} else{
+					alert("입력하신 멤버id가 플래닛에 존재하지 않습니다.");
+				}
+			}
+		    $.post(url, data, success);
+		});
 		
-		
+		//플래닛 폐쇄
+		$("input[type=button].deleteplanet").click(function(event){
+			event.preventDefault();
+			if (confirm("정말 플래닛을 폐쇄하시겠습니까?")==true){    //확인
+				var data="planet_id="+$(".planet_id").val();
+				console.log(data);
+				var url="deleteplanet.do";
+			    var success=function(responseResult){
+				   location.href="home.jsp";
+			    }
+			    $.post(url, data, success)
+		    }else{   //취소
+			    return;
+		    }
+		});
 	}
 	$(init);
 </script>
+<c:set var="id" value="${requestScope.planet_id}"/>
+<input type="hidden" class="planet_id" value="${id}">
 <h2>플래닛명</h2>
-<input type="text" placeholder="수정할 플래닛 이름을 입력하세요.">
+<input type="text" class="planet_name" placeholder="수정할 플래닛 이름을 입력하세요.">
 <input type="button" value="저장">
 <br><br><hr>
 <h2>마스터 위임</h2>
-<input type="text" placeholder="마스터를 위임할 멤버를 입력하세요.">
+<input type="text" class="member_id" placeholder="마스터를 위임할 멤버의 id를 입력하세요.">
 <input type="button" value="위임">
 <br><br><hr>
 <h2>플래닛 폐쇄</h2>

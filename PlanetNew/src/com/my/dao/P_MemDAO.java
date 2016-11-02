@@ -16,7 +16,7 @@ public interface P_MemDAO {
 	//플래닛 탈퇴 status 수정
 	public void leave(String member_id,int planet_id) throws UpdateException;
 	//마스터 위임 마스터아이디,위임할아이디를 받아와 멤버 상태변경
-	public void updateMaster(String masterid,String normalid,int planet_id) throws UpdateException;
+	public String updateMaster(String member_id,int planet_id) throws UpdateException;
 	//멤버 정보 보기
 	public P_Mem selectById(String member_id,int planet_id) throws SelectException;
 	//플래닛 조회

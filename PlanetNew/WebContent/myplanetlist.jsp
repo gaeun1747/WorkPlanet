@@ -10,14 +10,16 @@
 $(function(){
 	// 해당 플래닛으로 가기
 	$("table tr td").eq(0).click(function(event){
+		event.preventDefault();
 		var planet_id = $(this).html().trim();
 		console.log($(this).attr("class"));
 	});
 	// 플래닛 관리
 	$("table tr td").eq(1).click(function(event){
-		var data=$(this).attr("class");
-		// console.log(data); // planet_id
-		var url="enterplanetinfo.jsp";
+		event.preventDefault();
+		var data="planet_id="+$(this).attr("class");
+		console.log(data); // planet_id
+		var url="enterplanetinfo.do";
 		var success = function(responseResult){
 			$(".content").html(responseResult);
 		}
@@ -25,10 +27,11 @@ $(function(){
 	});
 	// 플래닛 나가기
 	$("table tr td").eq(2).click(function(event){
+		event.preventDefault();
 		console.log($(this).attr("class"));
 		if (confirm("정말 플래닛을 탈퇴하시겠습니까?")==true){    //확인
-		   var data=$(this).attr("class");
-		   var url="deleteplanet.do";
+		   var data="planet_id="+$(this).attr("class");
+		   var url="exiteplanet.do";
 		   var success=function(responseResult){
 			   location.href="home.jsp";
 		   }

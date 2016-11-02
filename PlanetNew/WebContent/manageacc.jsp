@@ -11,6 +11,7 @@
 <script>
 	$(function() {
 		$("#btnpw").click(function(event) {
+			event.preventDefault();
 			var url = "updatepw.jsp"; // 클릭 된 속성
 			var success = function(responseResult) {
 				$(".content").html(responseResult);
@@ -18,6 +19,7 @@
 			$.post(url, success);
 		});
 		$("#btndel").click(function(event) {
+			event.preventDefault();
 			var url = "deleteacc.jsp"; // 클릭 된 속성
 			var success = function(responseResult) {
 				$(".content").html(responseResult);

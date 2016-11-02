@@ -1,6 +1,8 @@
 package com.my.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -30,7 +32,6 @@ public class PlanetDAOOracle implements PlanetDAO {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
 			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetId",planet_id);
-			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());
@@ -68,10 +69,15 @@ public class PlanetDAOOracle implements PlanetDAO {
 	public void update(String planet_id, String planet_name) throws UpdateException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
-			sqlSession.update("PlanetMapper.update", planet_name);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("planet_id", Integer.parseInt(planet_id));
+			map.put("planet_name", planet_name);
+			sqlSession.update("PlanetMapper.update", map);
 			sqlSession.commit();
 		}finally{
 			sqlSession.close();
 		}
 	}
+
+
 }
