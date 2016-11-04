@@ -18,11 +18,27 @@
 			$.post(url, success);
 		});
 		$("#btndel").click(function(event) {
+			event.preventDefault();
+			if(confirm("정말 계정을 삭제하시겠습니까?")==1){
+				var url = 'deleteacc.do';
+				var data = $("form").serialize();
+				var success = function(responseResult) {
+					console.log(responseResult.trim());
+					if (responseResult.trim() == "1") {
+						alert("계정이 삭제되었습니다");
+						location.href="logout.do";
+					} else {
+						alert("오류");
+					}
+				}
+				$.post(url, data, success); // ResultServlet. service( , );
+			}
+			/* 
 			var url = "deleteacc.jsp"; // 클릭 된 속성
 			var success = function(responseResult) {
 				$(".content").html(responseResult);
 			};
-			$.post(url, success);
+			$.post(url, success); */
 		});
 	});
 </script>
