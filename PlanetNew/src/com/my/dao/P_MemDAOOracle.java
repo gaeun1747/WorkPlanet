@@ -74,8 +74,8 @@ public class P_MemDAOOracle implements P_MemDAO {
 			map.put("member_id", member_id);
 			map.put("planet_id", planet_id);
 			if(sqlSession.update("P_MemMapper.updatemaster", map)==1){
-				sqlSession.update("P_MemMapper.updatemaster", map);
 				sqlSession.update("P_MemMapper.updatenormal", planet_id);
+				sqlSession.update("P_MemMapper.updatemaster", map);
 				sqlSession.commit();
 				return "1";  //성공
 			} else{

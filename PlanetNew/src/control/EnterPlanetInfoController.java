@@ -19,8 +19,9 @@ public class EnterPlanetInfoController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		String planet_id = request.getParameter("planet_id");
-		System.out.println(planet_id);
-		request.setAttribute("planet_id", Integer.parseInt(planet_id));
+		String master_id= request.getParameter("master_id");
+		request.setAttribute("planet_id", planet_id);
+		request.setAttribute("member_id", master_id);
 		return "enterplanetinfo.jsp";
 	}
 }

@@ -11,7 +11,6 @@
 <script>
 	$(function() {
 		$("#btnpw").click(function(event) {
-			event.preventDefault();
 			var url = "updatepw.jsp"; // 클릭 된 속성
 			var success = function(responseResult) {
 				$(".content").html(responseResult);
@@ -19,7 +18,6 @@
 			$.post(url, success);
 		});
 		$("#btndel").click(function(event) {
-			event.preventDefault();
 			var url = "deleteacc.jsp"; // 클릭 된 속성
 			var success = function(responseResult) {
 				$(".content").html(responseResult);
@@ -36,7 +34,8 @@ dt{
 	border-color: black;
 	font-size: 20px;
 }
-#btndel, #btnpw {
+button{
+	float: right;
 	margin-left:150px;
 	text-size: 40px;
 	background: white;
@@ -49,14 +48,14 @@ dt{
 	<hr>
 	<div class="manage-group">
 		<dl>
-			<dt>계정  ${sessionScope.loginInfo.member_id}</dt>
+			<dt>계정 : ${sessionScope.loginInfo.member_id}</dt>
 			<dd>
 				<button id="btndel">계정삭제</button>
 				<!-- 그룹의 마스터로 되어있을 경우 계정삭제 안되도록 설정하기 -->
 			</dd>
 
 		</dl>
-
+		<br>
 		<dl>
 			<dt>비밀번호</dt>
 			<dd>

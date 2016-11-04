@@ -5,7 +5,6 @@ import com.my.dao.MemberDAOOracle;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
-import com.my.vo.Article;
 import com.my.vo.Member;
 
 public class MemberService {
@@ -28,7 +27,7 @@ public class MemberService {
 				return member;
 			}
 			else{
-				throw new SelectException("아이디 혹은 비밀번호를 확인하세요.");
+				throw new SelectException("비밀번호를 확인하세요.");
 			}
 		} catch (SelectException e) {
 			throw new SelectException("로그인 실패");
