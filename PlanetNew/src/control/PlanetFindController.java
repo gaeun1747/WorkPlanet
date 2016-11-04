@@ -11,9 +11,9 @@ import com.my.exception.SelectException;
 import com.my.service.PlanetService;
 import com.my.vo.Planet;
 
-public class planetfindController implements Controller {
+public class PlanetFindController implements Controller {
 	private PlanetService service;
-	public planetfindController(PlanetService service) {
+	public PlanetFindController(PlanetService service) {
 		this.service = service;
 	}
 	@Override
@@ -21,11 +21,9 @@ public class planetfindController implements Controller {
 			throws IOException, ServletException {
 		String planet_name = request.getParameter("planetName");
 		try {
+			System.out.println("1");
 			List<Planet> list=service.findByPlanet(planet_name);
 			request.setAttribute("palnetlist", list);
-			for(Planet p:list){
-			System.out.println(list);
-			}
 		} catch (SelectException e) {
 			e.printStackTrace();
 		}

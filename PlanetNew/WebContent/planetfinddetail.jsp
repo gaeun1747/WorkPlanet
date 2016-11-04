@@ -5,7 +5,7 @@
 </script>
 <div>
 <table class="pl">
-<tr>
+<tr> 
 <td>PlanetName</td>
 <c:forEach items="${requestScope.palnetlist}" var="palnetlist">
 <td class="list">${palnetlist.planet_name}</td>

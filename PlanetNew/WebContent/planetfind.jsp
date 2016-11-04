@@ -39,7 +39,7 @@ $(function(){
 	padding: 15px 30px;
 	}
 </style>
-</head>
+</head> 
 <body>
 <form method="post">
 	<div>
