@@ -5,6 +5,7 @@
   ul.indexmenu { vertical-align: text-bottom ; }
   ul.indexmenu>li { width:150px ; list-style:none ; display:inline-block ; 
   margin:auto ; font-size:18px ; }
+  li { float:right; }
   li.logo { font-size:36px !important ; font-weight:bold ; float:left }
 </style>
 <ul class="indexmenu" >

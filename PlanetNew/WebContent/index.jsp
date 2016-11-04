@@ -38,6 +38,7 @@ $(function(){
 		$.post(url, success);
 	});	
 	$("input[type=button]").click(function(event){
+		event.preventDefault();
 		var url="signup.jsp";
 		var success = function(responseResult){
 			$("section").html(responseResult);
@@ -50,7 +51,7 @@ $(function(){
 <body>
 <header>
   <nav style="text-align:center"><jsp:include page="indexmenu.jsp" /></nav>
-  <br>
+  <br><br><br>
   <hr>
 </header>
 <section>

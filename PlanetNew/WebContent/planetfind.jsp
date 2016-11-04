@@ -8,6 +8,14 @@
 <script>
 //javascript
 $(function(){
+	$("#btnSearch").click(function(event) {
+		var url = "planetfind.do";
+		var data = $("form").serialize();
+		var success = function(responseResult){
+			location.herf("planetfind.do");
+		}
+		$.post(url, data, success);
+	});
 });
 </script>
 <style>
@@ -35,9 +43,12 @@ $(function(){
 <body>
 <form method="post">
 	<div>
-	<input name="planetSearch" class="planetSearch">
-	<button name="btmSearch" class="btnSearch">검색</button>
+	<input name="planetName" class="planetName">
+	<button name="btnSearch" class="btnSearch">검색</button>
 	</div>
 </form>
+<div>
+<jsp:include page="planetfinddetail.jsp"></jsp:include>
+</div>
 </body>
 </html>
