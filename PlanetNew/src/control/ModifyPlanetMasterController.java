@@ -20,10 +20,16 @@ public class ModifyPlanetMasterController implements Controller {
 			throws IOException, ServletException {
 		String planet_id = request.getParameter("planet_id");
 		String member_id = request.getParameter("member_id");
+		String master_id = request.getParameter("master_id");
+		System.out.println("member_id : "+member_id);
+		System.out.println("master_id : "+master_id);
+		if(member_id.equals(master_id)){
+			request.setAttribute("result", 2); // 2마스터아이디
+			return "result.jsp";
+		}
 		try {
 			String result = service.modifyMaster(member_id, Integer.parseInt(planet_id));
-			request.setAttribute("result", result);
-			System.out.println("result  : "+result);
+			request.setAttribute("result", result); // 1성공 0실패
 		} catch (UpdateException e) {
 			e.printStackTrace();
 		}

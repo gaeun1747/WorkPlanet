@@ -55,7 +55,7 @@
 
 .content {
 	float: left;
-	width: 600px;
+	width: 800px;
 }
 </style>
 </head>
