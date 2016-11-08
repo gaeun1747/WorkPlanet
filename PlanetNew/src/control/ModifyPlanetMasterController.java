@@ -21,8 +21,6 @@ public class ModifyPlanetMasterController implements Controller {
 		String planet_id = request.getParameter("planet_id");
 		String member_id = request.getParameter("member_id");
 		String master_id = request.getParameter("master_id");
-		System.out.println("member_id : "+member_id);
-		System.out.println("master_id : "+master_id);
 		if(member_id.equals(master_id)){
 			request.setAttribute("result", 2); // 2마스터아이디
 			return "result.jsp";

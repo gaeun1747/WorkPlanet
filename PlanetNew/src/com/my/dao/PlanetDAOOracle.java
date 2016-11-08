@@ -10,6 +10,7 @@ import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
 import com.my.sql.MyConnection;
+import com.my.vo.P_Mem;
 import com.my.vo.Planet;
 
 public class PlanetDAOOracle implements PlanetDAO {
@@ -43,8 +44,8 @@ public class PlanetDAOOracle implements PlanetDAO {
 	public List<Planet> selectByPlanetName(String planet_name) throws SelectException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
-			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetName",planet_name);
-			sqlSession.commit();
+			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetName", planet_name);
+			System.out.println("find planet : "+list);
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());
@@ -79,5 +80,22 @@ public class PlanetDAOOracle implements PlanetDAO {
 		}
 	}
 
+	@Override
+	// pdao, 가입한 플래닛 조회
+	public P_Mem selectBySignPlanet(String member_id,int planet_id) throws SelectException{
+		SqlSession sqlSession=MyConnection.getSession();
+		try {
+			Map<Object,Object> map= new HashMap<Object,Object>();
+			map.put("member_id", member_id);
+			map.put("planet_id", planet_id);
+			P_Mem p = sqlSession.selectOne("P_MemMapper.selectById", map);
+			sqlSession.commit();
+			return p;
+		} catch (Exception e) {
+			throw new SelectException(e.getMessage());
+		} finally {
+			sqlSession.close();
+		}
+	}
 
 }

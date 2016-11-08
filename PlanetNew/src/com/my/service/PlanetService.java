@@ -2,17 +2,22 @@ package com.my.service;
 
 import java.util.List;
 
+import com.my.dao.P_MemDAO;
+import com.my.dao.P_MemDAOOracle;
 import com.my.dao.PlanetDAO;
 import com.my.dao.PlanetDAOOracle;
 import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
+import com.my.vo.P_Mem;
 import com.my.vo.Planet;
 
 public class PlanetService {
 	private PlanetDAO dao;
+	private P_MemDAO pdao;
 	public PlanetService() {
 		dao = new PlanetDAOOracle();
+		pdao = new P_MemDAOOracle();
 	}
 	// 플래닛 생성
 	public void register(Planet planet) throws InsertException{
@@ -31,9 +36,11 @@ public class PlanetService {
 		dao.update(planet_id, planet_name);
 	}
 	// 플래닛 삭제
-
 	public void delete(String planet_id) throws UpdateException{
 		dao.delete(planet_id);
-
 	}
+	// pdao, 가입한 플래닛 조회
+	public P_Mem findBySignPlanet(String member_id,int planet_id) throws SelectException{
+		return dao.selectBySignPlanet(member_id, planet_id);
+	} 
 }
