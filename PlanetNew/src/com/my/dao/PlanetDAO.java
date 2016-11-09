@@ -18,6 +18,6 @@ public interface PlanetDAO {
 	public void delete(String planet_id)throws UpdateException;
 	//플래닛 수정 - 플래닛 이름 수정
 	public void update(String planet_id, String planet_name)throws UpdateException;
-	// pdao, 가입한 플래닛 조회
-	public P_Mem selectBySignPlanet(String member_id,int planet_id) throws SelectException;
+	/*// pdao, 가입한 플래닛 조회
+	public P_Mem selectBySignPlanet(String member_id,int planet_id) throws SelectException;*/
 } 

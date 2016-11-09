@@ -19,8 +19,8 @@ public class P_MemService {
 		dao.insertMaster(pmem);
 	}
 	// 플래닛 가입
-	public void register(P_Mem pmem) throws InsertException{
-		dao.insert(pmem);
+	public void register(String member_id, int planet_id) throws InsertException{
+		dao.insert(member_id, planet_id);
 	}
 	// 플래닛회원 정보 수정
 	public void modify(P_Mem pmem) throws UpdateException{
@@ -30,8 +30,11 @@ public class P_MemService {
 	public void delete(String member_id,int planet_id) throws UpdateException{
 		dao.leave(member_id, planet_id);
 	}
+	// 플래닛 재가입(status)
+	public void resign(String member_id,int planet_id) throws UpdateException{
+		dao.resign(member_id, planet_id);
+	}
 	// 마스터위임
-
 	public String modifyMaster(String member_id, int planet_id) throws UpdateException{
 		return dao.updateMaster(member_id, planet_id);
 	}

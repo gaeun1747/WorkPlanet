@@ -3,9 +3,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 $(function(){
-	$(".planetlist").on("click", "table tr td.signupplanet", function(event){
+	$(".planetlist").on("click", "tr td.signupplanet", function(event){
 		event.preventDefault();
-		
+		var url = "signupplanet.do";
+		/* console.log($(".planet_id").text());
+		console.log("${sessionScope.loginInfo.member_id}"); */
+		var data = "planet_id="+$(".planet_id").text()
+					+"&member_id="+"${sessionScope.loginInfo.member_id}";
+		var success = function(responseResult){
+			console.log(responseResult)
+			if(responseResult==1){
+				alert("가입에 성공했습니다."); 
+				location.href="home.jsp";
+			} else{
+				alert("가입 실패");
+			}
+		}
+		$.post(url, data, success);
 	});
 	
 	$(".btSearch").click(function(event) {
@@ -18,21 +32,30 @@ $(function(){
 			return ;
 		}
 		var success = function(responseResult){
-			var detail="";
 			if(responseResult==1){
 				$(".planetlist").empty();
 				$(".planetlist").html("이름이 '"+$("input[name=planet_name]").val()
 						+"'인 플래닛이 존재하지 않습니다.");
 				return ;
 			}
-			console.log(responseResult);
 			var obj = $.parseJSON(responseResult);
+			console.log(obj);
+			// obj 가 list기 때문에 for문 사용.
 			$(".planetlist").empty();
-			detail ="";
-			detail += "<table><tr>";
-			detail += "<td width=\"700px\">"+obj.planet_name+"</td>";
-			detail += "<td class=\"signupplanet\">가입하기</td>";
-			$(".planetlist").html(detail);
+			 var signmsg="";
+			$(".planetlist").html("<table>");
+			$.each(obj, function(index, data){
+				if(obj[index]["signyn"]==0){
+					signmsg="가입하기";
+				} else{
+					signmsg="";
+				}
+				$(".planetlist").append("<tr><td style=\"display:none\" class=\"planet_id\">"
+										+obj[index]["planet_id"]+"</td>"
+										+"<td width=\"720px\">"+obj[index]["planet_name"]+"</td>"
+										+"<td class=\"signupplanet\">"+signmsg+"</td></tr>");
+			});
+			$(".planetlist").append("</table>");
 		}
 		$.post(url, data, success);
 	});
@@ -67,5 +90,17 @@ $(function(){
 </form>
 <br><hr><br>
 <div class="planetlist">
-찾으시는 플래닛 목록
+찾으시는 플래닛
 </div>
+
+
+
+
+
+
+
+
+
+
+
+

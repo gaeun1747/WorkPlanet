@@ -24,10 +24,13 @@ public class P_MemDAOOracle implements P_MemDAO {
 			sqlSession.close();
 		}	
 	} 
-	public void insert(P_Mem p) throws InsertException {
+	public void insert(String member_id, int planet_id) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("P_MemMapper.insert", p);	
+			Map<Object,Object> map= new HashMap<Object,Object>();
+			map.put("member_id", member_id);
+			map.put("planet_id", planet_id);
+			sqlSession.insert("P_MemMapper.insert", map);	
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
@@ -57,6 +60,24 @@ public class P_MemDAOOracle implements P_MemDAO {
 			map.put("member_id", member_id);
 			map.put("planet_id", planet_id);
 			sqlSession.update("P_MemMapper.leave",map);
+			sqlSession.commit();
+		}catch(Exception e){
+			throw new UpdateException(e.getMessage());
+		} finally {
+			sqlSession.close();
+		}
+		
+	}
+	
+	// 재가입
+	@Override
+	public void resign(String member_id,int planet_id) throws UpdateException {
+		SqlSession sqlSession=MyConnection.getSession();
+		try {
+			Map<Object,Object> map= new HashMap<Object,Object>();
+			map.put("member_id", member_id);
+			map.put("planet_id", planet_id);
+			sqlSession.update("P_MemMapper.resign",map);
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new UpdateException(e.getMessage());
@@ -117,4 +138,23 @@ public class P_MemDAOOracle implements P_MemDAO {
 			sqlSession.close();
 		}
 	}
+	/*
+	@Override
+	// pdao, 가입한 플래닛 조회
+	public P_Mem selectBySignPlanet(String member_id,int planet_id) throws SelectException{
+		SqlSession sqlSession=MyConnection.getSession();
+		try {
+			Map<Object,Object> map= new HashMap<Object,Object>();
+			map.put("member_id", member_id);
+			map.put("planet_id", planet_id);
+			P_Mem p = sqlSession.selectOne("P_MemMapper.selectById", map);
+			sqlSession.commit();
+			return p;
+		} catch (Exception e) {
+			throw new SelectException(e.getMessage());
+		} finally {
+			sqlSession.close();
+		}
+	}*/
+	
 }

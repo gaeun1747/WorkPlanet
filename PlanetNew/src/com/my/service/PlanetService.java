@@ -41,6 +41,6 @@ public class PlanetService {
 	}
 	// pdao, 가입한 플래닛 조회
 	public P_Mem findBySignPlanet(String member_id,int planet_id) throws SelectException{
-		return dao.selectBySignPlanet(member_id, planet_id);
+		return pdao.selectById(member_id, planet_id);
 	} 
 }
