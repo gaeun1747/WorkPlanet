@@ -5,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>편리한 팀 커뮤니케이션, 플래닛! - Planet</title>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
 </script>
 <script>
  $(function(){

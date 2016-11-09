@@ -16,9 +16,9 @@ import com.my.vo.Member;
 
 import oracle.sql.DATE;
 
-public class SignController implements Controller {
+public class SignupController implements Controller {
 	private MemberService service;
-	public SignController(MemberService service) {
+	public SignupController(MemberService service) {
 		this.service = service;
 	}
 	public String execute(HttpServletRequest request, HttpServletResponse response)
