@@ -59,7 +59,9 @@ public class P_MemDAOOracle implements P_MemDAO {
 			Map<Object,Object> map= new HashMap<Object,Object>();
 			map.put("member_id", member_id);
 			map.put("planet_id", planet_id);
+			System.out.println("map : "+map);
 			sqlSession.update("P_MemMapper.leave",map);
+			System.out.println(sqlSession.update("P_MemMapper.leave",map));
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new UpdateException(e.getMessage());
@@ -116,6 +118,8 @@ public class P_MemDAOOracle implements P_MemDAO {
 			Map<Object,Object> map= new HashMap<Object,Object>();
 			map.put("member_id", member_id);
 			map.put("planet_id", planet_id);
+			String use_status = "Y";
+			map.put("use_status", use_status);
 			P_Mem p = sqlSession.selectOne("P_MemMapper.selectById", map);
 			sqlSession.commit();
 			return p;

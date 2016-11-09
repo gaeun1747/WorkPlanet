@@ -50,10 +50,12 @@
 		SELECT * 
 		FROM p_mem pm JOIN member m ON pm.member_id=m.member_id
 		WHERE pm.member_id=#{member_id} AND planet_id=#{planet_id}
+		AND pm.use_status=#{use_status}
 	</select> 
 	<select id="selectByMember" resultMap="pmems">
 	    SELECT *
 		FROM p_mem pm JOIN planet p ON pm.planet_id=p.planet_id
-		where member_id=#{member_id}
+		WHERE member_id=#{member_id}
+		AND pm.use_status='Y'
 	</select>
 </mapper>

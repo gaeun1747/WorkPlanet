@@ -8,6 +8,10 @@ $(function(){
 		var url = "signupplanet.do";
 		/* console.log($(".planet_id").text());
 		console.log("${sessionScope.loginInfo.member_id}"); */
+		console.log($(this).text());
+		if($(this).text()!="가입하기"){
+			return;
+		}
 		var data = "planet_id="+$(".planet_id").text()
 					+"&member_id="+"${sessionScope.loginInfo.member_id}";
 		var success = function(responseResult){
@@ -34,8 +38,8 @@ $(function(){
 		var success = function(responseResult){
 			if(responseResult==1){
 				$(".planetlist").empty();
-				$(".planetlist").html("이름이 '"+$("input[name=planet_name]").val()
-						+"'인 플래닛이 존재하지 않습니다.");
+				$(".planetlist").html("<font style=\"color:red\">이름이 '"+$("input[name=planet_name]").val()
+						+"'인 플래닛이 존재하지 않습니다.</font>");
 				return ;
 			}
 			var obj = $.parseJSON(responseResult);
@@ -46,14 +50,14 @@ $(function(){
 			$(".planetlist").html("<table>");
 			$.each(obj, function(index, data){
 				if(obj[index]["signyn"]==0){
-					signmsg="가입하기";
+					signmsg="<font style=\"color:green\">가입하기</font>";
 				} else{
-					signmsg="";
+					signmsg="<font style=\"color:red\">이미 가입되었습니다.</font>";
 				}
 				$(".planetlist").append("<tr><td style=\"display:none\" class=\"planet_id\">"
 										+obj[index]["planet_id"]+"</td>"
-										+"<td width=\"720px\">"+obj[index]["planet_name"]+"</td>"
-										+"<td class=\"signupplanet\">"+signmsg+"</td></tr>");
+										+"<td width=\"600px\">"+obj[index]["planet_name"]+"</td>"
+										+"<td class=\"signupplanet\" style=\"text-align:right;width:200px\">"+signmsg+"</td></tr>");
 			});
 			$(".planetlist").append("</table>");
 		}

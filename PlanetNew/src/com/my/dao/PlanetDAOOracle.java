@@ -44,7 +44,7 @@ public class PlanetDAOOracle implements PlanetDAO {
 	public List<Planet> selectByPlanetName(String planet_name) throws SelectException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
-			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetName", planet_name);
+			List<Planet> list = sqlSession.selectList("PlanetMapper.selectByPlanetName", "%"+planet_name+"%");
 			return list;
 		} catch (Exception e) {
 			throw new SelectException(e.getMessage());

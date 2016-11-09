@@ -15,6 +15,7 @@ $(function(){
 	// 플래닛 관리
 	function enterplanetinfo(planet_id){
 		console.log("planet_id : "+planet_id);
+		console.log("memid : ${member_id}");
 		if($("table.planet tr td").eq(1).html()!=""){
 			var data="planet_id="+planet_id
 					+"&master_id="+"${member_id}";
@@ -27,10 +28,13 @@ $(function(){
 	}
 	// 플래닛 나가기
 	function exitplanet(planet_id){
-		if (confirm("정말 플래닛을 탈퇴하시겠습니까?")==true){    //확인
-		   var data="planet_id="+planet_id;
+		console.log("memid : ${member_id}");
+		if (confirm("정말 플래닛에서 탈퇴하시겠습니까?")==true){    //확인
+		   var data="planet_id="+planet_id
+					+"&member_id="+"${member_id}";
 		   var url="exitplanet.do";
 		   var success=function(responseResult){
+			   alert(responseResult);
 			   location.href="home.jsp";
 		   }
 		   $.post(url, data, success)
