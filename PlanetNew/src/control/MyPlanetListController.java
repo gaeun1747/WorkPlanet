@@ -34,3 +34,6 @@ public class MyPlanetListController implements Controller {
 		return "myplanetlist.jsp";
 	}
 }
+
+
+

@@ -38,6 +38,7 @@ public class PlanetFindController implements Controller {
 			int i=0;
 			List<Integer> signyn = new ArrayList<Integer>();
 			for(Planet p : planet){ 
+				System.out.println("planet list == "+p.getPlanet_id());
 				P_Mem pmem = service.findBySignPlanet(member.getMember_id(), p.getPlanet_id());
 				// 내가 가입하지 않은 플래닛
 				if(pmem==null){ 
