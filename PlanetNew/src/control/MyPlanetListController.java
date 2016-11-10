@@ -27,6 +27,7 @@ public class MyPlanetListController implements Controller {
 		try {
 			List<P_Mem> list = (List<P_Mem>)service.findByMember(member.getMember_id());
 			request.setAttribute("list", list);
+			request.setAttribute("member_id", member.getMember_id());
 		} catch (SelectException e) {
 			e.printStackTrace();
 		}
