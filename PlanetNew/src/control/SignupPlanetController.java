@@ -21,9 +21,8 @@ public class SignupPlanetController implements Controller {
 			throws IOException, ServletException {
 		int planet_id = Integer.parseInt(request.getParameter("planet_id"));
 		String member_id = request.getParameter("member_id");
-		System.out.println("p_id = "+planet_id+", m_id : "+member_id);
 		try {
-			P_Mem pmem = service.findById(member_id, planet_id);
+			P_Mem pmem = service.findById(member_id, planet_id, "N");
 			if(pmem==null){ //가입한 적 없음
 				service.register(member_id, planet_id);				
 			} else{ // 가입했다가 탈퇴했었음

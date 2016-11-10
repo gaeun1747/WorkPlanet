@@ -1,14 +1,6 @@
 <%@page import="com.my.vo.Member"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:if test="${loginInfo == null }">
-<script>
-   $(function(){
-      location.href="index.jsp"
-   });
- </script>
-</c:if>
-<c:if test="${loginInfo != null }">
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +8,13 @@
 <title>편리한 팀 커뮤니케이션, 플래닛! - Planet</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
 </script>
+<c:if test="${loginInfo == null }">
+  <script>
+     $(function(){
+    	 location.href="index.jsp";
+     });
+  </script>
+</c:if>
 <script>
  $(function(){
 	   $("nav").on("click", "ul.nav-list>li>a", function(event){
@@ -94,6 +93,4 @@
 </body>
 <address>한국정보기술연구원 KITRI/공공데이터기반 java application 개발자 과정/3차 프로젝트/임종민, 최가은, 임지수</address>
 </html>
-</c:if>
-
 

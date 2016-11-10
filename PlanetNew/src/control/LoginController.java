@@ -20,20 +20,15 @@ public class LoginController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		System.out.println("test");
 		String id = request.getParameter("member_id");
 		String pw = request.getParameter("member_pw");
 		HttpSession session = request.getSession( );
 		session.removeAttribute("loginInfo"); //기존속성삭제
-		
-		
-		
 		try {
 			Member member = service.login(id, pw);
 			session.setAttribute("loginInfo", member);
 			
 			char use_status=member.getUse_status();
-			System.out.println(use_status);
 			if(use_status=='N'){
 				request.setAttribute("result", "2");
 				return "result.jsp";

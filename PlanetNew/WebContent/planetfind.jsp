@@ -8,15 +8,16 @@ $(function(){
 		var url = "signupplanet.do";
 		/* console.log($(".planet_id").text());
 		console.log("${sessionScope.loginInfo.member_id}"); */
-		console.log("ggg ==  "+$(this).text());
-		console.log("test :  "+$(this).parent().get(0).index(1));
+		/* console.log("ggg ==  "+$(this).text());
+		console.log("test :  "+$(this).parent().index());
+		console.log("planet_id  :  "+$(".planet_id").eq(planetIndex-1).html()); */
+		var planetIndex = $(this).parent().index();
 		if($(this).text()!="가입하기"){
 			return;
 		}
-		var data = "planet_id="+$(".planet_id").html()
+		var data = "planet_id="+$(".planet_id").eq(planetIndex-1).html()
 					+"&member_id="+"${sessionScope.loginInfo.member_id}";
 		var success = function(responseResult){
-			console.log("responseResult  :  "+responseResult)
 			if(responseResult==1){
 				alert("가입에 성공했습니다."); 
 				location.href="home.jsp";
@@ -44,7 +45,6 @@ $(function(){
 				return ;
 			}
 			var obj = $.parseJSON(responseResult);
-			console.log("json obj  :  "+obj);
 			// obj 가 list기 때문에 for문 사용.
 			$(".planetlist").empty();
 			 var signmsg="";
