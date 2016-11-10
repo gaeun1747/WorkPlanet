@@ -1,5 +1,14 @@
 <%@page import="com.my.vo.Member"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${loginInfo == null }">
+<script>
+   $(function(){
+      location.href="index.jsp"
+   });
+ </script>
+</c:if>
+<c:if test="${loginInfo != null }">
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,3 +93,6 @@
 </body>
 <address>한국정보기술연구원 KITRI/공공데이터기반 java application 개발자 과정/3차 프로젝트/임종민, 최가은, 임지수</address>
 </html>
+</c:if>
+
+
