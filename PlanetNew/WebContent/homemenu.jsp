@@ -22,5 +22,5 @@ margin-bottom:10px;
 	<li ><a href="myplanetlist.do">나의 플래닛</a></li>
 	<li ><a href="planetfind.jsp">플래닛찾기</a></li>
 	<li ><a href="manageacc.jsp">계정관리</a></li>
-	<li ><a href="planetadd.jsp">플래닛개설</a></li>
+	<li ><a href="makeplanet.jsp">플래닛개설</a></li>
 </ul>
