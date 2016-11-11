@@ -20,8 +20,8 @@ public class PlanetService {
 		pdao = new P_MemDAOOracle();
 	}
 	// 플래닛 생성
-	public void register(Planet planet) throws InsertException{
-		dao.insert(planet);
+	public void register(String planet_name) throws InsertException{
+		dao.insert(planet_name);
 	}
 	// 플래닛 찾기 멤버id로
 	public List<Planet> findById(String member_id) throws SelectException{

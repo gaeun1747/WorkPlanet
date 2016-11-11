@@ -15,10 +15,11 @@ import com.my.vo.Planet;
 
 public class PlanetDAOOracle implements PlanetDAO {
 	@Override
-	public void insert(Planet p) throws InsertException {
+	public void insert(String planet_name, P_Mem p_mem) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("PlanetMapper.insert", p);
+			sqlSession.insert("PlanetMapper.insert", planet_name);
+			sqlSession.insert("PlanetMapper.insertMaster", p_mem);
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());

@@ -63,7 +63,7 @@
 	<div class="frame">
 		<div class="header">
 			<nav>
-				<jsp:include page="indexmenu.jsp" />
+				<jsp:include page="indexmenu.jsp"/>
 			</nav>
 			<br><br><br><hr>
 		</div>
