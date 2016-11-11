@@ -8,13 +8,13 @@
 <title>편리한 팀 커뮤니케이션, 플래닛! - Planet</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
 </script>
-<c:if test="${loginInfo == null }">
+<%-- <c:if test="${loginInfo == null }">
   <script>
      $(function(){
     	 location.href="index.jsp";
      });
   </script>
-</c:if>
+</c:if> --%>
 <script>
  $(function(){
 	   $("nav").on("click", "ul.nav-list>li>a", function(event){
