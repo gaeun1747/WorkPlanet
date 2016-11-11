@@ -1,5 +1,6 @@
 <%@page import="com.my.vo.Member"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +56,7 @@
 
 .content {
 	float: left;
-	width: 800px;
+	/* width: 800px; */
 }
 </style>
 </head>
@@ -63,16 +64,20 @@
 	<div class="frame">
 		<div class="header">
 			<nav>
-				<jsp:include page="indexmenu.jsp"/>
+				<jsp:include page="indexmenu.jsp" />
 			</nav>
 			<br><br><br><hr>
 		</div>
 		<div class="container">
 			<div class="nav">
 				<!-- 여기에 기본/마스터/그룹 메뉴 세 가지 include -->
-				<jsp:include page="#" />
-				<jsp:include page="#" />
-				<jsp:include page="#" />
+				<jsp:include page="planetmenu_basic.jsp" />
+				<hr>
+				<%-- <c:if test="${loginInfo}"> --%>
+				<jsp:include page="planetmenu_master.jsp" />
+				<%-- </c:if> --%>
+				<hr>
+				<jsp:include page="planetmenu_group.jsp" />
 			</div>
 			<div class="content">
 			    <!-- 첫 화면은 전체 게시글 -->

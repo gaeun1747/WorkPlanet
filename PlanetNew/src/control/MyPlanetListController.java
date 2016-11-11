@@ -26,7 +26,6 @@ public class MyPlanetListController implements Controller {
 		Member member = (Member)session.getAttribute("loginInfo");
 		try {
 			List<P_Mem> list = (List<P_Mem>)service.findByMember(member.getMember_id());
-			System.out.println("list :: "+list);
 			request.setAttribute("list", list);
 			request.setAttribute("member_id", member.getMember_id());
 		} catch (SelectException e) {

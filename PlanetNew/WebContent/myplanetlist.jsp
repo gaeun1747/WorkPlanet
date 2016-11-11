@@ -11,6 +11,10 @@ $(function(){
 	// 해당 플래닛으로 가기
 	function enterplanet(planet_id){
 		console.log(planet_id);
+		var url="getplanethome.do";
+		var data="planet_id="+planet_id
+				+"&member_id="+"${member_id}";
+		$.post(url, data);
 	}
 	// 플래닛 관리
 	function enterplanetinfo(planet_id){
@@ -34,7 +38,6 @@ $(function(){
 					+"&member_id="+"${member_id}";
 		   var url="exitplanet.do";
 		   var success=function(responseResult){
-			   alert(responseResult);
 			   location.href="home.jsp";
 		   }
 		   $.post(url, data, success)
@@ -44,7 +47,7 @@ $(function(){
 	}
 	$("table.planet tr td").click(function(event){
 		event.preventDefault();
-		console.log($(this).index());
+		/* console.log($(this).index()); */
 		var planet_id = $(this).parent().attr("class");
 		if($(this).index()==0) enterplanet(planet_id);
 		else if($(this).index()==1) enterplanetinfo(planet_id);
