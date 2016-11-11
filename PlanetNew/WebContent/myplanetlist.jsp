@@ -10,11 +10,18 @@
 $(function(){
 	// 해당 플래닛으로 가기
 	function enterplanet(planet_id){
-		console.log(planet_id);
 		var url="getplanethome.do";
 		var data="planet_id="+planet_id
 				+"&member_id="+"${member_id}";
-		$.post(url, data);
+		var success = function(responseResult){
+			console.log(responseResult);
+			if(responseResult == 1){
+				location.href="planetindex.jsp";
+			} else{
+				alert("플래닛에 들어갈 수 없습니다.")				
+			}
+		}
+		$.post(url, data, success);
 	}
 	// 플래닛 관리
 	function enterplanetinfo(planet_id){

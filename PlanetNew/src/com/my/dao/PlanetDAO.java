@@ -10,8 +10,8 @@ import com.my.vo.Planet;
 public interface PlanetDAO {
 	//플래닛 생성
 	public void insert(String planet_name,P_Mem p_mem)throws InsertException;
-	//플래닛 찾기 id로
-	public List<Planet> selectByPlanetId(String planet_id) throws SelectException;
+	//플래닛 찾기 플래닛 id로
+	public Planet selectByPlanetId(String planet_id) throws SelectException;
 	//플래닛 찾기 이름으로
 	public List<Planet> selectByPlanetName(String planet_name) throws SelectException;
 	//플래닛 삭제 status수정
