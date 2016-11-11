@@ -23,20 +23,20 @@ public class P_MemDAOOracle implements P_MemDAO {
 		}finally {
 			sqlSession.close();
 		}	
-	} 
+	}
 	public void insert(String member_id, int planet_id) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
 			Map<Object,Object> map= new HashMap<Object,Object>();
 			map.put("member_id", member_id);
 			map.put("planet_id", planet_id);
-			sqlSession.insert("P_MemMapper.insert", map);	
+			sqlSession.insert("P_MemMapper.insert", map);
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
 		}finally {
 			sqlSession.close();
-		}	
+		}
 	}
 
 	@Override
