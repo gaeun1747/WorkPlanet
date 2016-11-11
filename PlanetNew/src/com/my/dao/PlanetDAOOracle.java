@@ -18,6 +18,9 @@ public class PlanetDAOOracle implements PlanetDAO {
 	public void insert(String planet_name, P_Mem p_mem) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
+			/*
+			 * 플래닛을 만들면서 p_mem으로 추가해주기
+			 */
 			sqlSession.insert("PlanetMapper.insert", planet_name);
 			sqlSession.insert("PlanetMapper.insertMaster", p_mem);
 			sqlSession.commit();
