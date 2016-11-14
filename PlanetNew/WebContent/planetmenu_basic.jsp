@@ -35,7 +35,7 @@ ul.basic li{
 	   <%-- </c:if> --%>
 	</li>
 	<br><br><br>
-	<li ><a href="manageacc.jsp">내글</a></li>
+	<li ><a href="planetmyarticle.jsp">내글</a></li>
 	<li ><a href="manageacc.jsp">요청</a></li>
 	<li ><a href="manageacc.jsp">멤버&팀</a></li>
 </ul>

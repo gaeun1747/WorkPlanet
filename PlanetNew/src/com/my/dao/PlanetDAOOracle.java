@@ -10,7 +10,6 @@ import com.my.exception.InsertException;
 import com.my.exception.SelectException;
 import com.my.exception.UpdateException;
 import com.my.sql.MyConnection;
-import com.my.vo.P_Mem;
 import com.my.vo.Planet;
 
 public class PlanetDAOOracle implements PlanetDAO {
@@ -21,11 +20,7 @@ public class PlanetDAOOracle implements PlanetDAO {
 			/*
 			 * 플래닛을 만들면서 p_mem으로 추가해주기
 			 */
-			
-			
 			sqlSession.insert("PlanetMapper.insert", planet_name);
-			
-			
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());
