@@ -11,9 +11,35 @@
 </script>
 <script>
  $(function(){
-	   $("nav").on("click", "ul.nav-list>li>a", function(event){
+	   $(".nav").on("click", "ul.basic>li>a", function(event){
 		   event.preventDefault();
-			$("ul.nav-list>li a").css("background-color", "#24468A").css("color", "#ffffff");
+			$("ul.basic>li a").css("background-color", "#24468A").css("color", "#ffffff");
+		 	$(this).css("background-color", "#D5D5D5").css("color", "#555555");  
+			var url = $(this).attr("href");  // 클릭 된 속성
+			if( url=="#" ){
+				return ;
+			}
+			var success = function(responseResult){
+				$(".content").html(responseResult);
+			};
+		    $.post(url, success);
+	   });
+	   $(".nav").on("click", "ul.group>li>a", function(event){
+		   event.preventDefault();
+			$("ul.group>li a").css("background-color", "#24468A").css("color", "#ffffff");
+		 	$(this).css("background-color", "#D5D5D5").css("color", "#555555");  
+			var url = $(this).attr("href");  // 클릭 된 속성
+			if( url=="#" ){
+				return ;
+			}
+			var success = function(responseResult){
+				$(".content").html(responseResult);
+			};
+		    $.post(url, success);
+	   });
+	   $(".nav").on("click", "ul.master>li>a", function(event){
+		   event.preventDefault();
+			$("ul.master>li a").css("background-color", "#24468A").css("color", "#ffffff");
 		 	$(this).css("background-color", "#D5D5D5").css("color", "#555555");  
 			var url = $(this).attr("href");  // 클릭 된 속성
 			if( url=="#" ){
@@ -56,7 +82,8 @@
 
 .content {
 	float: left;
-	/* width: 800px; */
+	width: 800px;
+	height: 700px;
 }
 </style>
 </head>
@@ -71,6 +98,7 @@
 		<div class="container">
 			<div class="nav">
 				<!-- 여기에 기본/마스터/그룹 메뉴 세 가지 include -->
+				
 				<jsp:include page="planetmenu_basic.jsp" />
 				<hr>
 				<c:if test="${pmemInfo.member_status==89}">
