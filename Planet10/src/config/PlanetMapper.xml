@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PlanetMapper">
+	<insert id="insert" parameterType="java.lang.String">
+		INSERT INTO planet VALUES(planet_seq.NEXTVAL, #{planet_name}, 'Y' )
+	</insert>
+	<insert id="insertMaster" parameterType="hashmap">
+		INSERT INTO p_mem VALUES(#{member_id}, planet_seq.CURRVAL, #{nickname}, sysdate,  'Y','Y' )
+	</insert>
+	<select id="selectByPlanetId" parameterType="java.lang.String" resultType="com.my.vo.Planet">
+		SELECT *
+		FROM planet
+		WHERE planet_id=#{planet_id}
+	</select>
+	<select id="selectByPlanetName" parameterType="java.lang.String" resultType="com.my.vo.Planet">
+		SELECT * FROM planet WHERE planet_name LIKE #{planet_name}
+	</select>
+	<update id="delete" parameterType="java.lang.String">
+		UPDATE planet SET use_status='N' WHERE planet_id=#{planet_id}
+	</update>
+	<update id="update" parameterType="hashmap">
+		UPDATE planet SET planet_name=#{planet_name} WHERE planet_id=#{planet_id}
+	</update>
+</mapper>

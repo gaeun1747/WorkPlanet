@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="P_MemMapper">
+	<resultMap type="com.my.vo.P_Mem" id="pmems">
+		<result property="nickname" column="nickname" />
+		<result property="reg_date" column="reg_date" />
+		<result property="member_status" column="member_status" />
+		<result property="use_status" column="use_status" />
+		<association property="member" javaType="com.my.vo.Member">
+			<result property="member_id" column="member_id" />
+			<result property="member_pw" column="member_pw" />
+			<result property="member_name" column="member_name" />
+			<result property="birthdate" column="birthdate" />
+			<result property="dept" column="dept" />
+			<result property="email" column="email" />
+			<result property="use_status" column="use_status" />
+		</association>
+		<association property="planet" javaType="com.my.vo.Planet">
+			<result property="planet_id" column="planet_id" />
+			<result property="planet_name" column="planet_name" />
+			<result property="use_status" column="use_status" />
+		</association>
+	</resultMap>
+	<insert id="insertMaster" parameterType="hashmap">
+		INSERT INTO p_mem VALUES( #{member_id}, planet_seq.CURRVAL, #{nickname}, sysdate, 'Y', 'Y' )	
+	</insert>
+	<insert id="insert" parameterType="com.my.vo.P_Mem">
+		INSERT INTO p_mem VALUES( #{member_id}, #{planet_id}, null, sysdate, 'N', 'Y' )	
+	</insert>
+	<update id="update" parameterType="com.my.vo.P_Mem">
+		UPDATE p_mem SET nickname=#{nickname} WHERE member_id=#{member_id} AND planet_id=#{planet_id}	
+	</update>
+	<update id="leave" parameterType="hashmap">
+		UPDATE p_mem SET use_status='N' WHERE member_id=#{member_id} AND planet_id=#{planet_id}
+	</update>
+	<update id="resign" parameterType="hashmap">
+		UPDATE p_mem SET use_status='Y' WHERE member_id=#{member_id} AND planet_id=#{planet_id}
+	</update>
+	<update id="updatenormal" parameterType="int">
+		UPDATE p_mem SET member_status='N' 
+		WHERE member_status='Y' AND planet_id=#{planet_id}
+	</update>
+	<update id="updatemaster" parameterType="hashmap">
+		UPDATE p_mem SET member_status='Y' 
+		WHERE member_id=#{member_id} AND planet_id=#{planet_id}
+	</update>
+	<select id="selectById" parameterType="hashmap" resultType="com.my.vo.P_Mem">
+		SELECT * 
+		FROM p_mem pm JOIN member m ON pm.member_id=m.member_id
+		WHERE pm.member_id=#{member_id} AND planet_id=#{planet_id}
+		AND pm.use_status=#{use_status}
+	</select> 
+	<select id="selectByMember" resultMap="pmems">
+	    SELECT *
+		FROM p_mem pm JOIN planet p ON pm.planet_id=p.planet_id
+		WHERE member_id=#{member_id}
+		AND pm.use_status='Y'
+	</select>
+</mapper>
