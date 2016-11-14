@@ -27,7 +27,7 @@ ul.basic li{
 }
 </style>
 <ul class="basic">
-	<li style="width:200px; text-align:left;"><a href="myplanetlist.do" >${loginInfo.member_name }</a></li>
+	<li style="width:200px; text-align:left;"><a href="myplanetlist.do">${loginInfo.member_name }</a></li>
 	<li style="float:right">
 	   <%-- <c:if test="${loginInfo}"> --%>
 	      <img class="masterimg" src="image/icon/star.png" alt="star" 
@@ -35,7 +35,7 @@ ul.basic li{
 	   <%-- </c:if> --%>
 	</li>
 	<br><br><br>
-	<li ><a href="planetmyarticle.jsp">내글</a></li>
+	<li ><a href="planetmyarticle.jsp">내 글</a></li>
 	<li ><a href="manageacc.jsp">요청</a></li>
 	<li ><a href="manageacc.jsp">멤버&팀</a></li>
 </ul>
