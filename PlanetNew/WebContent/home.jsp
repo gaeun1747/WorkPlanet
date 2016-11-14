@@ -64,6 +64,7 @@
 .content {
 	float: left;
 	width: 800px;
+	height: 700px;
 }
 </style>
 </head>

@@ -49,7 +49,7 @@
 
 .nav {
 	float: left;
-	width: 200px;
+	width: 300px;
 	color: #fff;
 	margin-right: 50px;
 }
@@ -82,8 +82,14 @@
 			<div class="content">
 			    <jsp:include page="planetcontent.jsp" />
 			</div>
+			
+			<div class="content">
+			    <%Member member = (Member)session.getAttribute("loginInfo"); %>
+				<h1 >반갑습니다! <%=member.getMember_name() %>님!</h1>
+				<h3>함께 일하는 멤버들과 업무를 공유하고 이야기 해보세요!</h3>
+				<h3>아지트로 커뮤니케이션의 혁신을 경험해보세요</h3>
+			</div>
 		</div>
-
 	</div>
 </body>
 <address>한국정보기술연구원 KITRI/공공데이터기반 java application 개발자 과정/3차 프로젝트/임종민, 최가은, 임지수</address>
