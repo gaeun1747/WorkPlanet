@@ -73,24 +73,24 @@
 				<!-- 여기에 기본/마스터/그룹 메뉴 세 가지 include -->
 				<jsp:include page="planetmenu_basic.jsp" />
 				<hr>
-				<%-- <c:if test="${loginInfo}"> --%>
-				<jsp:include page="planetmenu_master.jsp" />
-				<%-- </c:if> --%>
+				<c:if test="${pmemInfo.member_status==89}">
+					<jsp:include page="planetmenu_master.jsp" />
+				</c:if>
 				<hr>
 				<jsp:include page="planetmenu_group.jsp" />
 			</div>
 			<div class="content">
 			    <jsp:include page="planetcontent.jsp" />
 			</div>
-			
-			<div class="content">
-			    <%Member member = (Member)session.getAttribute("loginInfo"); %>
-				<h1 >반갑습니다! <%=member.getMember_name() %>님!</h1>
-				<h3>함께 일하는 멤버들과 업무를 공유하고 이야기 해보세요!</h3>
-				<h3>아지트로 커뮤니케이션의 혁신을 경험해보세요</h3>
-			</div>
 		</div>
 	</div>
 </body>
 <address>한국정보기술연구원 KITRI/공공데이터기반 java application 개발자 과정/3차 프로젝트/임종민, 최가은, 임지수</address>
 </html>
+
+
+
+
+
+
+

@@ -29,10 +29,10 @@ ul.basic li{
 <ul class="basic">
 	<li style="width:200px; text-align:left;"><a href="myplanetlist.do" >${loginInfo.member_name }</a></li>
 	<li style="float:right">
-	   <%-- <c:if test="${loginInfo}"> --%>
+		<c:if test="${pmemInfo.member_status==89}">
 	      <img class="masterimg" src="image/icon/star.png" alt="star" 
 	      		  style="width:20px; width:20px; float:right">
-	   <%-- </c:if> --%>
+	   </c:if>
 	</li>
 	<br><br><br>
 	<li ><a href="planetmyarticle.jsp">내글</a></li>
