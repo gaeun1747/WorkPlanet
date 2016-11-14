@@ -13,10 +13,14 @@ import com.my.sql.MyConnection;
 import com.my.vo.P_Mem;
 
 public class P_MemDAOOracle implements P_MemDAO {
-	public void insertMaster(P_Mem p) throws InsertException {
+	public void insertMaster(String member_id, String nickname) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("P_MemMapper.insertMaster", p);
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("member_id", member_id);
+			map.put("nickname", nickname);
+			
+			sqlSession.insert("P_MemMapper.insertMaster", map);
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());

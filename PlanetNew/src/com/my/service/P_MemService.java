@@ -15,8 +15,8 @@ public class P_MemService {
 		dao = new P_MemDAOOracle();
 	}
 	// 플래닛 만들었을때
-	public void registerMaster(P_Mem pmem) throws InsertException{
-		dao.insertMaster(pmem);
+	public void registerMaster(String member_id, String nickname) throws InsertException{
+		dao.insertMaster(member_id, nickname);
 	}
 	// 플래닛 가입
 	public void register(String member_id, int planet_id) throws InsertException{

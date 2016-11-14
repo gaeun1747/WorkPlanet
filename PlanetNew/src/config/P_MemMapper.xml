@@ -23,8 +23,8 @@
 			<result property="use_status" column="use_status" />
 		</association>
 	</resultMap>
-	<insert id="insertMaster" parameterType="com.my.vo.P_Mem">
-		INSERT INTO p_mem VALUES( #{member_id}, #{planet_id}, #{nickname}, sysdate, 'Y', 'Y' )	
+	<insert id="insertMaster" parameterType="hashmap">
+		INSERT INTO p_mem VALUES( #{member_id}, planet_seq.CURRVAL, #{nickname}, sysdate, 'Y', 'Y' )	
 	</insert>
 	<insert id="insert" parameterType="com.my.vo.P_Mem">
 		INSERT INTO p_mem VALUES( #{member_id}, #{planet_id}, null, sysdate, 'N', 'Y' )	

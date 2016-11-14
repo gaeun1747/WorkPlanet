@@ -5,7 +5,7 @@
 	<insert id="insert" parameterType="java.lang.String">
 		INSERT INTO planet VALUES(planet_seq.NEXTVAL, #{planet_name}, 'Y' )
 	</insert>
-	<insert id="insertMaster" parameterType="com.my.vo.P_Mem">
+	<insert id="insertMaster" parameterType="hashmap">
 		INSERT INTO p_mem VALUES(#{member_id}, planet_seq.CURRVAL, #{nickname}, sysdate,  'Y','Y' )
 	</insert>
 	<select id="selectByPlanetId" parameterType="java.lang.String" resultType="com.my.vo.Planet">
