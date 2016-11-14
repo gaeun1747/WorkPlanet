@@ -80,7 +80,7 @@
 				<jsp:include page="planetmenu_group.jsp" />
 			</div>
 			<div class="content">
-			    <!-- 첫 화면은 전체 게시글 -->
+			    <jsp:include page="planetcontent.jsp" />
 			</div>
 		</div>
 

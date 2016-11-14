@@ -24,9 +24,9 @@ public class PlanetService {
 		dao.insert(planet_name, nickname);
 		pdao.insertMaster(member_id, nickname);
 	}
-	// 플래닛 찾기 멤버id로
-	public List<Planet> findById(String member_id) throws SelectException{
-		return dao.selectByPlanetId(member_id);
+	// 플래닛 찾기 플래닛 id로
+	public Planet findByPlanetId(String planet_id) throws SelectException{
+		return dao.selectByPlanetId(planet_id);
 	}
 	// 플래닛 찾기 플래닛이름으로
 	public List<Planet> findByPlanet(String planet_name) throws SelectException{

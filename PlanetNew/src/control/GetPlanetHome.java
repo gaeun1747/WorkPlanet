@@ -25,20 +25,15 @@ public class GetPlanetHome implements Controller {
 		HttpSession session = request.getSession();
 		try {
 			Planet planet = service.findByPlanetId(planet_id);
-			System.out.println("planet_id  :  "+planet_id);
-			System.out.println("planet  :  "+planet);
-			/*session.setAttribute("loginInfo", member);
-			
-			char use_status=member.getUse_status();
-			if(use_status=='N'){
-				request.setAttribute("result", "2");
-				return "result.jsp";
+			if(planet==null){
+				request.setAttribute("result", 0);
+			}else{ 
+				session.setAttribute("planetInfo", planet);
+				request.setAttribute("result", 1);
 			}
-			request.setAttribute("result", "1");*/
-			
 		} catch (SelectException e) {
 			e.printStackTrace();
-			request.setAttribute("result", "-1" );
+			request.setAttribute("result", e.getMessage());
 		}
 		return "result.jsp";
 	}

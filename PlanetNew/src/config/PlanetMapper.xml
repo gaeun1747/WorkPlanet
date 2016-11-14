@@ -9,9 +9,9 @@
 		INSERT INTO p_mem VALUES(#{member_id}, planet_seq.CURRVAL, #{nickname}, sysdate,  'Y','Y' )
 	</insert>
 	<select id="selectByPlanetId" parameterType="java.lang.String" resultType="com.my.vo.Planet">
-		SELECT planet_name 
-		FROM p_mem pm JOIN planet p ON pm.planet_id=p.planet_id
-		where member_id=#{member_id}
+		SELECT *
+		FROM planet
+		WHERE planet_id=#{planet_id}
 	</select>
 	<select id="selectByPlanetName" parameterType="java.lang.String" resultType="com.my.vo.Planet">
 		SELECT * FROM planet WHERE planet_name LIKE #{planet_name}
