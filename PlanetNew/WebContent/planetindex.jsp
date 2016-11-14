@@ -24,6 +24,32 @@
 			};
 		    $.post(url, success);
 	   });
+	   $(".nav").on("click", "ul.group>li>a", function(event){
+		   event.preventDefault();
+			$("ul.group>li a").css("background-color", "#24468A").css("color", "#ffffff");
+		 	$(this).css("background-color", "#D5D5D5").css("color", "#555555");  
+			var url = $(this).attr("href");  // 클릭 된 속성
+			if( url=="#" ){
+				return ;
+			}
+			var success = function(responseResult){
+				$(".content").html(responseResult);
+			};
+		    $.post(url, success);
+	   });
+	   $(".nav").on("click", "ul.master>li>a", function(event){
+		   event.preventDefault();
+			$("ul.master>li a").css("background-color", "#24468A").css("color", "#ffffff");
+		 	$(this).css("background-color", "#D5D5D5").css("color", "#555555");  
+			var url = $(this).attr("href");  // 클릭 된 속성
+			if( url=="#" ){
+				return ;
+			}
+			var success = function(responseResult){
+				$(".content").html(responseResult);
+			};
+		    $.post(url, success);
+	   });
    });
  </script>
 <style>
@@ -84,7 +110,6 @@
 			<div class="content">
 			    <jsp:include page="planetcontent.jsp" />
 			</div>
-			
 		</div>
 	</div>
 </body>
