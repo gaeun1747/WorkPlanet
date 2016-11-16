@@ -24,10 +24,10 @@ $(function(){
 		$.post(url, data, success);
 	}
 	// 플래닛 관리
-	function enterplanetinfo(planet_id){
-		console.log("planet_id : "+planet_id);
-		console.log("memid : ${member_id}");
-		if($("table.planet tr td").eq(1).html()!=""){
+	function enterplanetinfo(planet_id, data){
+		/* console.log("planet_id : "+planet_id);
+		console.log("memid : ${member_id}"); */
+		if(data!=""){
 			var data="planet_id="+planet_id
 					+"&master_id="+"${member_id}";
 			var url="enterplanetinfo.do";
@@ -57,7 +57,7 @@ $(function(){
 		/* console.log($(this).index()); */
 		var planet_id = $(this).parent().attr("class");
 		if($(this).index()==0) enterplanet(planet_id);
-		else if($(this).index()==1) enterplanetinfo(planet_id);
+		else if($(this).index()==1) enterplanetinfo(planet_id, $(this).html().trim());
 		else exitplanet(planet_id);
 	});
 });

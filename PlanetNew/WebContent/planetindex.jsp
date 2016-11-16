@@ -11,6 +11,7 @@
 </script>
 <script>
  $(function(){
+	 // 메뉴클릭
 	   $(".nav").on("click", "ul.basic>li>a", function(event){
 		   event.preventDefault();
 			$("ul.basic>li a").css("background-color", "#24468A").css("color", "#ffffff");

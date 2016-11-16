@@ -30,7 +30,9 @@ public class GetPlanetHome implements Controller {
 			//Planet planet = service.findByPlanetId(planet_id);
 			if(pmem==null){
 				request.setAttribute("result", 0);
-			}else{ 
+			}else{
+				// 원래 플래닛정보 삭제
+				session.removeAttribute("pmemInfo");
 				session.setAttribute("pmemInfo", pmem);
 				request.setAttribute("result", 1);
 			}
