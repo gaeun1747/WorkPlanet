@@ -27,7 +27,7 @@ ul.basic li{
 }
 </style>
 <ul class="basic">
-	<li style="width:200px; text-align:left;"><a href="myplanetlist.do">${loginInfo.member_name }</a></li>
+	<li style="width:200px; text-align:left;"><a href="modifymyplanetinfo.do">${loginInfo.member_name }</a></li>
 	<li style="float:right">
 		<c:if test="${pmemInfo.member_status==89}">
 	      <img class="masterimg" src="image/icon/star.png" alt="star" 

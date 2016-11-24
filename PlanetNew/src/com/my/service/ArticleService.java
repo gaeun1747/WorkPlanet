@@ -52,6 +52,16 @@ public class ArticleService {
 	}
 	// planet_id로 게시글 찾기
 	public List<Article> findByPlanet(int planet_id) throws SelectException{
+		
+		
+		
 		return dao.selectByPlanet(planet_id);
 	}
 }
+
+
+
+
+
+
+

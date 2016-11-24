@@ -9,37 +9,26 @@ import javax.servlet.http.HttpSession;
 
 import com.my.exception.SelectException;
 import com.my.service.MemberService;
-import com.my.service.P_MemService;
-import com.my.vo.Member;
+import com.my.vo.P_Mem;
 
-public class LoginController implements Controller {
+public class ModifyMyPlanetInfoController implements Controller {
 	private MemberService service;
-	public LoginController(MemberService service) {
+	public ModifyMyPlanetInfoController(MemberService service) {
 		this.service = service;
 	}
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		String id = request.getParameter("member_id");
-		String pw = request.getParameter("member_pw");
 		HttpSession session = request.getSession();
-		session.removeAttribute("loginInfo"); //기존속성삭제
-		try {
-			Member member = service.login(id, pw);
-			session.setAttribute("loginInfo", member);
-			
-			char use_status=member.getUse_status();
-			if(use_status=='N'){
-				request.setAttribute("result", "2");
-				return "result.jsp";
-			}
-			request.setAttribute("result", "1");
+		System.out.println("pmemInfo : "+session.getAttribute("pmemInfo"));
+		/*try {
+			sysout
 			
 		} catch (SelectException e) {
 			e.printStackTrace();
 			request.setAttribute("result", "-1" );
-		}
+		}*/
 		return "result.jsp";
 	}
 }
