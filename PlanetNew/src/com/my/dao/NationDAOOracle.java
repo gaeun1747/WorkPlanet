@@ -19,6 +19,9 @@ public class NationDAOOracle implements NationDAO {
 		
 		//맵으로 두가지 받아온 것 묶기
 		//nation_status를 char형으로 꼭 해야하나?
+		
+		/*char nation_st=nation_status.charAt(0);*/
+		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("nation_name", nation_name);
 		map.put("nation_status", nation_status);
