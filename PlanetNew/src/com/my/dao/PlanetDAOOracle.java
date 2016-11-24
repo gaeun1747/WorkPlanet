@@ -14,7 +14,7 @@ import com.my.vo.Planet;
 
 public class PlanetDAOOracle implements PlanetDAO {
 	@Override
-	public void insert(String planet_name, String nickname) throws InsertException {
+	public void insert(String planet_name) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
 			/*

@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.my.exception.InsertException;
-import com.my.service.P_MemService;
 import com.my.service.PlanetService;
 import com.my.vo.Member;
-import com.my.vo.P_Mem;
 
 public class MakePlanetController implements Controller {
 	private PlanetService service;

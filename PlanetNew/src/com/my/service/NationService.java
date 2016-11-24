@@ -2,6 +2,8 @@ package com.my.service;
 
 import java.util.List;
 
+import com.my.dao.N_MemDAO;
+import com.my.dao.N_MemDAOOracle;
 import com.my.dao.NationDAO;
 import com.my.dao.NationDAOOracle;
 import com.my.exception.InsertException;
@@ -11,12 +13,16 @@ import com.my.vo.Nation;
 
 public class NationService {
 	private NationDAO dao;
+	private N_MemDAO ndao;
+	
 	public NationService() {
 		dao = new NationDAOOracle();
+		ndao = new N_MemDAOOracle();
 	}
 	// 그룹추가
-	public void register(Nation nation) throws InsertException{
-		dao.insert(nation);
+	public void register(String nation_name, String nation_status, String member_id,int planet_id) throws InsertException{
+		dao.insert(nation_name, nation_status);
+		ndao.insertMaster(member_id, planet_id);
 	}
 	// 그룹정보수정
 	public void modify(Nation nation) throws UpdateException{

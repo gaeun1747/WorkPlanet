@@ -26,6 +26,7 @@ public class GetPlanetHome implements Controller {
 		String member_id = request.getParameter("member_id");
 		int planet_id = Integer.parseInt(request.getParameter("planet_id"));
 		HttpSession session = request.getSession();
+		
 		try {
 			// 플래닛정보위해 P_Mem session에 저장
 			P_Mem pmem = service.findById(member_id, planet_id, "Y");
@@ -36,6 +37,8 @@ public class GetPlanetHome implements Controller {
 				// 원래 플래닛정보 삭제
 				session.removeAttribute("pmemInfo");
 				session.setAttribute("pmemInfo", pmem);
+				System.out.println(pmem);
+				System.out.println(pmem.getPlanet());
 				request.setAttribute("result", 1);
 			}
 			
@@ -50,15 +53,3 @@ public class GetPlanetHome implements Controller {
 		return "result.jsp";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

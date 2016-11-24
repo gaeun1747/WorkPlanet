@@ -21,7 +21,7 @@ public class PlanetService {
 	}
 	// 플래닛 생성
 	public void register(String planet_name, String nickname,String member_id) throws InsertException{
-		dao.insert(planet_name, nickname);
+		dao.insert(planet_name);
 		pdao.insertMaster(member_id, nickname);
 	}
 	// 플래닛 찾기 플래닛 id로

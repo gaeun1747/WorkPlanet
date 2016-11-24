@@ -40,6 +40,7 @@ public class PlanetFindController implements Controller {
 			for(Planet p : planet){ 
 				P_Mem pmem = service.findBySignPlanet(member.getMember_id(), 
 						p.getPlanet_id(), "Y");
+				
 				// 내가 가입하지 않은 플래닛
 				if(pmem==null){ 
 					signyn.add(i, 0);
