@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NationMapper">
-	<insert id="insert" parameterType="com.my.vo.Nation">
-		INSERT INTO nation VALUES(#{nation_id},#{nation_name},#{naton_nation_status},'Y')(
+	<insert id="insert" parameterType="hashmap">
+		INSERT INTO nation VALUES(nation_seq.NEXTVAL, #{nation_name},#{nation_status},'Y')(
 	</insert>
 	<update id="update" parameterType="com.my.vo.Nation">
 		UPDATE nation SET nation_name=#{nation_name}, nation_status=#{nation_status} 

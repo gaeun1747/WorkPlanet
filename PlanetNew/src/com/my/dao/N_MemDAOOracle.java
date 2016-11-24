@@ -28,10 +28,10 @@ public class N_MemDAOOracle implements N_MemDAO {
 	}
 	
 	@Override
-	public void insertMaster(N_Mem n) throws InsertException {
+	public void insertMaster(String member_id,int planet_id) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("N_MemMapper.insertMaster", n);
+			sqlSession.insert("N_MemMapper.insertMaster", member_id);
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());

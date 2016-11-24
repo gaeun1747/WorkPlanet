@@ -121,7 +121,11 @@ public class P_MemDAOOracle implements P_MemDAO {
 			map.put("member_id", member_id);
 			map.put("planet_id", planet_id);
 			map.put("use_status", status);
+			
+			System.out.println("dao확인"+member_id+":"+planet_id+":"+status);
+			
 			P_Mem p = sqlSession.selectOne("P_MemMapper.selectById", map);
+			System.out.println("p확인"+p);
 			sqlSession.commit();
 			return p;
 		} catch (Exception e) {

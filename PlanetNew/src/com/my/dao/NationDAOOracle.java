@@ -1,6 +1,8 @@
 package com.my.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -12,10 +14,17 @@ import com.my.vo.Nation;
 
 public class NationDAOOracle implements NationDAO {
 	@Override
-	public void insert(Nation n) throws InsertException {
+	public void insert(String nation_name, String nation_status) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
+		
+		//맵으로 두가지 받아온 것 묶기
+		//nation_status를 char형으로 꼭 해야하나?
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("nation_name", nation_name);
+		map.put("nation_status", nation_status);
+		
 		try{
-			sqlSession.insert("NationMapper.insert", n);
+			sqlSession.insert("NationMapper.insert", map);
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());

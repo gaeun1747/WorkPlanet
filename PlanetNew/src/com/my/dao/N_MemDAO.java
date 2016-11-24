@@ -11,7 +11,7 @@ public interface N_MemDAO {
 	//그룹멤버 찾기(초대할때)
 	public List<N_Mem> selectByPlanetId(int planet_id)throws SelectException;
 	//그룹만들었을때 
-	public void insertMaster(N_Mem n)throws InsertException;
+	public void insertMaster(String member_id,int planet_id)throws InsertException;
 	//그룹멤버 추가(초대-플래닛 멤버찾기)
 	//그룹찾기에서 following해서 그룹에 가입
 	public void insert(N_Mem n)throws InsertException;

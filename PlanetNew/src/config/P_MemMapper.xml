@@ -23,6 +23,7 @@
 			<result property="use_status" column="use_status" />
 		</association>
 	</resultMap>
+	
 	<insert id="insertMaster" parameterType="hashmap">
 		INSERT INTO p_mem VALUES( #{member_id}, planet_seq.CURRVAL, #{nickname}, sysdate, 'Y', 'Y' )	
 	</insert>
@@ -46,12 +47,15 @@
 		UPDATE p_mem SET member_status='Y' 
 		WHERE member_id=#{member_id} AND planet_id=#{planet_id}
 	</update>
-	<select id="selectById" parameterType="hashmap" resultType="com.my.vo.P_Mem">
-		SELECT * 
-		FROM p_mem pm JOIN member m ON pm.member_id=m.member_id
-		WHERE pm.member_id=#{member_id} AND planet_id=#{planet_id}
+	<select id="selectById" parameterType="hashmap" resultMap="pmems">
+		select *
+		FROM p_mem pm
+		JOIN member m ON pm.member_id=m.member_id
+		JOIN planet p ON pm.planet_id=p.planet_id
+		WHERE pm.member_id=#{member_id}
+		AND pm.planet_id=#{planet_id}
 		AND pm.use_status=#{use_status}
-	</select> 
+	</select>
 	<select id="selectByMember" resultMap="pmems">
 	    SELECT *
 		FROM p_mem pm JOIN planet p ON pm.planet_id=p.planet_id

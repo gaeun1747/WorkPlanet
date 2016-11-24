@@ -20,8 +20,8 @@ public class N_MemService {
 		return dao.selectByPlanetId(planet_id);
 	}
 	//그룹만들었을때 
-	public void registerMaster(N_Mem n)throws InsertException{
-		dao.insertMaster(n);
+	public void registerMaster(String member_id,int planet_id)throws InsertException{
+		dao.insertMaster(member_id,planet_id);
 	}
 	//그룹멤버 추가(초대-플래닛 멤버찾기)
 	//그룹찾기에서 following해서 그룹에 가입
