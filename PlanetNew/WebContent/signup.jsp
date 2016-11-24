@@ -7,7 +7,8 @@
 <script>
 //javascript
 $(function(){
-	$("#btnsignup").click(function(){	
+	$("#btnsignup").click(function(event){
+		event.preventDefault();
 		var url = "signup.do";
 		var data = $("form").serialize();
 		for(var i=0; i<data.length; i++){
@@ -17,14 +18,17 @@ $(function(){
 			}
 		}
 		var success = function(responseResult){
+			alert(responseResult);
 			if (responseResult.trim() == "1") {
 				alert("비밀번호 재확인이 틀렸습니다.");
 			}else if(responseResult.trim() == "2"){
-				alert("아이디가 중복됩니다.")
+				alert("아이디가 중복됩니다.");
+				
+			}else{
+				alert(responseResult);
+				location.href="index.jsp";
 			}
-			alert(responseResult);
-			location.href="index.jsp";
-		}
+		};
 		$.post(url, data, success);
 	});
 });
@@ -34,7 +38,7 @@ $(function(){
 	margin:auto;
 	text-align: center;
 	font-size: 20px; 
-	}
+	} 
 	input{
 	margin-bottom: 20px;
 	padding: 10px 15px;
@@ -49,7 +53,7 @@ $(function(){
 	border-radius: 6px;
 	padding: 15px 30px;
 	}
-</style>
+</style> 
 <form method="post">
 	ID<br>
 	<input name="inputId" placeholder="아이디를 입력하세요" required>
@@ -59,7 +63,7 @@ $(function(){
 	<br>이름<br>
 	<input name="inputName"  placeholder="이름을 입력하세요" required>
 	<br>생일<br>
-	<input name="inputBirth" placeholder="주민등록번호 앞자리를 입력하세요" required>
+	<input name="inputBirth" type="date" required>
 	<br>소속<br>
 	<input name="inputdept" placeholder="부서를 입력하세요" required>
 	<br>이메일<br>

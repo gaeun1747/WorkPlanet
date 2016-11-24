@@ -14,7 +14,6 @@ import com.my.exception.SelectException;
 import com.my.service.MemberService;
 import com.my.vo.Member;
 
-import oracle.sql.DATE;
 
 public class SignupController implements Controller {
 	private MemberService service;
@@ -36,30 +35,34 @@ public class SignupController implements Controller {
 		member.setMember_name(member_name);
 		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
 		Date date=null;
-		String bd=birthdate.substring(0,2)+"/"+birthdate.substring(2,4)+"/"+birthdate.substring(4,6);
+		String bd=birthdate.substring(2,4)+"/"+birthdate.substring(5,7)+"/"+birthdate.substring(8,10);
+		System.out.println(bd);
 		try {
 			date=(Date)sdf.parse(bd);
 			member.setBirthdate(date);
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		member.setDept(dept);
 		member.setEmail(email);
 		member.setUse_status('Y');
-//		try {
-//			if(service.findAllById(member_id)==null){
-//				request.setAttribute("result", "중복된 아이디입니다");
-//				return "result.jsp";
-//			}
-//		} catch (SelectException e) {
-//			e.printStackTrace();
-//			request.setAttribute("result", e.getMessage());
-//		}
-		if (!member_pw1.equals(member_pw2)) {
-			request.setAttribute("result", "1");
-			return "result.jsp";
+		//중복
+		try {
+			if(service.findAllById(member_id)!=null){
+				request.setAttribute("result", "2");
+				return "result.jsp";
+			}
+			//비밀번호 확인
+			if (!member_pw1.equals(member_pw2)) {
+				request.setAttribute("result", "1");
+				return "result.jsp";
+			}
+		} catch(NullPointerException e){
+			System.out.println("member_id 어떻게 찾아 후라달아");
+		}catch(SelectException e1){
+			System.out.println("member_id 중복확인 위한 id찾기 실패");
 		}
+		 
 		try {
 			service.register(member);
 			request.setAttribute("result", member_name + "님 가입성공");
