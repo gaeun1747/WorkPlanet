@@ -39,14 +39,41 @@ public class DispatcherServlet extends HttpServlet {
 		}
 		
 		try {
-			Class clazz = Class.forName(className); // className에 해당하는 클래스 로드
+			Class<?> clazz = Class.forName(className); // className에 해당하는 클래스 로드
 			
-			Constructor []constructorArr = clazz.getConstructors();
-			Constructor constructor= constructorArr[0];//첫번째 생성자얻기
-			Class constructorParam = constructor.getParameterTypes()[0];//생성자의 첫번째매개변수타입얻기
-		
-			Object obj = constructor.newInstance(constructorParam.newInstance());
+			Constructor<?> []constructorArr = clazz.getConstructors();
+			
+			/*Class constructorParam;
+			Controller c=null;
+			for(int i=0; i<constructorArr.length; i++ ){
+				Constructor constructor= constructorArr[i];
+				System.out.println("DispatcherServlet - constructorArr : "+constructor);
+				constructorParam = constructor.getParameterTypes()[0];
+				System.out.println("DispatcherServlet - constructorParam : "+constructorParam);
+				Object obj = constructor.newInstance(constructorParam.newInstance());
+				c = (Controller)obj; // 객체의 execute메소드 호출
+			}*/
+			
+			Constructor<?> constructor= constructorArr[0];//첫번째 생성자얻기
+			Class<?> constructorParam=null;
+			Object [] Instance = new Object[2];
+			for(int i=0; i<constructor.getParameterCount(); i++ ){
+				constructorParam=constructor.getParameterTypes()[i];
+				Instance[i] = constructorParam.newInstance();
+			}
+			Object obj;
+			if( Instance[1]==null ){
+				obj = constructor.newInstance(Instance[0]);
+			} else{
+				obj = constructor.newInstance(Instance[0], Instance[1]);
+			}
 			Controller c = (Controller)obj; // 객체의 execute메소드 호출
+			
+			//Constructor constructor= constructorArr[0];//첫번째 생성자얻기
+			//Class constructorParam = constructor.getParameterTypes()[0];//생성자의 첫번째매개변수타입얻기
+			
+			//Object obj = constructor.newInstance(constructorParam.newInstance());
+			//Controller c = (Controller)obj; // 객체의 execute메소드 호출
 			
 			 //request.setCharacterEncoding("UTF-8"); 
 			// filter에서 미리 설정하도록
@@ -55,6 +82,24 @@ public class DispatcherServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher(viewURL);
 				rd.forward(request, response);		
 			}
+			/*Class clazz = Class.forName(className); // className에 해당하는 클래스 로드
+			
+			Constructor []constructorArr = clazz.getConstructors();
+			
+			Constructor constructor= constructorArr[0];//첫번째 생성자얻기
+			Class constructorParam = constructor.getParameterTypes()[0];//생성자의 첫번째매개변수타입얻기
+		
+			Object obj = constructor.newInstance(constructorParam.newInstance());
+			System.out.println("DispatcherServlet - obj :: "+obj+", tostring :: "+obj.getClass());
+			Controller c = (Controller)obj; // 객체의 execute메소드 호출
+			
+			 //request.setCharacterEncoding("UTF-8"); 
+			// filter에서 미리 설정하도록
+			String viewURL = c.execute(request, response);
+			if( !viewURL.equals("") ){
+				RequestDispatcher rd = request.getRequestDispatcher(viewURL);
+				rd.forward(request, response);		
+			}*/
 		} catch (ClassNotFoundException e) {
 			System.out.println(className+"클래스가 없습니다.");
 			e.printStackTrace();

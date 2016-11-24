@@ -12,10 +12,12 @@
 <script>
  $(function(){
 	 // 메뉴클릭
-	   $(".nav").on("click", "ul.basic>li>a", function(event){
+	   $(".nav").on("click", "ul.basic>li>a, ul.group>li>a, ul.master>li>a", function(event){
 		   event.preventDefault();
-			$("ul.basic>li a").css("background-color", "#24468A").css("color", "#ffffff");
-		 	$(this).css("background-color", "#D5D5D5").css("color", "#555555");  
+			$("ul.basic>li a").css("background-color", "#D5D5D5").css("color", "#555555");
+			$("ul.group>li a").css("background-color", "#D5D5D5").css("color", "#555555");
+			$("ul.master>li a").css("background-color", "#D5D5D5").css("color", "#555555");
+		 	$(this).css("background-color", "#24468A").css("color", "white");  
 			var url = $(this).attr("href");  // 클릭 된 속성
 			if( url=="#" ){
 				return ;
@@ -25,10 +27,10 @@
 			};
 		    $.post(url, success);
 	   });
-	   $(".nav").on("click", "ul.group>li>a", function(event){
+	   /* $(".nav").on("click", "ul.group>li>a", function(event){
 		   event.preventDefault();
-			$("ul.group>li a").css("background-color", "#24468A").css("color", "#ffffff");
-		 	$(this).css("background-color", "#D5D5D5").css("color", "#555555");  
+			$("ul.group>li a").css("background-color", "#D5D5D5").css("color", "#555555");
+		 	$(this).css("background-color", "#24468A").css("color", "white");  
 			var url = $(this).attr("href");  // 클릭 된 속성
 			if( url=="#" ){
 				return ;
@@ -40,8 +42,8 @@
 	   });
 	   $(".nav").on("click", "ul.master>li>a", function(event){
 		   event.preventDefault();
-			$("ul.master>li a").css("background-color", "#24468A").css("color", "#ffffff");
-		 	$(this).css("background-color", "#D5D5D5").css("color", "#555555");  
+			$("ul.master>li a").css("background-color", "#D5D5D5").css("color", "#555555");
+		 	$(this).css("background-color", "#24468A").css("color", "white");  
 			var url = $(this).attr("href");  // 클릭 된 속성
 			if( url=="#" ){
 				return ;
@@ -50,7 +52,7 @@
 				$(".content").html(responseResult);
 			};
 		    $.post(url, success);
-	   });
+	   }); */
    });
  </script>
 <style>
