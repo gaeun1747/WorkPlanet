@@ -21,7 +21,7 @@ public class ModifyMyPlanetInfoController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		HttpSession session = request.getSession();
-		System.out.println("pmemInfo : "+session.getAttribute("pmemInfo"));
+		
 		/*try {
 			sysout
 			
