@@ -14,6 +14,7 @@ import com.my.vo.Nation;
 public class NationService {
 	private NationDAO dao;
 	private N_MemDAO ndao;
+
 	
 	public NationService() {
 		dao = new NationDAOOracle();
@@ -21,7 +22,7 @@ public class NationService {
 	}
 	// 그룹추가
 	public void register(String nation_name, String nation_status, String member_id,int planet_id) throws InsertException{
-		dao.insert(nation_name, nation_status);
+		dao.insert(nation_name, nation_status,planet_id);
 		ndao.insertMaster(member_id, planet_id);
 	}
 	// 그룹정보수정

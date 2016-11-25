@@ -31,7 +31,11 @@ public class N_MemDAOOracle implements N_MemDAO {
 	public void insertMaster(String member_id,int planet_id) throws InsertException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try{
-			sqlSession.insert("N_MemMapper.insertMaster", member_id);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("member_id", member_id);
+			map.put("planet_id", planet_id);
+			
+			sqlSession.insert("N_MemMapper.insertMaster", map);
 			sqlSession.commit();
 		}catch(Exception e){
 			throw new InsertException(e.getMessage());

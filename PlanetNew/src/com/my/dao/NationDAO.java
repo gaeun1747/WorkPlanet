@@ -9,7 +9,7 @@ import com.my.vo.Nation;
 
 public interface NationDAO {
 	//그룹추가
-	public void insert(String nation_name, String nation_status)throws InsertException;
+	public void insert(String nation_name, String nation_status,int planet_id)throws InsertException;
 	//그룹 수정
 	public void update(Nation n)throws UpdateException;
 	//가입한 그룹 목록보기

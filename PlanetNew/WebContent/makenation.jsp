@@ -64,9 +64,9 @@ $(init);
 	<hr>
 	<form class = "makenation" method="post">
 		<input type="text" name="nation_name" placeholder="그룹 이름" required>
-		<br> <br> 
-		공개<input type="radio" name="nation_status" value="o" checked="checked">
-		비공개<input type="radio" name="nation_status"value="x">
+		<br> <br>
+		공개<input type="radio" name="nation_status" value="Y" checked="checked">
+		비공개<input type="radio" name="nation_status"value="N">
 		<br> <br> 
 		<button id="btSave">개설하기</button>
 	</form>

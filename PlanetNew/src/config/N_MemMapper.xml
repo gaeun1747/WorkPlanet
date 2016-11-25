@@ -6,7 +6,7 @@
 	<select id="selectByPlanetId" parameterType="java.lang.Integer" resultType="com.my.vo.N_Mem">
 		select * from planet where planet_id=#{planet_id} 
 	</select>
-	<insert id="insertMaster" parameterType="java.lang.String">
+	<insert id="insertMaster" parameterType="hashmap">
 		INSERT INTO n_mem VALUES(#{member_id},#{planet_id}, nation_seq.CURRVAL,'Y','Y')
 	</insert>
 	<insert id="insert" parameterType="com.my.vo.N_Mem">
