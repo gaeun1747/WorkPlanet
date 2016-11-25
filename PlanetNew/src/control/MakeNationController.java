@@ -32,26 +32,13 @@ public class MakeNationController implements Controller {
 		P_Mem pmem = (P_Mem)session.getAttribute("pmemInfo");
 		
 		String member_id = member.getMember_id();
-		System.out.println("memberid확인: "+member_id);
 		Planet planet = pmem.getPlanet();
-		
 		int planet_id = planet.getPlanet_id();
-		
 		
 		//새로만드는 그룹 추가
 		String nation_name = request.getParameter("nation_name");
 		String nation_status = request.getParameter("nation_status");
 		
-		/*
-		 * nation으로 넘겨줄 경우
-		 */
-		/*
-		char nation_st=nation_status.charAt(0);
-		//nation 설정해주기
-		Nation n = new Nation();
-		n.setNation_name(nation_name);
-		n.setNation_status(nation_st);
-		System.out.println("nation생성확인- "+n);*/
 		
 		try {
 			service.register(nation_name, nation_status, member_id, planet_id);
