@@ -11,7 +11,7 @@
 		WHERE nation_id=#{nation_id}
 	</update>
 	<select id="selectByMemberList" parameterType="java.lang.String" resultType="com.my.vo.Nation">
-		SELET * FROM nation
+		SELECT * FROM nation
 		WHERE not nation_id IN ( SELECT nation_id FROM n_mem WHERE member_id=#{member_id})
 		AND nation_status='Y'
 	</select>
