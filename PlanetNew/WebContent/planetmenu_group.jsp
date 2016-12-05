@@ -31,7 +31,7 @@ ul.group li{
 </style>
 <ul class="group">
 	<li ><a href="makenation.jsp">그룹 추가</a></li>
-	<li ><a href="manageacc.jsp">그룹 찾기</a></li>
+	<li ><a href="nationfind.jsp">그룹 찾기</a></li>
 </ul>
 <ul class="grplist">
     <c:forEach items="${group}" var="group">
