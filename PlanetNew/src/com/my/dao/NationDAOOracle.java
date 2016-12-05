@@ -48,7 +48,7 @@ public class NationDAOOracle implements NationDAO {
 	public List<Nation> selectById(String member_id) throws SelectException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
-			List<Nation> list = sqlSession.selectList("NationMapper.selectByMemberList",member_id);
+			List<Nation> list = sqlSession.selectList("NationMapper.selectByMemberId",member_id);
 			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
@@ -62,7 +62,7 @@ public class NationDAOOracle implements NationDAO {
 	public List<Nation> selectByStatus(String member_id) throws SelectException {
 		SqlSession sqlSession=MyConnection.getSession();
 		try {
-			List<Nation> list = sqlSession.selectList("NationMapper.selectByMemberId",member_id);
+			List<Nation> list = sqlSession.selectList("NationMapper.selectByMemberList",member_id);
 			sqlSession.commit();
 			return list;
 		} catch (Exception e) {
