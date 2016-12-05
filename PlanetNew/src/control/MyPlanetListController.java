@@ -15,6 +15,7 @@ import com.my.vo.P_Mem;
 
 public class MyPlanetListController implements Controller {
 	private P_MemService service;
+	
 	public MyPlanetListController(P_MemService service) {
 		this.service = service;
 	}
